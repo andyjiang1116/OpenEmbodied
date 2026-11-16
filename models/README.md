@@ -2,7 +2,7 @@
 
 > Technical notes on vision-language-action models and robot policies.
 
-[简体中文](README_ZH.md) · [Documentation](../docs/README.md)
+[简体中文](README_ZH.md)
 
 | Model | Focus |
 | --- | --- |

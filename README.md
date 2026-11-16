@@ -37,7 +37,7 @@ Instead of building another link collection, this project records what a method 
 
 ## 🧭 Explore
 
-**Catalog:** [Models](models/README.md) · [Benchmarks](benchmarks/README.md) · [Documentation](docs/README.md)
+**Catalog:** [Models](models/README.md) · [Benchmarks](benchmarks/README.md)
 
 ### 🔭 [Open VLA Landscape](docs/vla-landscape/README.md)
 

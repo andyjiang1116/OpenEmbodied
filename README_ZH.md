@@ -37,7 +37,7 @@
 
 ## 🧭 内容导航
 
-**分类入口：** [模型](models/README_ZH.md) · [基准](benchmarks/README_ZH.md) · [专题文档](docs/README_ZH.md)
+**分类入口：** [模型](models/README_ZH.md) · [基准](benchmarks/README_ZH.md)
 
 ### 🔭 [Open VLA Landscape](docs/vla-landscape/README_ZH.md)
 

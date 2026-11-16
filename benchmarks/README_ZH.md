@@ -2,7 +2,7 @@
 
 > 介绍机器人操作评测体系的技术档案。
 
-[English](README.md) · [专题文档](../docs/README_ZH.md)
+[English](README.md)
 
 | 基准 | 重点 |
 | --- | --- |

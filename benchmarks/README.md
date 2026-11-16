@@ -2,7 +2,7 @@
 
 > Technical notes on robot manipulation evaluation suites.
 
-[简体中文](README_ZH.md) · [Documentation](../docs/README.md)
+[简体中文](README_ZH.md)
 
 | Benchmark | Focus |
 | --- | --- |

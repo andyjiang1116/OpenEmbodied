@@ -2,7 +2,7 @@
 
 > 介绍视觉—语言—动作模型与机器人策略的技术档案。
 
-[English](README.md) · [专题文档](../docs/README_ZH.md)
+[English](README.md)
 
 | 模型 | 重点 |
 | --- | --- |
