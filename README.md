@@ -87,7 +87,7 @@ Every technical entry can carry an evidence level. The level describes what has 
 
 The first release cycle will concentrate on three connected areas:
 
-1. **VLA Landscape** — architecture, training data, action representation, embodiment, compute, openness, and evaluation.
+1. **[VLA Landscape](comparisons/vla-landscape/README.md)** — architecture, training data, action representation, embodiment, compute, openness, and evaluation.
 2. **Benchmark Map** — tasks, protocols, metrics, comparability, and common interpretation errors.
 3. **Reproduction Reports** — transparent records of environments, results, deviations, and failures.
 
@@ -120,7 +120,7 @@ An entry should:
 
 - [ ] Publish the topic taxonomy and repository structure.
 - [ ] Release Research Profile and Reproduction Report templates.
-- [ ] Build the first VLA Landscape comparison.
+- [x] Publish the first [Open VLA Landscape](comparisons/vla-landscape/README.md) research release.
 - [ ] Publish the first Benchmark Map.
 - [ ] Curate the first 12 Research Profiles.
 - [ ] Complete two reproducible experiments with recorded evidence.

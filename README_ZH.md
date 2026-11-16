@@ -88,7 +88,7 @@ Track → Understand → Verify → Choose
 
 第一阶段聚焦三个相互关联的方向：
 
-1. **VLA Landscape**：模型架构、训练数据、动作表示、机器人形态、算力、开放程度与评测结果。
+1. **[VLA Landscape](comparisons/vla-landscape/README_ZH.md)**：模型架构、训练数据、动作表示、机器人形态、算力、开放程度与评测结果。
 2. **Benchmark Map**：任务、协议、指标、可比性与常见误读。
 3. **Reproduction Reports**：透明记录环境、结果、偏差和失败过程。
 
@@ -121,7 +121,7 @@ Track → Understand → Verify → Choose
 
 - [ ] 发布主题分类与仓库目录结构。
 - [ ] 提供 Research Profile 和 Reproduction Report 模板。
-- [ ] 建立第一版 VLA Landscape。
+- [x] 发布第一版 [Open VLA Landscape](comparisons/vla-landscape/README_ZH.md) 研究内容。
 - [ ] 发布第一版 Benchmark Map。
 - [ ] 整理首批 12 篇 Research Profile。
 - [ ] 完成两个包含完整证据的复现实验。
