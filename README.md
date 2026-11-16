@@ -29,7 +29,7 @@ Instead of building another link collection, this project records what a method 
 
 | Common problem | OpenEmbodied approach |
 | --- | --- |
-| Long lists of papers with little context | Concise Research Profiles with a consistent schema |
+| Long lists of papers with little context | Structured model, benchmark, dataset, simulator, and robot notes |
 | Results that are difficult to compare | Dataset, benchmark, metric, and evaluation-protocol context |
 | “Open source” without reproducibility details | Explicit code, weights, data, license, compute, and environment status |
 | Successful demos without failure analysis | Limitations, failure modes, and unresolved questions |
@@ -37,11 +37,13 @@ Instead of building another link collection, this project records what a method 
 
 ## 🧭 Explore
 
-### 🔭 [Open VLA Landscape](comparisons/vla-landscape/README.md)
+**Catalog:** [Models](models/README.md) · [Benchmarks](benchmarks/README.md) · [Documentation](docs/README.md)
+
+### 🔭 [Open VLA Landscape](docs/vla-landscape/README.md)
 
 A practical comparison of OpenVLA, SmolVLA, openpi, and GR00T N1.7 across architecture, actions, openness, compute, and evaluation.
 
-### 🦾 [Robot Manipulation Benchmark Map](comparisons/benchmark-map/README.md)
+### 🦾 [Robot Manipulation Benchmark Map](docs/benchmark-map/README.md)
 
 A guide to what LIBERO, CALVIN, SimplerEnv, RoboTwin 2.0, and RoboDojo measure—and when their results can be compared.
 
@@ -52,13 +54,13 @@ Track the frontier → Understand the work → Verify the result → Choose with
 ```
 
 - **Frontier Watch** highlights important new work and explains why it matters.
-- **Research Profiles** provide concise, source-backed summaries of models, papers, datasets, and benchmarks.
+- **Models & Benchmarks** provide source-backed technical notes on individual systems and evaluation suites.
 - **Reproduction Reports** document runnable experiments, results, and failure cases.
-- **Comparison Guides** connect individual works into decision-oriented maps such as the two guides above.
+- **Documentation** connects individual entries into research landscapes, benchmark maps, and reproduction reports.
 
 ## 🤝 Contributing
 
-OpenEmbodied welcomes corrections, primary-source updates, Research Profiles, benchmark notes, and reproduction reports.
+OpenEmbodied welcomes corrections, primary-source updates, technical notes, benchmark analysis, and reproduction reports.
 
 A useful contribution includes:
 

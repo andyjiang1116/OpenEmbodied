@@ -10,11 +10,11 @@ Robot manipulation benchmarks are not interchangeable test sets. They differ in 
 
 This guide compares five representative benchmarks:
 
-- [LIBERO](../../profiles/libero.md) studies knowledge transfer in lifelong and multitask robot learning through language-conditioned tabletop manipulation suites.
-- [CALVIN](../../profiles/calvin.md) emphasizes language-conditioned, long-horizon control and evaluates how many instructions a policy completes in sequence.
-- [SimplerEnv](../../profiles/simplerenv.md) asks whether simulation can preserve real-world policy rankings on common robot setups.
-- [RoboTwin 2.0](../../profiles/robotwin-2.md) combines scalable expert-data generation with a strongly randomized benchmark for robust bimanual manipulation.
-- [RoboDojo](../../profiles/robodojo.md) evaluates generalist manipulation policies across complementary capability dimensions in simulation and on standardized real-robot setups.
+- [LIBERO](../../benchmarks/libero.md) studies knowledge transfer in lifelong and multitask robot learning through language-conditioned tabletop manipulation suites.
+- [CALVIN](../../benchmarks/calvin.md) emphasizes language-conditioned, long-horizon control and evaluates how many instructions a policy completes in sequence.
+- [SimplerEnv](../../benchmarks/simplerenv.md) asks whether simulation can preserve real-world policy rankings on common robot setups.
+- [RoboTwin 2.0](../../benchmarks/robotwin-2.md) combines scalable expert-data generation with a strongly randomized benchmark for robust bimanual manipulation.
+- [RoboDojo](../../benchmarks/robodojo.md) evaluates generalist manipulation policies across complementary capability dimensions in simulation and on standardized real-robot setups.
 
 The central lesson is: **choose a benchmark from the claim you want to test, not from its popularity.**
 

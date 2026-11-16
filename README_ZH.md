@@ -37,11 +37,13 @@
 
 ## 🧭 内容导航
 
-### 🔭 [Open VLA Landscape](comparisons/vla-landscape/README_ZH.md)
+**分类入口：** [模型](models/README_ZH.md) · [基准](benchmarks/README_ZH.md) · [专题文档](docs/README_ZH.md)
+
+### 🔭 [Open VLA Landscape](docs/vla-landscape/README_ZH.md)
 
 从架构、动作生成、开放程度、算力和评测等角度，对比 OpenVLA、SmolVLA、openpi 与 GR00T N1.7。
 
-### 🦾 [机器人操作基准地图](comparisons/benchmark-map/README_ZH.md)
+### 🦾 [机器人操作基准地图](docs/benchmark-map/README_ZH.md)
 
 梳理 LIBERO、CALVIN、SimplerEnv、RoboTwin 2.0 和 RoboDojo 分别在测什么，以及哪些结果可以合理比较。
 
@@ -52,9 +54,9 @@
 ```
 
 - **Frontier Watch｜前沿追踪：** 关注重要进展，并解释其价值。
-- **Research Profiles｜研究档案：** 简明整理模型、论文、数据集和基准的事实信息与原始来源。
+- **Models & Benchmarks｜模型与基准：** 基于原始来源整理单个模型与评测体系的技术信息。
 - **Reproduction Reports｜复现报告：** 记录可运行实验、实际结果与失败情况。
-- **Comparison Guides｜对比指南：** 将独立工作组织成面向实际选择的专题地图，例如上面的两篇指南。
+- **Documentation｜专题文档：** 将独立条目组织成研究全景、基准地图和复现报告。
 
 ## 🤝 参与贡献
 

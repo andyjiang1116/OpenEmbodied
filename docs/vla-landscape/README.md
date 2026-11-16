@@ -10,10 +10,10 @@
 
 This first OpenEmbodied landscape compares four representative open VLA stacks:
 
-- [OpenVLA / OpenVLA-OFT](../../profiles/openvla.md): the influential 7B open-source VLA line built on a pretrained VLM and Open X-Embodiment data.
-- [SmolVLA](../../profiles/smolvla.md): a compact 450M flow-matching policy integrated with the LeRobot ecosystem.
-- [π0 / π0-FAST / π0.5 via openpi](../../profiles/openpi.md): Physical Intelligence's flow-based and autoregressive policy family with released base and task checkpoints.
-- [Isaac GR00T N1.7](../../profiles/gr00t-n1.7.md): NVIDIA's cross-embodiment VLA stack with documented fine-tuning, evaluation, and deployment paths.
+- [OpenVLA / OpenVLA-OFT](../../models/openvla.md): the influential 7B open-source VLA line built on a pretrained VLM and Open X-Embodiment data.
+- [SmolVLA](../../models/smolvla.md): a compact 450M flow-matching policy integrated with the LeRobot ecosystem.
+- [π0 / π0-FAST / π0.5 via openpi](../../models/openpi.md): Physical Intelligence's flow-based and autoregressive policy family with released base and task checkpoints.
+- [Isaac GR00T N1.7](../../models/gr00t-n1.7.md): NVIDIA's cross-embodiment VLA stack with documented fine-tuning, evaluation, and deployment paths.
 
 The main conclusion is simple: **there is no single “most open” or “best” VLA independent of the intended robot, task, compute budget, license constraints, and evaluation protocol.**
 

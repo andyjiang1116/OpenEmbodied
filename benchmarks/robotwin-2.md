@@ -6,6 +6,12 @@ official_repo: https://github.com/RoboTwin-Platform/RoboTwin
 
 # RoboTwin 2.0
 
+<p align="center">
+  <img src="../docs/assets/benchmarks/robotwin-overview.jpg" alt="RoboTwin 2.0 overview" width="820" />
+</p>
+
+<p align="center"><em>RoboTwin 2.0 combines task generation, expert data synthesis, and bimanual policy evaluation. Image source: <a href="https://robotwin-platform.github.io/">official project page</a>.</em></p>
+
 ## Snapshot
 
 - **Primary purpose:** scalable data generation and robust bimanual manipulation evaluation.
@@ -21,6 +27,19 @@ RoboTwin 2.0 connects three problems that are often treated separately: authorin
 
 The framework includes programmable task experts, automated task-code generation tools, the RoboTwin Object Dataset, and policy evaluation. The official project describes 50 tasks, 731 objects across 147 categories, and support for five robot embodiments. Domain randomization varies factors such as objects, clutter, lighting, backgrounds, table height, and language instructions.
 
+## System Components
+
+1. **RoboTwin-OD** supplies rigid, articulated, and visually varied assets with semantic and manipulation-relevant annotations.
+2. **Task generation** uses a multimodal language model and simulation feedback to help produce executable task programs.
+3. **Expert collection** runs task-specific scripted solutions to generate demonstrations at scale.
+4. **Policy evaluation** tests learned controllers on standardized dual-arm tasks under controlled scene variations.
+
+These components make RoboTwin both a data-generation framework and an evaluation benchmark. A paper may use only one of the two roles, so “trained on RoboTwin” and “evaluated on RoboTwin” should be stated separately.
+
+## Evaluation Dimensions
+
+The 50 tasks cover coordinated picking, placement, handover, tool use, articulation, stacking, and other dual-arm skills. Clean scenes measure task execution under the standard setup; randomized scenes introduce clutter, illumination, background, table-height, object, and language variation. Multiple robot embodiments are supported by the wider framework, but a result remains tied to the embodiment actually used.
+
 ## Reading Results
 
 - Report the exact task set and robot embodiment.
@@ -28,6 +47,10 @@ The framework includes programmable task experts, automated task-code generation
 - State whether training uses RoboTwin-generated demonstrations and how much data is used.
 - Record scene seeds, episode count, step limits, language variants, and enabled randomizations.
 - RoboTwin 2.0 and RoboDojo can share XPolicyLab integration, but they use different tasks and evaluation designs.
+
+## Best Fit
+
+Use RoboTwin 2.0 for scalable synthetic demonstrations, bimanual coordination, and robustness to structured domain variation. Use RoboDojo when the primary goal is capability-oriented diagnosis across both simulation and standardized real-robot evaluation.
 
 ## Primary Sources
 

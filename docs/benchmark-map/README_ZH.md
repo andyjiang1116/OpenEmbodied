@@ -10,11 +10,11 @@
 
 本文比较五个有代表性的基准：
 
-- [LIBERO](../../profiles/libero.md) 通过语言条件桌面操作任务，研究终身学习和多任务学习中的知识迁移。
-- [CALVIN](../../profiles/calvin.md) 关注语言条件长时程控制，评估策略能连续完成多少条指令。
-- [SimplerEnv](../../profiles/simplerenv.md) 研究仿真评测能否保持真实机器人上的策略排序。
-- [RoboTwin 2.0](../../profiles/robotwin-2.md) 将可扩展专家数据生成与强域随机化双臂操作评测结合起来。
-- [RoboDojo](../../profiles/robodojo.md) 在仿真和标准化真机环境中，从多个互补能力维度评估通用机器人策略。
+- [LIBERO](../../benchmarks/libero.md) 通过语言条件桌面操作任务，研究终身学习和多任务学习中的知识迁移。
+- [CALVIN](../../benchmarks/calvin.md) 关注语言条件长时程控制，评估策略能连续完成多少条指令。
+- [SimplerEnv](../../benchmarks/simplerenv.md) 研究仿真评测能否保持真实机器人上的策略排序。
+- [RoboTwin 2.0](../../benchmarks/robotwin-2.md) 将可扩展专家数据生成与强域随机化双臂操作评测结合起来。
+- [RoboDojo](../../benchmarks/robodojo.md) 在仿真和标准化真机环境中，从多个互补能力维度评估通用机器人策略。
 
 核心原则是：**从需要验证的研究结论出发选择基准，而不是从基准的流行度出发。**
 

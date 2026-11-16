@@ -6,6 +6,12 @@ official_repo: https://github.com/openvla/openvla
 
 # OpenVLA / OpenVLA-OFT
 
+<p align="center">
+  <img src="../docs/assets/models/openvla-model.jpg" alt="OpenVLA model architecture" width="820" />
+</p>
+
+<p align="center"><em>OpenVLA maps images and language instructions to tokenized robot actions. Image source: <a href="https://openvla.github.io/">official project page</a>.</em></p>
+
 ## Snapshot
 
 - **Role in the landscape:** influential open VLA baseline and Open X-Embodiment lineage.
@@ -21,6 +27,21 @@ OpenVLA made a generalist 7B VLA, checkpoints, inference, fine-tuning, evaluatio
 
 The flagship model fine-tunes a Prismatic-7B VLM combining DINOv2 and SigLIP visual features with a Llama 2 language backbone. The official project reports pretraining on roughly 970k robot episodes from the Open X-Embodiment collection. Actions are decoded for the target dataset/robot using the appropriate normalization statistics.
 
+The model path can be read as four stages:
+
+1. DINOv2 and SigLIP encode the current robot-camera image into complementary visual features.
+2. A projector maps those features into the language model's embedding space.
+3. The Llama 2 backbone conditions on the image representation and natural-language instruction.
+4. Predicted action tokens are detokenized and unnormalized for the target robot.
+
+This design makes robot control look like next-token prediction, which simplifies reuse of a pretrained VLM but introduces action discretization and control-latency tradeoffs.
+
+## Adaptation and Control
+
+The original release supports full fine-tuning, LoRA, and quantized LoRA. A new robot or dataset requires the correct action statistics and dataset identifier because normalized outputs are embodiment-specific. The repository also includes a REST policy-serving path so that model inference can run separately from the robot client.
+
+OpenVLA-OFT is a distinct optimized fine-tuning recipe rather than a rename of the original checkpoint. It replaces the original action-token decoding path with a continuous action head and introduces control-oriented improvements such as action chunking. Results should therefore identify both the base checkpoint and adaptation recipe.
+
 ## What Is Available
 
 - MIT-licensed repository code.
@@ -34,6 +55,10 @@ The flagship model fine-tunes a Prismatic-7B VLM combining DINOv2 and SigLIP vis
 - Repository code and model weights do not have identical licensing context: the flagship weights derive from Llama 2 and inherit relevant restrictions.
 - Open X-Embodiment is a collection of datasets with dataset-specific availability and terms; a published mixture does not make every source uniformly redistributable.
 - “OpenVLA result” is ambiguous unless the checkpoint and recipe—vanilla, FAST-related work, or OFT—are named.
+
+## When to Use It
+
+OpenVLA is a strong reference when studying the original open VLA design, Open X-Embodiment pretraining, or parameter-efficient adaptation of a 7B policy. SmolVLA is usually easier for a first low-resource experiment, while openpi and GR00T expose different continuous-action and deployment choices.
 
 ## Primary Sources
 

@@ -6,6 +6,12 @@ official_repo: https://github.com/Physical-Intelligence/openpi
 
 # π0 / π0-FAST / π0.5 via openpi
 
+<p align="center">
+  <img src="../docs/assets/models/openpi-overview.jpg" alt="π0 model, data, and adaptation overview" width="820" />
+</p>
+
+<p align="center"><em>π0 model, data, and adaptation overview. Image source: <a href="https://arxiv.org/abs/2410.24164">official paper</a>.</em></p>
+
 ## Snapshot
 
 - **Role in the landscape:** an official implementation and release surface for Physical Intelligence robot-policy models.
@@ -15,6 +21,20 @@ official_repo: https://github.com/Physical-Intelligence/openpi
 ## Why It Matters
 
 openpi makes architectural alternatives visible within one model family and publishes both base checkpoints and several task/robot-specific expert checkpoints. It also exposes data conversion, normalization, training, policy serving, and robot/simulation examples, which makes system boundaries easier to inspect.
+
+## Model Family
+
+- **π0** combines a pretrained vision-language model with a flow-matching action expert for continuous control.
+- **π0-FAST** represents actions with FAST tokens and predicts them autoregressively, making action generation closer to language-token modeling.
+- **π0.5** extends the generalist-policy line with a stronger open-world formulation; the released openpi implementation uses a continuous action expert for supported checkpoints.
+
+These names describe different model and action-generation choices. A result should name the exact checkpoint rather than use “openpi” as if it were a single policy.
+
+## Data and Adaptation Path
+
+The official materials describe pretraining on a mixture of Internet-scale vision-language knowledge, open robot datasets, and Physical Intelligence's multi-robot data. The public repository supports converting target data into a LeRobot-style representation, computing normalization statistics, defining a robot-specific configuration, and fine-tuning with LoRA or full parameters depending on the recipe.
+
+For deployment, a policy process can serve actions over WebSocket while a separate robot or simulator client supplies observations. This boundary is useful when the robot machine cannot host the full accelerator environment.
 
 ## What Is Available
 
@@ -42,6 +62,10 @@ These are project estimates and have not been reproduced by OpenEmbodied.
 - Expert checkpoints may generalize differently from base checkpoints; robot interface and normalization must match.
 - Repository license and model dependency terms should be reviewed separately.
 - Reported LIBERO performance should be compared only after aligning the exact checkpoint and protocol.
+
+## When to Use It
+
+openpi is particularly useful for studying flow matching versus autoregressive action tokens, cross-embodiment adaptation, and remote policy serving. It offers more model-family breadth than a single-checkpoint repository, but new robot integrations require careful observation/action transforms and are not guaranteed to inherit the published capabilities.
 
 ## Primary Sources
 

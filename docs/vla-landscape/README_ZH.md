@@ -10,10 +10,10 @@
 
 OpenEmbodied 第一版选择四条具有代表性的开源路线：
 
-- [OpenVLA / OpenVLA-OFT](../../profiles/openvla.md)：建立在预训练 VLM 和 Open X-Embodiment 数据上的经典 7B VLA 路线。
-- [SmolVLA](../../profiles/smolvla.md)：与 LeRobot 生态深度集成的 450M 轻量 flow-matching 策略。
-- [π0 / π0-FAST / π0.5 与 openpi](../../profiles/openpi.md)：同时覆盖 flow matching 与自回归动作表示，并公开基础和任务权重。
-- [Isaac GR00T N1.7](../../profiles/gr00t-n1.7.md)：提供跨机器人形态的微调、评测与部署链路。
+- [OpenVLA / OpenVLA-OFT](../../models/openvla.md)：建立在预训练 VLM 和 Open X-Embodiment 数据上的经典 7B VLA 路线。
+- [SmolVLA](../../models/smolvla.md)：与 LeRobot 生态深度集成的 450M 轻量 flow-matching 策略。
+- [π0 / π0-FAST / π0.5 与 openpi](../../models/openpi.md)：同时覆盖 flow matching 与自回归动作表示，并公开基础和任务权重。
+- [Isaac GR00T N1.7](../../models/gr00t-n1.7.md)：提供跨机器人形态的微调、评测与部署链路。
 
 核心结论是：**脱离机器人形态、任务、算力、许可证和评测协议，不存在唯一“最开放”或“最好”的 VLA。**
 
