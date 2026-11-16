@@ -1,10 +1,8 @@
-# Open VLA Landscape 2026
+# Open VLA Landscape
 
 > What is actually open, comparable, and reproducible?
 
 [简体中文](README_ZH.md) · [Model matrix](model-matrix.md) · [Benchmark notes](benchmark-notes.md) · [Sources](sources.md)
-
-**Status:** Research release v0.1 · **Evidence level:** L0 — Reviewed · **Last verified:** 2026-11-16
 
 ## Executive Summary
 
@@ -45,7 +43,7 @@ OpenEmbodied records openness across separate dimensions instead of using one bi
 
 ### 1. SmolVLA is the clearest low-cost starting point
 
-SmolVLA publishes a 450M Apache-2.0 base model, uses continuous actions and flow matching, and is integrated into LeRobot's dataset, training, evaluation, and hardware workflows. The official documentation includes a direct model-loading path and positions the model for task-specific fine-tuning. This makes it the strongest candidate for OpenEmbodied's first L1/L2 reproduction attempt.
+SmolVLA publishes a 450M Apache-2.0 base model, uses continuous actions and flow matching, and is integrated into LeRobot's dataset, training, evaluation, and hardware workflows. The official documentation includes a direct model-loading path and positions the model for task-specific fine-tuning. This makes it the strongest candidate for OpenEmbodied's first hands-on reproduction attempt.
 
 ### 2. OpenVLA remains a useful reference baseline, but “MIT” needs context
 
@@ -70,30 +68,4 @@ LIBERO results can differ through task suite, observation history, image views, 
 - **Study flow matching, FAST tokenization, or DROID/ALOHA adaptation:** use openpi.
 - **Build around a documented cross-embodiment deployment stack:** evaluate GR00T N1.7.
 - **Compare paper results:** first normalize the benchmark protocol; do not compare model names alone.
-
-## Evidence Status
-
-| Project | Level | What OpenEmbodied verified | Not yet verified |
-| --- | --- | --- | --- |
-| OpenVLA | L0 | Official repository, project page, checkpoints, license notes, documented workflows | Local installation, inference, benchmark results |
-| SmolVLA | L0 | Official LeRobot docs, model card, license, model inputs/outputs, workflow | Local installation, inference, fine-tuning |
-| openpi | L0 | Official repository, model family, checkpoints, requirements, license, serving docs | Local installation, checkpoint inference, LIBERO run |
-| GR00T N1.7 | L0 | Official repository, model/weight licenses, workflows, supported benchmark guides | Gated-model access, local installation, inference, deployment |
-
-## Watchlist
-
-- **GR00T 2** was announced in November 2026 as a world-action model that predicts video and actions. The official research page states that code is scheduled for December, so it is not included in the current reproducibility matrix.
-- This page will add new models only after primary-source review and a clear reason for comparison; popularity alone is not sufficient.
-
-## Next Verification Steps
-
-1. Install the current LeRobot release in a clean environment.
-2. Load `lerobot/smolvla_base` and run one documented batch inference.
-3. Record the exact OS, Python, package lock, device, memory use, latency, and output shape.
-4. Promote the SmolVLA profile to L1 or L2 only after preserving the evidence.
-5. Select one shared simulation protocol before attempting cross-model comparisons.
-
-## Scope and Limitations
-
-This is a source review, not an independent performance evaluation. Claims about model quality remain attributed to their official sources until OpenEmbodied reproduces them. Repository interfaces, checkpoints, and licenses can change; use the verification date and follow the linked primary sources before making deployment or licensing decisions.
 

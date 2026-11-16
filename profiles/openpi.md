@@ -1,8 +1,6 @@
 ---
 title: openpi model family
 area: vision-language-action
-evidence_level: L0
-last_verified: 2026-11-16
 official_repo: https://github.com/Physical-Intelligence/openpi
 ---
 
@@ -13,7 +11,6 @@ official_repo: https://github.com/Physical-Intelligence/openpi
 - **Role in the landscape:** an official implementation and release surface for Physical Intelligence robot-policy models.
 - **Variants:** π0, π0-FAST, and π0.5.
 - **Action generation:** flow matching for π0 and the currently supported π0.5 head; autoregressive action tokens for π0-FAST.
-- **Evidence:** L0 — official repository reviewed, not locally executed.
 
 ## Why It Matters
 
@@ -45,13 +42,6 @@ These are project estimates and have not been reproduced by OpenEmbodied.
 - Expert checkpoints may generalize differently from base checkpoints; robot interface and normalization must match.
 - Repository license and model dependency terms should be reviewed separately.
 - Reported LIBERO performance should be compared only after aligning the exact checkpoint and protocol.
-
-## Reproduction Plan
-
-1. Install the pinned repository in its supported Ubuntu/Docker path.
-2. Run the no-robot dummy inference workflow.
-3. Record checkpoint download size, device memory, compile/startup time, and action shape.
-4. Evaluate whether the LIBERO Docker workflow is feasible before claiming benchmark reproduction.
 
 ## Primary Sources
 

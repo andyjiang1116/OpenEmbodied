@@ -1,7 +1,5 @@
 # Open VLA Model Matrix
 
-**Release:** v0.1 · **Evidence:** L0 — primary-source review · **Verified:** 2026-11-16
-
 This matrix separates facts published by project owners from OpenEmbodied's interpretation. “Available” means an official artifact or documented path was found; it does not mean OpenEmbodied has executed it.
 
 ## Architecture and Interface

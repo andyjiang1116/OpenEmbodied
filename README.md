@@ -8,8 +8,6 @@
     ·
     <a href="#-why-openembodied">Why OpenEmbodied</a>
     ·
-    <a href="#-evidence-levels">Evidence Levels</a>
-    ·
     <a href="#-roadmap">Roadmap</a>
   </p>
 </div>
@@ -35,7 +33,7 @@ Instead of building another link collection, this project records what a method 
 | Results that are difficult to compare | Dataset, benchmark, metric, and evaluation-protocol context |
 | “Open source” without reproducibility details | Explicit code, weights, data, license, compute, and environment status |
 | Successful demos without failure analysis | Limitations, failure modes, and unresolved questions |
-| Tutorials that become stale silently | Verification dates and evidence levels |
+| Claims without clear provenance | Primary sources, explicit scope, and reproducible context |
 
 ## 🧭 Core Tracks
 
@@ -56,7 +54,7 @@ Standardized technical profiles for papers, models, datasets, and systems:
 - data, benchmarks, metrics, and compute;
 - code, weights, license, and release status;
 - results, limitations, and failure modes;
-- related work and last verification date.
+- related work and primary sources.
 
 ### 🧪 Reproduction Reports
 
@@ -70,18 +68,6 @@ Living comparison pages that help answer practical questions such as:
 - Which benchmark measures the capability I care about?
 - What is actually open and reproducible?
 - Which results can be compared fairly?
-
-## 🧾 Evidence Levels
-
-Every technical entry can carry an evidence level. The level describes what has been verified by OpenEmbodied; it is not a quality score for the original work.
-
-| Level | Meaning |
-| --- | --- |
-| **L0 — Reviewed** | Primary sources have been read and summarized |
-| **L1 — Installable** | The documented environment can be installed |
-| **L2 — Runnable** | An official or minimal demo runs successfully |
-| **L3 — Reproduced** | A reported metric or experiment is reproduced with recorded conditions |
-| **L4 — Validated** | The method is verified on real hardware or an additional platform/task |
 
 ## 🎯 Initial Focus
 
@@ -110,7 +96,7 @@ An entry should:
 
 - cite original papers, official repositories, project pages, and datasets;
 - distinguish authors' claims from our interpretation and reproduced observations;
-- record publication and verification dates;
+- record primary sources and published information;
 - state whether code, weights, data, and licenses are actually available;
 - explain evaluation conditions before comparing numbers;
 - document limitations and negative results;
@@ -120,7 +106,7 @@ An entry should:
 
 - [ ] Publish the topic taxonomy and repository structure.
 - [ ] Release Research Profile and Reproduction Report templates.
-- [x] Publish the first [Open VLA Landscape](comparisons/vla-landscape/README.md) research release.
+- [x] Publish the first [Open VLA Landscape](comparisons/vla-landscape/README.md) comparison.
 - [ ] Publish the first Benchmark Map.
 - [ ] Curate the first 12 Research Profiles.
 - [ ] Complete two reproducible experiments with recorded evidence.

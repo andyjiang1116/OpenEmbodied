@@ -1,6 +1,6 @@
 # Primary Sources
 
-Last reviewed: 2026-11-16. Links below are official project-owned repositories, project pages, documentation, papers, or model cards.
+Links below are official project-owned repositories, project pages, documentation, papers, or model cards.
 
 ## OpenVLA
 
@@ -29,12 +29,4 @@ Last reviewed: 2026-11-16. Links below are official project-owned repositories, 
 - [Isaac GR00T official repository](https://github.com/NVIDIA/Isaac-GR00T)
 - [GR00T N1 publication page](https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots)
 - [GR00T N1 paper](https://arxiv.org/abs/2503.14734)
-- [GR00T 2 research page](https://research.nvidia.com/labs/gear/gr00t-2/)
-
-## Source Policy
-
-- A secondary article may help discover a project but cannot establish a matrix fact.
-- License conclusions must link to repository or model-card terms.
-- Hardware and performance claims remain attributed to their publisher until independently verified.
-- Every future edit should update the verification date for the affected row, not silently refresh the whole page.
 

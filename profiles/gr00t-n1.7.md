@@ -1,8 +1,6 @@
 ---
 title: NVIDIA Isaac GR00T N1.7
 area: vision-language-action
-evidence_level: L0
-last_verified: 2026-11-16
 official_repo: https://github.com/NVIDIA/Isaac-GR00T
 ---
 
@@ -14,7 +12,6 @@ official_repo: https://github.com/NVIDIA/Isaac-GR00T
 - **Released checkpoint:** `nvidia/GR00T-N1.7-3B`.
 - **Backbone:** Cosmos-Reason2-2B / Qwen3-VL-based vision-language model.
 - **Action generation:** diffusion-transformer head that denoises continuous actions.
-- **Evidence:** L0 — official sources reviewed, not locally executed.
 
 ## Why It Matters
 
@@ -42,23 +39,9 @@ GR00T N1.7 covers a broad engineering surface: LeRobot-format data, embodiment c
 
 The repository provides benchmark-specific workflows rather than one universal command. Embodiment tags, environment prefixes, action spaces, checkpoint variants, and runtime backends must be recorded for a comparable result.
 
-## Reproduction Plan
-
-1. Confirm gated backbone and weight access.
-2. Select one officially supported platform and pin the repository revision.
-3. install with the documented `uv` or container workflow;
-4. run a base/fine-tuned checkpoint inference without robot hardware;
-5. record memory, initialization time, latency, observation schema, and action output;
-6. consider LIBERO only after the base environment is stable.
-
-## Watchlist: GR00T 2
-
-NVIDIA announced GR00T 2 in November 2026 as a world-action model that predicts future video and robot actions. The official research page says code is available in December. Until code and terms are actually published and reviewed, OpenEmbodied keeps it outside the reproducibility matrix.
-
 ## Primary Sources
 
 - [Official repository](https://github.com/NVIDIA/Isaac-GR00T)
 - [GR00T N1 publication](https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots)
 - [GR00T N1 paper](https://arxiv.org/abs/2503.14734)
-- [GR00T 2 research page](https://research.nvidia.com/labs/gear/gr00t-2/)
 

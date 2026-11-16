@@ -1,7 +1,5 @@
 # Benchmark Comparability Notes
 
-**Evidence:** L0 — documentation review · **Verified:** 2026-11-16
-
 ## Why This Page Exists
 
 A model name and a benchmark score are not enough to support a fair comparison. VLA evaluation is highly sensitive to the policy checkpoint, task suite, observation pipeline, action representation, fine-tuning data, rollout settings, and success aggregation.
@@ -52,8 +50,4 @@ SO100/SO101, DROID, ALOHA, humanoid, and other real-robot results should include
 3. Keep simulation and real-robot evidence separate.
 4. Store failed runs and protocol deviations alongside successful results.
 5. Promote a result to reproduced only after the exact environment and aggregation are recorded.
-
-## Current Status
-
-No cross-project result in v0.1 is marked reproduced. The first planned verification is a documented SmolVLA batch inference, followed by a shared simulation protocol selected for feasibility and comparability.
 
