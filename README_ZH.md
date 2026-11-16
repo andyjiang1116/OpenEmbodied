@@ -75,7 +75,7 @@ Track → Understand → Verify → Choose
 第一阶段聚焦三个相互关联的方向：
 
 1. **[VLA Landscape](comparisons/vla-landscape/README_ZH.md)：** 模型架构、训练数据、动作表示、机器人形态、算力、开放程度与评测结果。
-2. **Benchmark Map：** 任务、协议、指标、可比性与常见误读。
+2. **[机器人操作基准地图](comparisons/benchmark-map/README_ZH.md)：** 从能力、协议、指标和适用场景比较 LIBERO、CALVIN、SimplerEnv、RoboTwin 2.0 与 RoboDojo。
 3. **Reproduction Reports：** 透明记录环境、结果、偏差和失败过程。
 
 选择较窄的起点是有意为之。少量可靠、值得反复引用的专题页面，比大量浅层条目更有价值。
@@ -108,7 +108,7 @@ Track → Understand → Verify → Choose
 - [ ] 发布主题分类与仓库目录结构。
 - [ ] 提供 Research Profile 和 Reproduction Report 模板。
 - [x] 发布第一版 [Open VLA Landscape](comparisons/vla-landscape/README_ZH.md) 研究内容。
-- [ ] 发布第一版 Benchmark Map。
+- [x] 发布第一版 [机器人操作基准地图](comparisons/benchmark-map/README_ZH.md)。
 - [ ] 整理首批 12 篇 Research Profile。
 - [ ] 完成两个包含完整证据的复现实验。
 - [ ] 开始维护聚焦型 Weekly Frontier Watch。

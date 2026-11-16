@@ -74,7 +74,7 @@ Living comparison pages that help answer practical questions such as:
 The first release cycle will concentrate on three connected areas:
 
 1. **[VLA Landscape](comparisons/vla-landscape/README.md)** — architecture, training data, action representation, embodiment, compute, openness, and evaluation.
-2. **Benchmark Map** — tasks, protocols, metrics, comparability, and common interpretation errors.
+2. **[Robot Manipulation Benchmark Map](comparisons/benchmark-map/README.md)** — LIBERO, CALVIN, SimplerEnv, RoboTwin 2.0, and RoboDojo compared by capability, protocol, metric, and intended use.
 3. **Reproduction Reports** — transparent records of environments, results, deviations, and failures.
 
 This narrow starting point is intentional. A small set of reliable reference pages is more useful than a large set of shallow entries.
@@ -107,7 +107,7 @@ An entry should:
 - [ ] Publish the topic taxonomy and repository structure.
 - [ ] Release Research Profile and Reproduction Report templates.
 - [x] Publish the first [Open VLA Landscape](comparisons/vla-landscape/README.md) comparison.
-- [ ] Publish the first Benchmark Map.
+- [x] Publish the first [Robot Manipulation Benchmark Map](comparisons/benchmark-map/README.md).
 - [ ] Curate the first 12 Research Profiles.
 - [ ] Complete two reproducible experiments with recorded evidence.
 - [ ] Start a focused weekly Frontier Watch.
