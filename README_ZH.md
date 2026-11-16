@@ -8,7 +8,7 @@
     ·
     <a href="#-为什么是-openembodied">为什么是 OpenEmbodied</a>
     ·
-    <a href="#-建设路线">建设路线</a>
+    <a href="#-内容导航">内容导航</a>
   </p>
 </div>
 
@@ -35,83 +35,26 @@
 | 只展示成功 Demo | 记录限制、失败模式与尚未解决的问题 |
 | 结论缺少明确依据 | 提供原始来源、适用范围与可复现上下文 |
 
-## 🧭 四条内容主线
+## 🧭 内容导航
+
+### 🔭 [Open VLA Landscape](comparisons/vla-landscape/README_ZH.md)
+
+从架构、动作生成、开放程度、算力和评测等角度，对比 OpenVLA、SmolVLA、openpi 与 GR00T N1.7。
+
+### 🦾 [机器人操作基准地图](comparisons/benchmark-map/README_ZH.md)
+
+梳理 LIBERO、CALVIN、SimplerEnv、RoboTwin 2.0 和 RoboDojo 分别在测什么，以及哪些结果可以合理比较。
+
+## 🗂️ 仓库内容结构
 
 ```text
-Track → Understand → Verify → Choose
-追踪前沿 → 理解工作 → 验证结果 → 做出选择
+追踪前沿 → 理解工作 → 验证结果 → 结合场景做出选择
 ```
 
-### 🔭 Frontier Watch｜前沿追踪
-
-聚焦 VLA、世界模型、机器人操作、导航、人形机器人、数据与评测的重要进展。每项内容必须引用原始来源，并说明它为什么值得关注。
-
-### 🗂️ Research Profiles｜研究档案
-
-用统一结构记录论文、模型、数据集与系统：
-
-- 问题定义与研究动机；
-- 方法与关键设计；
-- 数据、基准、指标与算力；
-- 代码、权重、许可与开放状态；
-- 实验结果、限制与失败模式；
-- 相关工作与原始来源。
-
-### 🧪 Reproduction Reports｜复现报告
-
-保存环境、命令、硬件、输出、指标差异、修复过程与失败尝试，而不只保留最终成功截图。
-
-### ⚖️ Comparison Guides｜对比指南
-
-持续维护横向比较页面，回答实际问题：
-
-- 哪个 VLA 适合当前机器人、数据和算力预算？
-- 哪个 Benchmark 真正在评测目标能力？
-- 哪些项目真正开放且可以复现？
-- 哪些实验结果能够公平比较？
-
-## 🎯 首批建设重点
-
-第一阶段聚焦三个相互关联的方向：
-
-1. **[VLA Landscape](comparisons/vla-landscape/README_ZH.md)：** 模型架构、训练数据、动作表示、机器人形态、算力、开放程度与评测结果。
-2. **[机器人操作基准地图](comparisons/benchmark-map/README_ZH.md)：** 从能力、协议、指标和适用场景比较 LIBERO、CALVIN、SimplerEnv、RoboTwin 2.0 与 RoboDojo。
-3. **Reproduction Reports：** 透明记录环境、结果、偏差和失败过程。
-
-选择较窄的起点是有意为之。少量可靠、值得反复引用的专题页面，比大量浅层条目更有价值。
-
-## 🗺️ 覆盖方向
-
-| 方向 | 代表性主题 |
-| --- | --- |
-| 视觉—语言—动作模型 | 通用策略、动作表示、多模态对齐 |
-| 世界模型与规划 | 预测模型、行动规划、长时程推理 |
-| 机器人操作 | 抓取、灵巧操作、双臂与移动操作 |
-| 具身导航 | 空间推理、建图、探索与 VLN |
-| 运动与人形机器人 | 全身控制、运动操作、动作学习 |
-| 数据与评测 | 机器人数据集、仿真环境、基准与评测协议 |
-
-## ✅ 收录标准
-
-每项内容应当：
-
-- 引用原始论文、官方仓库、项目页面和数据集；
-- 区分作者结论、我们的理解与独立复现结果；
-- 记录原始来源和公开信息；
-- 明确代码、权重、数据与许可证是否真正开放；
-- 在比较数值前说明评测条件；
-- 记录限制和负面结果；
-- 保持便于浏览，同时提供足够的验证信息。
-
-## 🚧 建设路线
-
-- [ ] 发布主题分类与仓库目录结构。
-- [ ] 提供 Research Profile 和 Reproduction Report 模板。
-- [x] 发布第一版 [Open VLA Landscape](comparisons/vla-landscape/README_ZH.md) 研究内容。
-- [x] 发布第一版 [机器人操作基准地图](comparisons/benchmark-map/README_ZH.md)。
-- [ ] 整理首批 12 篇 Research Profile。
-- [ ] 完成两个包含完整证据的复现实验。
-- [ ] 开始维护聚焦型 Weekly Frontier Watch。
+- **Frontier Watch｜前沿追踪：** 关注重要进展，并解释其价值。
+- **Research Profiles｜研究档案：** 简明整理模型、论文、数据集和基准的事实信息与原始来源。
+- **Reproduction Reports｜复现报告：** 记录可运行实验、实际结果与失败情况。
+- **Comparison Guides｜对比指南：** 将独立工作组织成面向实际选择的专题地图，例如上面的两篇指南。
 
 ## 🤝 参与贡献
 

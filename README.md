@@ -8,7 +8,7 @@
     ·
     <a href="#-why-openembodied">Why OpenEmbodied</a>
     ·
-    <a href="#-roadmap">Roadmap</a>
+    <a href="#-explore">Explore</a>
   </p>
 </div>
 
@@ -35,82 +35,26 @@ Instead of building another link collection, this project records what a method 
 | Successful demos without failure analysis | Limitations, failure modes, and unresolved questions |
 | Claims without clear provenance | Primary sources, explicit scope, and reproducible context |
 
-## 🧭 Core Tracks
+## 🧭 Explore
+
+### 🔭 [Open VLA Landscape](comparisons/vla-landscape/README.md)
+
+A practical comparison of OpenVLA, SmolVLA, openpi, and GR00T N1.7 across architecture, actions, openness, compute, and evaluation.
+
+### 🦾 [Robot Manipulation Benchmark Map](comparisons/benchmark-map/README.md)
+
+A guide to what LIBERO, CALVIN, SimplerEnv, RoboTwin 2.0, and RoboDojo measure—and when their results can be compared.
+
+## 🗂️ How the Repository Is Organized
 
 ```text
-Track → Understand → Verify → Choose
+Track the frontier → Understand the work → Verify the result → Choose with context
 ```
 
-### 🔭 Frontier Watch
-
-A focused digest of important work across VLA models, world models, manipulation, navigation, humanoids, data, and evaluation. Every item must link to a primary source and explain why it matters.
-
-### 🗂️ Research Profiles
-
-Standardized technical profiles for papers, models, datasets, and systems:
-
-- problem and motivation;
-- method and key design choices;
-- data, benchmarks, metrics, and compute;
-- code, weights, license, and release status;
-- results, limitations, and failure modes;
-- related work and primary sources.
-
-### 🧪 Reproduction Reports
-
-Reproduction records that preserve the environment, commands, hardware, outputs, metric gaps, fixes, and failed attempts—not only the final successful screenshot.
-
-### ⚖️ Comparison Guides
-
-Living comparison pages that help answer practical questions such as:
-
-- Which VLA model fits a given robot, dataset, or compute budget?
-- Which benchmark measures the capability I care about?
-- What is actually open and reproducible?
-- Which results can be compared fairly?
-
-## 🎯 Initial Focus
-
-The first release cycle will concentrate on three connected areas:
-
-1. **[VLA Landscape](comparisons/vla-landscape/README.md)** — architecture, training data, action representation, embodiment, compute, openness, and evaluation.
-2. **[Robot Manipulation Benchmark Map](comparisons/benchmark-map/README.md)** — LIBERO, CALVIN, SimplerEnv, RoboTwin 2.0, and RoboDojo compared by capability, protocol, metric, and intended use.
-3. **Reproduction Reports** — transparent records of environments, results, deviations, and failures.
-
-This narrow starting point is intentional. A small set of reliable reference pages is more useful than a large set of shallow entries.
-
-## 🗺️ Coverage Map
-
-| Area | Representative topics |
-| --- | --- |
-| Vision-Language-Action | Generalist policies, action tokenization, multimodal grounding |
-| World Models & Planning | Predictive models, planning, long-horizon reasoning |
-| Manipulation | Grasping, dexterity, bimanual and mobile manipulation |
-| Navigation | Spatial reasoning, mapping, exploration, VLN |
-| Locomotion & Humanoids | Whole-body control, loco-manipulation, motion learning |
-| Data & Evaluation | Robot datasets, simulators, benchmarks, evaluation protocols |
-
-## ✅ Curation Standard
-
-An entry should:
-
-- cite original papers, official repositories, project pages, and datasets;
-- distinguish authors' claims from our interpretation and reproduced observations;
-- record primary sources and published information;
-- state whether code, weights, data, and licenses are actually available;
-- explain evaluation conditions before comparing numbers;
-- document limitations and negative results;
-- remain concise enough to scan and detailed enough to verify.
-
-## 🚧 Roadmap
-
-- [ ] Publish the topic taxonomy and repository structure.
-- [ ] Release Research Profile and Reproduction Report templates.
-- [x] Publish the first [Open VLA Landscape](comparisons/vla-landscape/README.md) comparison.
-- [x] Publish the first [Robot Manipulation Benchmark Map](comparisons/benchmark-map/README.md).
-- [ ] Curate the first 12 Research Profiles.
-- [ ] Complete two reproducible experiments with recorded evidence.
-- [ ] Start a focused weekly Frontier Watch.
+- **Frontier Watch** highlights important new work and explains why it matters.
+- **Research Profiles** provide concise, source-backed summaries of models, papers, datasets, and benchmarks.
+- **Reproduction Reports** document runnable experiments, results, and failure cases.
+- **Comparison Guides** connect individual works into decision-oriented maps such as the two guides above.
 
 ## 🤝 Contributing
 
