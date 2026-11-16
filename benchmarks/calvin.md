@@ -1,5 +1,7 @@
 # CALVIN
 
+[简体中文](calvin_ZH.md)
+
 > **Category:** Robot Manipulation Benchmark · [Repository](https://github.com/mees/calvin) · [Project Page](http://calvin.cs.uni-freiburg.de/) · [Paper](https://arxiv.org/abs/2112.03227)
 
 <p align="center">

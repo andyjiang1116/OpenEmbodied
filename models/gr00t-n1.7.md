@@ -1,5 +1,7 @@
 # NVIDIA Isaac GR00T N1.7
 
+[简体中文](gr00t-n1.7_ZH.md)
+
 > **Category:** Vision-Language-Action Model · [Repository](https://github.com/NVIDIA/Isaac-GR00T) · [Publication](https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots) · [Paper](https://arxiv.org/abs/2503.14734)
 
 <p align="center">

@@ -1,5 +1,7 @@
 # Open VLA Model Matrix
 
+[简体中文](model-matrix_ZH.md)
+
 This matrix separates facts published by project owners from OpenEmbodied's interpretation. “Available” means an official artifact or documented path was found; it does not mean OpenEmbodied has executed it.
 
 ## Architecture and Interface

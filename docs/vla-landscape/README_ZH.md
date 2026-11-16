@@ -2,7 +2,7 @@
 
 > 哪些模型真正开放、可比较、可复现？
 
-[English](README.md) · [详细模型矩阵](model-matrix.md) · [Benchmark 说明](benchmark-notes.md) · [来源清单](sources.md)
+[English](README.md) · [详细模型矩阵](model-matrix_ZH.md) · [Benchmark 说明](benchmark-notes_ZH.md) · [来源清单](sources.md)
 
 ## 摘要
 
@@ -10,10 +10,10 @@
 
 OpenEmbodied 第一版选择四条具有代表性的开源路线：
 
-- [OpenVLA / OpenVLA-OFT](../../models/openvla.md)：建立在预训练 VLM 和 Open X-Embodiment 数据上的经典 7B VLA 路线。
-- [SmolVLA](../../models/smolvla.md)：与 LeRobot 生态深度集成的 450M 轻量 flow-matching 策略。
-- [π0 / π0-FAST / π0.5 与 openpi](../../models/openpi.md)：同时覆盖 flow matching 与自回归动作表示，并公开基础和任务权重。
-- [Isaac GR00T N1.7](../../models/gr00t-n1.7.md)：提供跨机器人形态的微调、评测与部署链路。
+- [OpenVLA / OpenVLA-OFT](../../models/openvla_ZH.md)：建立在 pretrained VLM 和 Open X-Embodiment 数据上的经典 7B VLA 路线。
+- [SmolVLA](../../models/smolvla_ZH.md)：与 LeRobot 生态深度集成的 450M compact flow-matching policy。
+- [π0 / π0-FAST / π0.5 与 openpi](../../models/openpi_ZH.md)：同时覆盖 flow matching 与 autoregressive action representation，并公开 base 与 task checkpoints。
+- [Isaac GR00T N1.7](../../models/gr00t-n1.7_ZH.md)：提供 cross-embodiment fine-tuning、evaluation 与 deployment 链路。
 
 核心结论是：**脱离机器人形态、任务、算力、许可证和评测协议，不存在唯一“最开放”或“最好”的 VLA。**
 

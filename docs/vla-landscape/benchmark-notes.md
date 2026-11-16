@@ -1,5 +1,7 @@
 # Benchmark Comparability Notes
 
+[简体中文](benchmark-notes_ZH.md)
+
 ## Why This Page Exists
 
 A model name and a benchmark score are not enough to support a fair comparison. VLA evaluation is highly sensitive to the policy checkpoint, task suite, observation pipeline, action representation, fine-tuning data, rollout settings, and success aggregation.

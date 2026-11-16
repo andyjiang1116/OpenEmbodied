@@ -2,7 +2,7 @@
 
 > LIBERO、CALVIN、SimplerEnv、RoboTwin 2.0 与 RoboDojo 分别在测什么？
 
-[English](README.md) · [基准矩阵](benchmark-matrix.md) · [协议指南](protocol-guide.md) · [资料来源](sources.md)
+[English](README.md) · [基准矩阵](benchmark-matrix_ZH.md) · [协议指南](protocol-guide_ZH.md) · [资料来源](sources.md)
 
 ## 概览
 
@@ -10,11 +10,11 @@
 
 本文比较五个有代表性的基准：
 
-- [LIBERO](../../benchmarks/libero.md) 通过语言条件桌面操作任务，研究终身学习和多任务学习中的知识迁移。
-- [CALVIN](../../benchmarks/calvin.md) 关注语言条件长时程控制，评估策略能连续完成多少条指令。
-- [SimplerEnv](../../benchmarks/simplerenv.md) 研究仿真评测能否保持真实机器人上的策略排序。
-- [RoboTwin 2.0](../../benchmarks/robotwin-2.md) 将可扩展专家数据生成与强域随机化双臂操作评测结合起来。
-- [RoboDojo](../../benchmarks/robodojo.md) 在仿真和标准化真机环境中，从多个互补能力维度评估通用机器人策略。
+- [LIBERO](../../benchmarks/libero_ZH.md) 通过 language-conditioned tabletop tasks，研究 lifelong learning 和 multitask learning 中的 knowledge transfer。
+- [CALVIN](../../benchmarks/calvin_ZH.md) 关注 language-conditioned long-horizon control，评估 policy 能连续完成多少条指令。
+- [SimplerEnv](../../benchmarks/simplerenv_ZH.md) 研究 simulation evaluation 能否保持 real-robot policy ranking。
+- [RoboTwin 2.0](../../benchmarks/robotwin-2_ZH.md) 将 scalable expert-data generation 与 strong domain randomization 下的 bimanual evaluation 结合起来。
+- [RoboDojo](../../benchmarks/robodojo_ZH.md) 在 simulation 和标准化 real-robot setup 中，从多个 capability dimensions 评估 generalist policy。
 
 核心原则是：**从需要验证的研究结论出发选择基准，而不是从基准的流行度出发。**
 

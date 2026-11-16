@@ -1,5 +1,7 @@
 # Protocol Guide
 
+[简体中文](protocol-guide_ZH.md)
+
 [Overview](README.md) · [Benchmark matrix](benchmark-matrix.md) · [Sources](sources.md)
 
 ## Before Comparing Two Results

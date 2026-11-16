@@ -1,5 +1,7 @@
 # RoboTwin 2.0
 
+[简体中文](robotwin-2_ZH.md)
+
 > **Category:** Robot Manipulation Benchmark · [Repository](https://github.com/RoboTwin-Platform/RoboTwin) · [Project Page](https://robotwin-platform.github.io/) · [Documentation](https://robotwin-platform.github.io/doc/) · [Paper](https://arxiv.org/abs/2506.18088)
 
 <p align="center">

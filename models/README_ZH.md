@@ -6,9 +6,9 @@
 
 | 模型 | 重点 |
 | --- | --- |
-| [OpenVLA / OpenVLA-OFT](openvla.md) | 开放 VLA 架构与 Open X-Embodiment 预训练 |
-| [SmolVLA](smolvla.md) | LeRobot 生态中的轻量 VLA 实验 |
-| [π0 / π0-FAST / π0.5](openpi.md) | 流匹配、FAST 动作表示与跨机器人适配 |
-| [NVIDIA Isaac GR00T N1.7](gr00t-n1.7.md) | 跨机器人训练、策略服务与部署 |
+| [OpenVLA / OpenVLA-OFT](openvla_ZH.md) | 开放 VLA 架构与 Open X-Embodiment pretraining |
+| [SmolVLA](smolvla_ZH.md) | LeRobot 生态中的 compact VLA 实验 |
+| [π0 / π0-FAST / π0.5](openpi_ZH.md) | Flow matching、FAST action representation 与 cross-embodiment adaptation |
+| [NVIDIA Isaac GR00T N1.7](gr00t-n1.7_ZH.md) | Cross-embodiment training、policy serving 与 deployment |
 
 每篇档案围绕模型定位、架构、数据、动作接口、适配方式、部署能力、使用边界和原始来源展开。

@@ -1,5 +1,7 @@
 # LIBERO
 
+[简体中文](libero_ZH.md)
+
 > **Category:** Robot Manipulation Benchmark · [Repository](https://github.com/Lifelong-Robot-Learning/LIBERO) · [Project Page](https://libero-project.github.io/) · [Paper](https://arxiv.org/abs/2306.03310)
 
 <p align="center">

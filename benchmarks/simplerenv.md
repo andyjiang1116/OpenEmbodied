@@ -1,5 +1,7 @@
 # SimplerEnv
 
+[简体中文](simplerenv_ZH.md)
+
 > **Category:** Robot Manipulation Benchmark · [Repository](https://github.com/simpler-env/SimplerEnv) · [Project Page](https://simpler-env.github.io/) · [Paper](https://arxiv.org/abs/2405.05941)
 
 <p align="center">

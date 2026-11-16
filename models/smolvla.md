@@ -1,5 +1,7 @@
 # SmolVLA
 
+[简体中文](smolvla_ZH.md)
+
 > **Category:** Vision-Language-Action Model · [Repository](https://github.com/huggingface/lerobot) · [Project Article](https://huggingface.co/blog/smolvla) · [Model](https://huggingface.co/lerobot/smolvla_base) · [Paper](https://arxiv.org/abs/2506.01844)
 
 <p align="center">

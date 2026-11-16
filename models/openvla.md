@@ -1,5 +1,7 @@
 # OpenVLA / OpenVLA-OFT
 
+[简体中文](openvla_ZH.md)
+
 > **Category:** Vision-Language-Action Model · [Repository](https://github.com/openvla/openvla) · [Project Page](https://openvla.github.io/) · [Paper](https://arxiv.org/abs/2406.09246) · [OpenVLA-OFT](https://openvla-oft.github.io/)
 
 <p align="center">

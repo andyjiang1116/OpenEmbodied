@@ -1,5 +1,7 @@
 # π0 / π0-FAST / π0.5 via openpi
 
+[简体中文](openpi_ZH.md)
+
 > **Category:** Vision-Language-Action Model · [Repository](https://github.com/Physical-Intelligence/openpi) · [π0](https://www.pi.website/blog/pi0) · [π0.5](https://www.pi.website/blog/pi05) · [Paper](https://arxiv.org/abs/2410.24164)
 
 <p align="center">

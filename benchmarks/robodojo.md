@@ -1,5 +1,7 @@
 # RoboDojo
 
+[简体中文](robodojo_ZH.md)
+
 > **Category:** Robot Manipulation Benchmark · [Repository](https://github.com/RoboDojo-Benchmark/RoboDojo) · [Project Page](https://robodojo-benchmark.com/) · [Paper](https://arxiv.org/abs/2607.04434) · [Leaderboard](https://robodojo-benchmark.com/leaderboard)
 
 <p align="center">
