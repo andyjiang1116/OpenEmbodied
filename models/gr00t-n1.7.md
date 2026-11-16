@@ -1,10 +1,6 @@
----
-title: NVIDIA Isaac GR00T N1.7
-area: vision-language-action
-official_repo: https://github.com/NVIDIA/Isaac-GR00T
----
-
 # NVIDIA Isaac GR00T N1.7
+
+> **Category:** Vision-Language-Action Model · [Repository](https://github.com/NVIDIA/Isaac-GR00T) · [Publication](https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots) · [Paper](https://arxiv.org/abs/2503.14734)
 
 <p align="center">
   <img src="../docs/assets/models/gr00t-architecture.jpg" alt="NVIDIA Isaac GR00T N1.7 architecture" width="820" />

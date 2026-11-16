@@ -1,10 +1,6 @@
----
-title: openpi model family
-area: vision-language-action
-official_repo: https://github.com/Physical-Intelligence/openpi
----
-
 # π0 / π0-FAST / π0.5 via openpi
+
+> **Category:** Vision-Language-Action Model · [Repository](https://github.com/Physical-Intelligence/openpi) · [π0](https://www.pi.website/blog/pi0) · [π0.5](https://www.pi.website/blog/pi05) · [Paper](https://arxiv.org/abs/2410.24164)
 
 <p align="center">
   <img src="../docs/assets/models/openpi-overview.jpg" alt="π0 model, data, and adaptation overview" width="820" />

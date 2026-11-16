@@ -1,10 +1,6 @@
----
-title: CALVIN
-area: robot-manipulation-benchmark
-official_repo: https://github.com/mees/calvin
----
-
 # CALVIN
+
+> **Category:** Robot Manipulation Benchmark · [Repository](https://github.com/mees/calvin) · [Project Page](http://calvin.cs.uni-freiburg.de/) · [Paper](https://arxiv.org/abs/2112.03227)
 
 <p align="center">
   <img src="../docs/assets/benchmarks/calvin-teaser.jpg" alt="CALVIN long-horizon manipulation benchmark" width="820" />

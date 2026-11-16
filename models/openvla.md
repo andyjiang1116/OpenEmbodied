@@ -1,10 +1,6 @@
----
-title: OpenVLA and OpenVLA-OFT
-area: vision-language-action
-official_repo: https://github.com/openvla/openvla
----
-
 # OpenVLA / OpenVLA-OFT
+
+> **Category:** Vision-Language-Action Model · [Repository](https://github.com/openvla/openvla) · [Project Page](https://openvla.github.io/) · [Paper](https://arxiv.org/abs/2406.09246) · [OpenVLA-OFT](https://openvla-oft.github.io/)
 
 <p align="center">
   <img src="../docs/assets/models/openvla-model.jpg" alt="OpenVLA model architecture" width="820" />

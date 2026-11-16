@@ -1,10 +1,6 @@
----
-title: SmolVLA
-area: vision-language-action
-official_repo: https://github.com/huggingface/lerobot
----
-
 # SmolVLA
+
+> **Category:** Vision-Language-Action Model · [Repository](https://github.com/huggingface/lerobot) · [Project Article](https://huggingface.co/blog/smolvla) · [Model](https://huggingface.co/lerobot/smolvla_base) · [Paper](https://arxiv.org/abs/2506.01844)
 
 <p align="center">
   <img src="../docs/assets/models/smolvla-overview.jpg" alt="SmolVLA across robot task variations" width="820" />

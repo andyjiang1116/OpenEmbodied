@@ -1,10 +1,6 @@
----
-title: RoboTwin 2.0
-area: robot-manipulation-benchmark
-official_repo: https://github.com/RoboTwin-Platform/RoboTwin
----
-
 # RoboTwin 2.0
+
+> **Category:** Robot Manipulation Benchmark · [Repository](https://github.com/RoboTwin-Platform/RoboTwin) · [Project Page](https://robotwin-platform.github.io/) · [Documentation](https://robotwin-platform.github.io/doc/) · [Paper](https://arxiv.org/abs/2506.18088)
 
 <p align="center">
   <img src="../docs/assets/benchmarks/robotwin-overview.jpg" alt="RoboTwin 2.0 overview" width="820" />

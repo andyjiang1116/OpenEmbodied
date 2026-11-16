@@ -1,10 +1,6 @@
----
-title: SimplerEnv
-area: robot-manipulation-benchmark
-official_repo: https://github.com/simpler-env/SimplerEnv
----
-
 # SimplerEnv
+
+> **Category:** Robot Manipulation Benchmark · [Repository](https://github.com/simpler-env/SimplerEnv) · [Project Page](https://simpler-env.github.io/) · [Paper](https://arxiv.org/abs/2405.05941)
 
 <p align="center">
   <img src="../docs/assets/benchmarks/simplerenv-teaser.jpg" alt="SimplerEnv simulated and real robot evaluation" width="820" />

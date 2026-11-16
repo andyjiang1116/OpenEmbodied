@@ -1,10 +1,6 @@
----
-title: RoboDojo
-area: robot-manipulation-benchmark
-official_repo: https://github.com/RoboDojo-Benchmark/RoboDojo
----
-
 # RoboDojo
+
+> **Category:** Robot Manipulation Benchmark · [Repository](https://github.com/RoboDojo-Benchmark/RoboDojo) · [Project Page](https://robodojo-benchmark.com/) · [Paper](https://arxiv.org/abs/2607.04434) · [Leaderboard](https://robodojo-benchmark.com/leaderboard)
 
 <p align="center">
   <img src="../docs/assets/benchmarks/robodojo-overview.jpg" alt="RoboDojo simulation and real-world benchmark" width="820" />

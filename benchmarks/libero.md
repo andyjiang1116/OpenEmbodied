@@ -1,10 +1,6 @@
----
-title: LIBERO
-area: robot-manipulation-benchmark
-official_repo: https://github.com/Lifelong-Robot-Learning/LIBERO
----
-
 # LIBERO
+
+> **Category:** Robot Manipulation Benchmark · [Repository](https://github.com/Lifelong-Robot-Learning/LIBERO) · [Project Page](https://libero-project.github.io/) · [Paper](https://arxiv.org/abs/2306.03310)
 
 <p align="center">
   <img src="../docs/assets/benchmarks/libero-overview.jpg" alt="LIBERO benchmark overview" width="820" />
