@@ -1,77 +1,82 @@
-# OpenEmbodied
+<div align="center">
+  <img src="docs/assets/openembodied-wordmark.png" alt="OpenEmbodied" width="760" />
 
-An open knowledge hub for Embodied AI, curating the latest research, foundational knowledge, and essential resources.
+  <p><strong>An open knowledge hub for Embodied AI.</strong></p>
+  <p>Research · Foundations · Tools · Practice</p>
+  <p><a href="README_ZH.md">简体中文</a> · <a href="#knowledge-map">Knowledge Map</a> · <a href="#contributing">Contributing</a></p>
+</div>
 
-一个开放、持续更新的具身智能知识库，整理前沿研究、基础知识与优质资源。
+---
 
-## 关于本项目
+## About OpenEmbodied
 
-OpenEmbodied 希望为具身智能的学习者、研究者和开发者提供一个清晰的知识入口：
+Embodied AI connects perception, reasoning, and action in the physical world. OpenEmbodied is a community-driven knowledge hub designed to make this fast-moving field easier to learn, follow, and build in.
 
-- **追踪前沿**：关注最新论文、模型、数据集与开源项目。
-- **夯实基础**：梳理核心概念、经典方法与入门资料。
-- **连接实践**：整理工具、实验教程与复现经验。
+The project will organize high-quality papers, models, datasets, benchmarks, tools, and practical notes. Each entry should explain the problem it addresses, its main idea, the evidence behind it, and its limitations—not merely add another link to a list.
 
-不仅收集资源，也关注每项工作的核心问题、方法与局限。
+> [!NOTE]
+> OpenEmbodied is at an early stage. The repository structure and curated collections will grow incrementally.
 
-## 关注方向
+## What You Will Find
 
-- **视觉—语言—动作模型（VLA）**：多模态理解与动作生成。
-- **机器人操作**：抓取、灵巧操作与双臂协作。
-- **具身导航**：环境感知、空间理解与目标导航。
-- **运动与全身控制**：腿式机器人、人形机器人与运动技能。
-- **世界模型与规划**：环境建模、行动预测与长时程决策。
-- **具身学习**：模仿学习、强化学习与跨任务泛化。
-- **数据与评测**：机器人数据集、仿真环境与评测基准。
+- **Research frontier** — notable papers, models, datasets, benchmarks, and open-source projects.
+- **Core foundations** — robotics, learning, perception, and control concepts.
+- **Practical resources** — simulators, development tools, tutorials, and reproducibility notes.
+- **Structured context** — concise summaries of contributions, assumptions, results, and limitations.
 
-## 内容导航
+## Knowledge Map
 
-### 前沿研究
+| Area | Topics |
+| --- | --- |
+| Vision-Language-Action | Multimodal grounding, action tokenization, generalist robot policies |
+| Robotic Manipulation | Grasping, dexterous manipulation, bimanual coordination |
+| Embodied Navigation | Spatial reasoning, mapping, exploration, goal-directed navigation |
+| Locomotion & Whole-Body Control | Legged robots, humanoids, mobile manipulation |
+| World Models & Planning | Dynamics modeling, predictive control, long-horizon reasoning |
+| Embodied Learning | Imitation learning, reinforcement learning, transfer and generalization |
+| Data & Evaluation | Robot datasets, simulators, benchmarks, evaluation protocols |
 
-整理近期值得关注的工作，逐步补充：
+## Learning Path
 
-- 论文与官方资源
-- 核心贡献与方法概述
-- 实验结果与适用边界
-- 相关工作与阅读笔记
+```text
+Mathematics & Machine Learning
+            ↓
+Robotics, Perception & Control
+            ↓
+Multimodal and Embodied Learning
+            ↓
+Systems, Experiments & Evaluation
+```
 
-### 基础知识
+1. Learn coordinate transforms, kinematics, probability, optimization, and feedback control.
+2. Build familiarity with 3D perception, state estimation, deep learning, and sequence modeling.
+3. Study imitation learning, reinforcement learning, vision-language models, and action representations.
+4. Reproduce results in simulation before moving to real-world robotic systems.
 
-- 数学基础：线性代数、概率统计与优化。
-- 机器人学：坐标变换、运动学与动力学。
-- 感知与控制：三维视觉、状态估计与反馈控制。
-- 学习方法：深度学习、强化学习与模仿学习。
-- 多模态模型：视觉语言模型与动作表示。
+## Curation Principles
 
-### 实践资源
+- Prefer primary sources: original papers, official project pages, code, and datasets.
+- Record dates and clearly distinguish preprints from formally published versions.
+- Explain why a resource matters and where its conclusions apply.
+- Separate authors' claims, community interpretation, and independently reproduced results.
+- Keep descriptions concise, verifiable, and useful to newcomers and practitioners.
 
-- 开源模型与代码
-- 数据集与评测基准
-- 仿真与机器人开发工具
-- 学习教程与复现记录
+## Roadmap
 
-> 仓库建设中，内容将逐步补充。
+- [ ] Establish the topic taxonomy and repository structure.
+- [ ] Add foundational learning paths and reference notes.
+- [ ] Curate representative papers, models, datasets, and benchmarks.
+- [ ] Add tools, tutorials, and reproducibility records.
+- [ ] Introduce contribution templates and regular content reviews.
 
-## 收录原则
+## Contributing
 
-- 优先提供原始论文、官方代码和项目来源。
-- 注明公开时间，区分预印本与正式发表版本。
-- 简要说明推荐理由，不只堆积链接。
-- 区分原文结论、个人理解与实际复现结果。
+Contributions are welcome. Open an Issue to recommend a resource, propose an improvement, or report an error. Pull Requests can add new material or improve existing explanations.
 
-## 参与贡献
+When recommending a resource, please include its official link, research area, a short factual description, why it is useful, and its release date when applicable.
 
-欢迎通过 Issue 推荐资源、提出建议或指出错误，也欢迎通过 Pull Request 补充内容。
+## Acknowledgments
 
-推荐资源时，请尽量提供：
+OpenEmbodied is inspired by the researchers, engineers, educators, and open-source contributors advancing embodied intelligence.
 
-- **名称与链接**
-- **所属方向**
-- **简要介绍**
-- **推荐理由**
-
-## 致谢
-
-感谢具身智能与开源社区的研究者、开发者和贡献者。
-
-本仓库收录的外部论文、代码与数据等资源，权利归原作者所有，使用时请遵循各自的许可与引用要求。
+External papers, code, datasets, and other resources remain the property of their respective owners. Follow each source's license and citation requirements.
