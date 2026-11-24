@@ -16,6 +16,7 @@ Check the following fields in the paper, repository, or evaluation configuration
 6. **Rollout protocol** — record time limit, termination condition, number of episodes, seeds, and retry policy.
 7. **Checkpoint selection** — separate the last checkpoint from validation-selected or task-selected checkpoints.
 8. **Metric aggregation** — determine whether results average tasks, episodes, suites, chain lengths, capability dimensions, or robot stations.
+9. **Inference timing** — state whether the environment pauses during policy inference and record measured latency when task dynamics continue.
 
 ## Benchmark-Specific Reading
 
@@ -54,6 +55,14 @@ Check the following fields in the paper, repository, or evaluation configuration
 - Record benchmark layouts, seeds, XPolicyLab policy adapter, action interface, and submitted checkpoint.
 - Use the official scoring and verification protocol when comparing against the public leaderboard.
 
+### RoboDyna
+
+- Report synchronous and asynchronous results separately on the same task conditions and seeds.
+- Record measured policy latency, inference hardware, and whether communication or preprocessing time is included.
+- Identify conceptual versus household tasks and the `base`, `var1`, `var2`, or held-out `var1+2` condition.
+- Report success rate together with progress score when partial completion is relevant.
+- Do not compare a frozen-world result with a real-time result as if they used the same protocol.
+
 ## Minimum Result Record
 
 A reusable result entry should contain:
@@ -67,6 +76,7 @@ Observations and actions:
 Episodes, seeds, and horizon:
 Metric and aggregation:
 Hardware and policy frequency:
+Inference latency and timing protocol:
 Source:
 ```
 

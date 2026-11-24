@@ -14,6 +14,7 @@
 6. **Rollout protocol：** Time limit、termination condition、episodes、seeds 与 retry policy。
 7. **Checkpoint selection：** 区分 last checkpoint、validation-selected 与 task-selected checkpoints。
 8. **Metric aggregation：** 确认结果平均的是 tasks、episodes、suites、chain lengths、capability dimensions 还是 robot stations。
+9. **Inference timing：** 说明 environment 是否会在 policy inference 时暂停；如果 task dynamics 持续演化，需要记录 measured latency。
 
 ## Benchmark-Specific Reading
 
@@ -52,6 +53,14 @@
 - 记录 benchmark layouts、seeds、XPolicyLab adapter、action interface 与 submitted checkpoint。
 - 与 public leaderboard 比较时使用 official scoring 与 verification protocol。
 
+### RoboDyna
+
+- 在相同 task conditions 与 seeds 上分开报告 synchronous 和 asynchronous results。
+- 记录 measured policy latency、inference hardware，以及是否包含 communication 或 preprocessing time。
+- 说明 conceptual / household task，以及 `base`、`var1`、`var2` 或 held-out `var1+2` condition。
+- Partial completion 有意义时，同时报告 success rate 与 progress score。
+- 不能把 frozen-world result 与 real-time result 当成相同 protocol 直接比较。
+
 ## 最低结果记录
 
 ```text
@@ -63,6 +72,7 @@ Observations and actions:
 Episodes, seeds, and horizon:
 Metric and aggregation:
 Hardware and policy frequency:
+Inference latency and timing protocol:
 Source:
 ```
 

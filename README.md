@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/assets/openembodied-wordmark.png" alt="OpenEmbodied" width="760" />
+  <img src="docs/assets/openembodied-logo-adaptive.svg" alt="OpenEmbodied" width="760" />
 
   <p><strong>An evidence-first atlas for Embodied AI.</strong></p>
   <p>Track the frontier · Compare methods · Reproduce what matters</p>

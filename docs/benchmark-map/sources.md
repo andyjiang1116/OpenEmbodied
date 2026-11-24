@@ -35,3 +35,10 @@
 - [RoboDojo paper](https://arxiv.org/abs/2607.04434)
 - [RoboDojo leaderboard](https://robodojo-benchmark.com/leaderboard)
 - [XPolicyLab repository](https://github.com/XPolicyLab/XPolicyLab)
+
+## RoboDyna
+
+- [Official repository](https://github.com/RoboDyna/robodyna)
+- [Project page and task gallery](https://robodyna.github.io/robodyna/)
+- [Paper](https://arxiv.org/abs/2611.26969)
+- [Data and assets](https://huggingface.co/RoboDyna)

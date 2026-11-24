@@ -1,6 +1,6 @@
 # Robot Manipulation Benchmark Map
 
-> LIBERO vs CALVIN vs SimplerEnv vs RoboTwin 2.0 vs RoboDojo: what does each benchmark actually measure?
+> LIBERO vs CALVIN vs SimplerEnv vs RoboTwin 2.0 vs RoboDojo vs RoboDyna: what does each benchmark actually measure?
 
 [简体中文](README_ZH.md) · [Benchmark matrix](benchmark-matrix.md) · [Protocol guide](protocol-guide.md) · [Sources](sources.md)
 
@@ -8,17 +8,18 @@
 
 Robot manipulation benchmarks are not interchangeable test sets. They differ in the capability being isolated, the robot and simulator, the source of demonstrations, the observation and action interface, and the way success is aggregated. A higher number on one benchmark does not imply superiority on another.
 
-This guide compares five representative benchmarks:
+This guide compares six representative benchmarks:
 
 - [LIBERO](../../benchmarks/libero.md) studies knowledge transfer in lifelong and multitask robot learning through language-conditioned tabletop manipulation suites.
 - [CALVIN](../../benchmarks/calvin.md) emphasizes language-conditioned, long-horizon control and evaluates how many instructions a policy completes in sequence.
 - [SimplerEnv](../../benchmarks/simplerenv.md) asks whether simulation can preserve real-world policy rankings on common robot setups.
 - [RoboTwin 2.0](../../benchmarks/robotwin-2.md) combines scalable expert-data generation with a strongly randomized benchmark for robust bimanual manipulation.
 - [RoboDojo](../../benchmarks/robodojo.md) evaluates generalist manipulation policies across complementary capability dimensions in simulation and on standardized real-robot setups.
+- [RoboDyna](../../benchmarks/robodyna.md) evaluates physical reasoning and time-critical action in dynamic scenes that continue evolving during policy inference.
 
 The central lesson is: **choose a benchmark from the claim you want to test, not from its popularity.**
 
-## The Five Questions
+## The Six Questions
 
 | Benchmark | Main question |
 | --- | --- |
@@ -27,6 +28,7 @@ The central lesson is: **choose a benchmark from the claim you want to test, not
 | SimplerEnv | Does simulated evaluation track how policies compare on a corresponding real robot setup? |
 | RoboTwin 2.0 | Can a bimanual policy remain effective across tasks, objects, scenes, and visual variation? |
 | RoboDojo | How broadly capable is a generalist policy across generalization, memory, precision, long-horizon, and open-instruction challenges? |
+| RoboDyna | Can a policy understand physical dynamics and act quickly enough in a world that does not pause for inference? |
 
 ## How They Differ
 
@@ -50,6 +52,10 @@ RoboTwin 2.0 provides an expert data-generation pipeline and a benchmark of 50 d
 
 RoboDojo contains 42 simulation tasks organized around five capability dimensions—generalization, memory, precision, long-horizon execution, and open-vocabulary instruction following—plus 18 real-world tasks across three bimanual embodiments. It uses XPolicyLab as the shared policy integration layer. RoboDojo is evaluation-oriented: the benchmark, layouts, scoring, and result artifacts are separate from the policy implementation.
 
+### ⏱️ RoboDyna: dynamic physics and inference-time pressure
+
+RoboDyna evaluates language-conditioned dual-arm policies in scenes that evolve continuously through gravity, friction, collision, contact, and state transitions. Its paired synchronous and asynchronous protocols use the same seeds but differ in whether the world advances during measured policy inference. Twenty conceptual tasks isolate five physical capabilities, while ten household tasks place them in richer office and kitchen scenes. This makes latency part of the evaluation rather than an external deployment statistic.
+
 ## Choosing a Benchmark
 
 - **Continual or multitask transfer:** use LIBERO and preserve its task-suite and learning-order semantics.
@@ -57,6 +63,7 @@ RoboDojo contains 42 simulation tasks organized around five capability dimension
 - **A simulation proxy for real-world evaluation:** use SimplerEnv and examine sim-to-real correlation or ranking agreement.
 - **Bimanual data generation and robustness:** use RoboTwin 2.0, separating clean from randomized settings.
 - **Broad generalist-policy diagnosis:** use RoboDojo and report per-dimension as well as aggregate results.
+- **Dynamic physical reasoning or latency-aware control:** use RoboDyna and report synchronous and asynchronous results separately.
 
 ## What Can Be Compared
 

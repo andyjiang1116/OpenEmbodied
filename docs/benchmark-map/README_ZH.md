@@ -1,6 +1,6 @@
 # 机器人操作基准地图
 
-> LIBERO、CALVIN、SimplerEnv、RoboTwin 2.0 与 RoboDojo 分别在测什么？
+> LIBERO、CALVIN、SimplerEnv、RoboTwin 2.0、RoboDojo 与 RoboDyna 分别在测什么？
 
 [English](README.md) · [基准矩阵](benchmark-matrix_ZH.md) · [协议指南](protocol-guide_ZH.md) · [资料来源](sources.md)
 
@@ -8,17 +8,18 @@
 
 机器人操作基准并不是可以相互替换的测试集。它们所关注的能力、机器人与仿真器、示范数据来源、观测和动作接口，以及成功率汇总方式都不相同。一个模型在某个基准上分数更高，并不意味着它在另一个基准上也更强。
 
-本文比较五个有代表性的基准：
+本文比较六个有代表性的 benchmark：
 
 - [LIBERO](../../benchmarks/libero_ZH.md) 通过 language-conditioned tabletop tasks，研究 lifelong learning 和 multitask learning 中的 knowledge transfer。
 - [CALVIN](../../benchmarks/calvin_ZH.md) 关注 language-conditioned long-horizon control，评估 policy 能连续完成多少条指令。
 - [SimplerEnv](../../benchmarks/simplerenv_ZH.md) 研究 simulation evaluation 能否保持 real-robot policy ranking。
 - [RoboTwin 2.0](../../benchmarks/robotwin-2_ZH.md) 将 scalable expert-data generation 与 strong domain randomization 下的 bimanual evaluation 结合起来。
 - [RoboDojo](../../benchmarks/robodojo_ZH.md) 在 simulation 和标准化 real-robot setup 中，从多个 capability dimensions 评估 generalist policy。
+- [RoboDyna](../../benchmarks/robodyna_ZH.md) 在 policy inference 期间仍持续演化的 dynamic scenes 中，评估 physical reasoning 与 time-critical action。
 
 核心原则是：**从需要验证的研究结论出发选择基准，而不是从基准的流行度出发。**
 
-## 五个基准对应的核心问题
+## 六个 Benchmark 对应的核心问题
 
 | 基准 | 主要回答的问题 |
 | --- | --- |
@@ -27,6 +28,7 @@
 | SimplerEnv | 仿真评测能否反映对应真实机器人上的策略相对表现？ |
 | RoboTwin 2.0 | 双臂策略能否适应不同任务、物体、场景和视觉变化？ |
 | RoboDojo | 通用策略在泛化、记忆、精细操作、长时程和开放指令方面表现如何？ |
+| RoboDyna | Policy 能否理解 physical dynamics，并在不会为 inference 暂停的环境中及时行动？ |
 
 ## 各自的侧重点
 
@@ -50,6 +52,10 @@ RoboTwin 2.0 提供专家数据生成流程和包含 50 个双臂任务的基准
 
 RoboDojo 的仿真部分包含 42 个任务，覆盖泛化、记忆、精细操作、长时程执行和开放词汇指令五个能力维度；真机部分包含三个双臂机器人形态上的 18 个任务。策略通过 XPolicyLab 统一接入。RoboDojo 以评测为核心，基准任务、场景布局、计分方式和结果产物与策略实现相互分离。
 
+### ⏱️ RoboDyna：Dynamic Physics 与 Inference-Time Pressure
+
+RoboDyna 在持续受到 gravity、friction、collision、contact 与 state transition 影响的场景中评估 language-conditioned dual-arm policy。Paired synchronous / asynchronous protocols 使用相同 seeds，区别在于 measured policy inference 期间 environment 是否继续演化。20 个 conceptual tasks 隔离五类 physical capabilities，10 个 household tasks 则将这些能力放入更丰富的 office 与 kitchen scenes。Inference latency 因此成为 benchmark 本身的一部分，而不只是 deployment statistic。
+
 ## 如何选择
 
 - **持续学习或多任务迁移：** 选择 LIBERO，并保留其任务套件和学习顺序语义。
@@ -57,6 +63,7 @@ RoboDojo 的仿真部分包含 42 个任务，覆盖泛化、记忆、精细操�
 - **用仿真代替部分真机评测：** 选择 SimplerEnv，并检查仿真—真机相关性或排序一致性。
 - **双臂数据生成和鲁棒性：** 选择 RoboTwin 2.0，区分干净与随机化设置。
 - **诊断通用策略的综合能力：** 选择 RoboDojo，同时报告各能力维度和总体结果。
+- **Dynamic physical reasoning 或 latency-aware control：** 选择 RoboDyna，并分开报告 synchronous 与 asynchronous results。
 
 ## 哪些结果可以比较
 

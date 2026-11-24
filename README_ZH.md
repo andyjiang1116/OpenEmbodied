@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/assets/openembodied-wordmark.png" alt="OpenEmbodied" width="760" />
+  <img src="docs/assets/openembodied-logo-adaptive.svg" alt="OpenEmbodied" width="760" />
 
   <p><strong>以证据为核心的具身智能研究地图</strong></p>
   <p>追踪前沿 · 横向比较 · 复现关键工作</p>
