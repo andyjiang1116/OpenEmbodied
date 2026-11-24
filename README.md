@@ -1,68 +1,101 @@
-![OpenEmbodied](docs/assets/openembodied-logo.svg)
+<p align="center">
+  <img src="docs/assets/openembodied-logo.svg" alt="OpenEmbodied" width="820" />
+</p>
 
-### A structured research atlas for Embodied AI
+<p align="center">
+  <strong>Mapping embodied intelligence from perception and reasoning to action and real-world deployment.</strong>
+</p>
 
-`Perception` · `Reasoning` · `World Models` · `Navigation` · `Manipulation` · `Deployment`
+<p align="center">
+  👁️ Perception &nbsp;·&nbsp; 🧠 Reasoning &nbsp;·&nbsp; 🌐 World Models<br/>
+  🧭 Navigation &nbsp;·&nbsp; 🦾 Manipulation &nbsp;·&nbsp; 🤖 Deployment
+</p>
 
 ![OpenEmbodied research atlas](docs/assets/openembodied-atlas.png)
 
-[简体中文](README_ZH.md) · [About](#-about) · [Technical Catalog](#-technical-catalog) · [Research Maps](#-research-maps) · [Contributing](#-contributing)
+<p align="center">
+  <a href="README_ZH.md">简体中文</a>
+  &nbsp;·&nbsp;
+  <a href="#-about">About</a>
+  &nbsp;·&nbsp;
+  <a href="#-technical-catalog">Technical Catalog</a>
+  &nbsp;·&nbsp;
+  <a href="#-research-maps">Research Maps</a>
+  &nbsp;·&nbsp;
+  <a href="#-contributing">Contributing</a>
+</p>
 
 ---
 
 ## 🌐 About
 
-Embodied AI is not a single model or benchmark. It is a system problem spanning perception, reasoning, prediction, planning, control, evaluation, simulation, and physical deployment.
+OpenEmbodied is a structured research atlas for Embodied AI, tracing the field from perception, reasoning, and world models to navigation, manipulation, and real-world deployment. Instead of collecting isolated links, it organizes primary-source knowledge around the relationships between methods, evaluation systems, and embodied platforms.
 
-**OpenEmbodied organizes this field as a connected technical atlas.** It turns fragmented papers, repositories, datasets, benchmarks, and robot systems into clear research paths—showing what each work contributes, how different components relate, and where results can or cannot be compared.
-
-The goal is not to collect everything. The goal is to make the field easier to understand, navigate, and build upon.
-
-## ✨ How OpenEmbodied Is Structured
-
-OpenEmbodied organizes the field through three connected layers:
-
-- **Research Atlas** connects intelligence—perception, reasoning, world models, planning, and control—with interaction and infrastructure, from navigation and manipulation to datasets, simulators, robots, and real-world deployment.
-- **Technical Catalog** provides structured profiles of models, policies, benchmarks, and the resources around them.
-- **Research Maps** connect related works and compare them across consistent technical dimensions without collapsing different tasks and protocols into one ranking.
-
-This structure is designed to grow with the field. New collections fit into a stable capability map instead of becoming another disconnected paper list.
+- **Explore methods** through focused profiles of model families, core ideas, released resources, and practical use cases.
+- **Understand evaluation** through benchmark pages that clarify tasks, embodiments, protocols, metrics, and comparison boundaries.
+- **Navigate the field** through research maps that connect models, benchmarks, datasets, simulators, robots, and deployment stacks.
 
 ## 🗂️ Technical Catalog
 
-### 🧠 [Models & Policies](models/README.md)
+### 🧠 Models & Policies
 
-Capability-oriented profiles for VLA systems, grasp perception, dexterous grasp generation, and future model families.
+#### [Vision-Language-Action Models](models/vla/README.md)
 
-[VLA Models →](models/vla/README.md) · [Grasping Models →](models/grasping/README.md)
+Generalist robot policies that connect visual observations and language instructions to actions.
+
+- [OpenVLA / OpenVLA-OFT](models/vla/openvla.md)
+- [SmolVLA](models/vla/smolvla.md)
+- [π0 / π0-FAST / π0.5](models/vla/openpi.md)
+- [NVIDIA Isaac GR00T N1.7](models/vla/gr00t-n1.7.md)
+
+#### [Grasping Models](models/grasping/README.md)
+
+Methods for parallel-gripper perception, dexterous grasp generation, and grasp execution.
+
+- [AnyGrasp](models/grasping/anygrasp.md)
+- [UniDexGrasp](models/grasping/unidexgrasp.md)
+- [DexGraspNet 2.0](models/grasping/dexgraspnet-2.md)
+- [DexGrasp Anything](models/grasping/dexgrasp-anything.md)
 
 ### 📏 [Evaluation Benchmarks](benchmarks/README.md)
 
-Technical guides to what evaluation suites measure, which protocols matter, and how to read reported results.
-
-[Browse Benchmarks →](benchmarks/README.md)
+- [LIBERO](benchmarks/libero.md) — knowledge transfer in lifelong and multitask robot learning.
+- [CALVIN](benchmarks/calvin.md) — language-conditioned long-horizon manipulation.
+- [SimplerEnv](benchmarks/simplerenv.md) — simulation-to-real evaluation fidelity.
+- [RoboTwin 2.0](benchmarks/robotwin-2.md) — scalable bimanual data generation and robustness evaluation.
+- [RoboDojo](benchmarks/robodojo.md) — broad generalist-policy evaluation in simulation and on real robots.
+- [RoboDyna](benchmarks/robodyna.md) — dynamic physical reasoning and latency-aware manipulation.
 
 ## 🧭 Research Maps
 
-### 🔭 [Open VLA Landscape](docs/vla-landscape/README.md)
+### 🔭 Open VLA Landscape
 
 Compare open VLA families across architecture, action generation, adaptation, compute, evaluation, and deployment surfaces.
 
-[Model Matrix →](docs/vla-landscape/model-matrix.md)
+- [Landscape Overview](docs/vla-landscape/README.md)
+- [Model Matrix](docs/vla-landscape/model-matrix.md)
+- [Benchmark Notes](docs/vla-landscape/benchmark-notes.md)
+- [Primary Sources](docs/vla-landscape/sources.md)
 
-### 🦾 [Manipulation Benchmark Map](docs/benchmark-map/README.md)
+### 🦾 Manipulation Benchmark Map
 
-Understand how LIBERO, CALVIN, SimplerEnv, RoboTwin 2.0, RoboDojo, and RoboDyna test different capabilities.
+Understand what manipulation benchmarks measure and when their results can be compared.
 
-[Benchmark Matrix →](docs/benchmark-map/benchmark-matrix.md) · [Protocol Guide →](docs/benchmark-map/protocol-guide.md)
+- [Benchmark Map Overview](docs/benchmark-map/README.md)
+- [Benchmark Matrix](docs/benchmark-map/benchmark-matrix.md)
+- [Protocol Guide](docs/benchmark-map/protocol-guide.md)
+- [Primary Sources](docs/benchmark-map/sources.md)
 
-### Expanding the Atlas
+## 🛰️ Expanding the Atlas
 
-The repository is being built toward dedicated collections for:
-
-`perception` · `reasoning` · `world-models` · `navigation` · `datasets` · `simulators` · `robots` · `deployment`
-
-Each collection will use the same principles: clear scope, stable taxonomy, primary sources, meaningful comparisons, and explicit system context.
+| Research area | Planned coverage |
+| --- | --- |
+| **Perception** | 3D vision, grounding, mapping, affordance, and active perception |
+| **Embodied Reasoning** | spatial and temporal reasoning, planning, memory, and decision making |
+| **World Models** | environment prediction, video-action generation, simulation, and policy improvement |
+| **Navigation** | visual-language navigation, exploration, localization, and mobile interaction |
+| **Datasets & Simulators** | embodied data, synthetic generation, physics engines, and evaluation environments |
+| **Robots & Deployment** | embodiments, interfaces, policy serving, sim-to-real, and real-world systems |
 
 ## 🤝 Contributing
 

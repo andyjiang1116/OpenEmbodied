@@ -1,68 +1,101 @@
-![OpenEmbodied](docs/assets/openembodied-logo.svg)
+<p align="center">
+  <img src="docs/assets/openembodied-logo.svg" alt="OpenEmbodied" width="820" />
+</p>
 
-### 系统化的 Embodied AI Research Atlas
+<p align="center">
+  <strong>从感知与推理出发，连接机器人行动、评测体系与真实世界部署。</strong>
+</p>
 
-`感知` · `推理` · `世界模型` · `导航` · `操作` · `部署`
+<p align="center">
+  👁️ 感知 &nbsp;·&nbsp; 🧠 推理 &nbsp;·&nbsp; 🌐 世界模型<br/>
+  🧭 导航 &nbsp;·&nbsp; 🦾 操作 &nbsp;·&nbsp; 🤖 部署
+</p>
 
 ![OpenEmbodied research atlas](docs/assets/openembodied-atlas.png)
 
-[English](README.md) · [关于项目](#-关于项目) · [技术目录](#-技术目录) · [研究地图](#-研究地图) · [参与贡献](#-参与贡献)
+<p align="center">
+  <a href="README.md">English</a>
+  &nbsp;·&nbsp;
+  <a href="#-关于项目">关于项目</a>
+  &nbsp;·&nbsp;
+  <a href="#-技术目录">技术目录</a>
+  &nbsp;·&nbsp;
+  <a href="#-研究地图">研究地图</a>
+  &nbsp;·&nbsp;
+  <a href="#-参与贡献">参与贡献</a>
+</p>
 
 ---
 
 ## 🌐 关于项目
 
-Embodied AI 不是单一模型或 Benchmark，而是一个贯穿 perception、reasoning、prediction、planning、control、evaluation、simulation 与 physical deployment 的系统问题。
+OpenEmbodied 是一个面向 Embodied AI 的结构化研究图谱，覆盖从 perception、reasoning、world models 到 navigation、manipulation 与 real-world deployment 的完整技术链路。仓库不以堆积链接为目标，而是基于原始资料梳理 methods、evaluation systems 与 embodied platforms 之间的关系。
 
-**OpenEmbodied 将这个领域组织为一张彼此连接的技术地图。** 项目把分散的论文、代码仓库、Dataset、Benchmark 和机器人系统整理为清晰的研究路径，说明每项工作贡献了什么、不同组件如何关联，以及哪些结果可以或不可以直接比较。
-
-目标不是收集所有内容，而是让这个领域更容易理解、检索，并能够在已有工作之上继续构建。
-
-## ✨ OpenEmbodied 的内容结构
-
-OpenEmbodied 通过三个相互连接的层次组织具身智能研究：
-
-- **Research Atlas｜技术版图：** 将 perception、reasoning、world models、planning 与 control 组成的 intelligence，同 navigation、manipulation、datasets、simulators、robots 和 real-world deployment 连接起来。
-- **Technical Catalog｜技术目录：** 提供 models、policies、benchmarks 及其关联资源的结构化档案。
-- **Research Maps｜研究地图：** 连接相关工作，按照一致的技术维度进行比较，同时避免把不同任务和 protocol 简化为同一排名。
-
-这一结构面向长期扩展。新的专题会进入稳定的 capability map，而不是继续堆叠成彼此割裂的论文列表。
+- **探索技术方法：** 通过结构化档案理解 model family、核心思路、开放资源与实际应用场景。
+- **理解评测体系：** 通过 Benchmark 页面厘清 task、embodiment、protocol、metric 与结果的比较边界。
+- **把握研究全景：** 通过 Research Maps 连接 models、benchmarks、datasets、simulators、robots 与 deployment stacks。
 
 ## 🗂️ 技术目录
 
-### 🧠 [Models & Policies｜模型与策略](models/README_ZH.md)
+### 🧠 Models & Policies｜模型与策略
 
-按 capability 组织 VLA、grasp perception、dexterous grasp generation，以及后续扩展的模型家族。
+#### [Vision-Language-Action Models](models/vla/README_ZH.md)
 
-[VLA Models →](models/vla/README_ZH.md) · [Grasping Models →](models/grasping/README_ZH.md)
+将视觉观测和语言指令连接到机器人动作的 generalist policy。
+
+- [OpenVLA / OpenVLA-OFT](models/vla/openvla_ZH.md)
+- [SmolVLA](models/vla/smolvla_ZH.md)
+- [π0 / π0-FAST / π0.5](models/vla/openpi_ZH.md)
+- [NVIDIA Isaac GR00T N1.7](models/vla/gr00t-n1.7_ZH.md)
+
+#### [Grasping Models](models/grasping/README_ZH.md)
+
+覆盖 parallel-gripper perception、dexterous grasp generation 与 grasp execution 的方法。
+
+- [AnyGrasp](models/grasping/anygrasp_ZH.md)
+- [UniDexGrasp](models/grasping/unidexgrasp_ZH.md)
+- [DexGraspNet 2.0](models/grasping/dexgraspnet-2_ZH.md)
+- [DexGrasp Anything](models/grasping/dexgrasp-anything_ZH.md)
 
 ### 📏 [Evaluation Benchmarks｜评测基准](benchmarks/README_ZH.md)
 
-理解不同 evaluation suite 测量的能力、关键 protocol，以及如何正确阅读报告结果。
-
-[浏览 Benchmarks →](benchmarks/README_ZH.md)
+- [LIBERO](benchmarks/libero_ZH.md) — lifelong 与 multitask robot learning 中的 knowledge transfer。
+- [CALVIN](benchmarks/calvin_ZH.md) — language-conditioned long-horizon manipulation。
+- [SimplerEnv](benchmarks/simplerenv_ZH.md) — simulation-to-real evaluation fidelity。
+- [RoboTwin 2.0](benchmarks/robotwin-2_ZH.md) — scalable bimanual data generation 与 robustness evaluation。
+- [RoboDojo](benchmarks/robodojo_ZH.md) — simulation 与 real robot 上的 generalist-policy evaluation。
+- [RoboDyna](benchmarks/robodyna_ZH.md) — dynamic physical reasoning 与 latency-aware manipulation。
 
 ## 🧭 研究地图
 
-### 🔭 [Open VLA Landscape](docs/vla-landscape/README_ZH.md)
+### 🔭 Open VLA Landscape
 
 从 architecture、action generation、adaptation、compute、evaluation 与 deployment surface 对比开放 VLA 路线。
 
-[Model Matrix →](docs/vla-landscape/model-matrix_ZH.md)
+- [Landscape Overview](docs/vla-landscape/README_ZH.md)
+- [Model Matrix](docs/vla-landscape/model-matrix_ZH.md)
+- [Benchmark Notes](docs/vla-landscape/benchmark-notes_ZH.md)
+- [Primary Sources](docs/vla-landscape/sources.md)
 
-### 🦾 [Manipulation Benchmark Map](docs/benchmark-map/README_ZH.md)
+### 🦾 Manipulation Benchmark Map
 
-理解 LIBERO、CALVIN、SimplerEnv、RoboTwin 2.0、RoboDojo 与 RoboDyna 分别测试哪些能力。
+理解不同 manipulation benchmark 测量什么，以及哪些结果可以合理比较。
 
-[Benchmark Matrix →](docs/benchmark-map/benchmark-matrix_ZH.md) · [Protocol Guide →](docs/benchmark-map/protocol-guide_ZH.md)
+- [Benchmark Map Overview](docs/benchmark-map/README_ZH.md)
+- [Benchmark Matrix](docs/benchmark-map/benchmark-matrix_ZH.md)
+- [Protocol Guide](docs/benchmark-map/protocol-guide_ZH.md)
+- [Primary Sources](docs/benchmark-map/sources.md)
 
-### 持续扩展的 Atlas
+## 🛰️ 持续扩展的 Atlas
 
-仓库将逐步建设以下独立专题：
-
-`perception` · `reasoning` · `world-models` · `navigation` · `datasets` · `simulators` · `robots` · `deployment`
-
-每个专题遵循一致原则：范围清晰、taxonomy 稳定、基于 primary sources、进行有意义的比较，并保留明确的 system context。
+| 研究方向 | 计划覆盖范围 |
+| --- | --- |
+| **Perception｜感知** | 3D vision、grounding、mapping、affordance 与 active perception |
+| **Embodied Reasoning｜具身推理** | spatial/temporal reasoning、planning、memory 与 decision making |
+| **World Models｜世界模型** | environment prediction、video-action generation、simulation 与 policy improvement |
+| **Navigation｜导航** | visual-language navigation、exploration、localization 与 mobile interaction |
+| **Datasets & Simulators** | embodied data、synthetic generation、physics engines 与 evaluation environments |
+| **Robots & Deployment** | embodiments、interfaces、policy serving、sim-to-real 与 real-world systems |
 
 ## 🤝 参与贡献
 
