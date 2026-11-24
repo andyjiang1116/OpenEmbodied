@@ -5,7 +5,7 @@
 > **Category:** Vision-Language-Action Model · [Repository](https://github.com/NVIDIA/Isaac-GR00T) · [Publication](https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots) · [Paper](https://arxiv.org/abs/2503.14734)
 
 <p align="center">
-  <img src="../docs/assets/models/gr00t-architecture.jpg" alt="NVIDIA Isaac GR00T N1.7 architecture" width="820" />
+  <img src="../../docs/assets/models/gr00t-architecture.jpg" alt="NVIDIA Isaac GR00T N1.7 architecture" width="820" />
 </p>
 
 <p align="center"><em>GR00T N1.7 model architecture. Image source: <a href="https://github.com/NVIDIA/Isaac-GR00T">official repository</a>.</em></p>

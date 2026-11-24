@@ -1,14 +1,21 @@
 # Models
 
-> Technical notes on vision-language-action models and robot policies.
+> Technical profiles organized by the capability a model contributes to an embodied system.
 
 [简体中文](README_ZH.md)
 
-| Model | Focus |
-| --- | --- |
-| [OpenVLA / OpenVLA-OFT](openvla.md) | Open VLA architecture and Open X-Embodiment pretraining |
-| [SmolVLA](smolvla.md) | Compact VLA experiments in the LeRobot ecosystem |
-| [π0 / π0-FAST / π0.5](openpi.md) | Flow matching, FAST action tokens, and cross-embodiment adaptation |
-| [NVIDIA Isaac GR00T N1.7](gr00t-n1.7.md) | Cross-embodiment training, serving, and deployment |
+## Model Families
 
-Each note covers the model's purpose, architecture, data, action interface, adaptation path, deployment surface, limitations, and primary sources.
+### 🧠 [Vision-Language-Action Models](vla/README.md)
+
+Generalist policies that connect visual observations and language instructions to robot actions. This collection currently covers OpenVLA, SmolVLA, π0 / π0-FAST / π0.5, and NVIDIA Isaac GR00T N1.7.
+
+### ✋ [Grasping Models](grasping/README.md)
+
+Methods for parallel-gripper grasp perception and dexterous-hand pose generation or execution. The collection connects AnyGrasp, UniDexGrasp, DexGraspNet 2.0, and DexGrasp Anything through a shared grasping taxonomy.
+
+## Organization
+
+Model profiles live under capability-oriented directories rather than framework or institution names. New families can be added without flattening unrelated methods into one list—for example `world-models/`, `navigation/`, or `humanoid-control/` when those collections become substantial.
+
+Each profile separates the research contribution from the released implementation, data, checkpoints, runtime dependencies, license, and deployment boundary.

@@ -5,7 +5,7 @@
 > **类别：** Vision-Language-Action Model · [Repository](https://github.com/huggingface/lerobot) · [Project Article](https://huggingface.co/blog/smolvla) · [Model](https://huggingface.co/lerobot/smolvla_base) · [Paper](https://arxiv.org/abs/2506.01844)
 
 <p align="center">
-  <img src="../docs/assets/models/smolvla-overview.jpg" alt="SmolVLA across robot task variations" width="820" />
+  <img src="../../docs/assets/models/smolvla-overview.jpg" alt="SmolVLA across robot task variations" width="820" />
 </p>
 
 <p align="center"><em>SmolVLA 在不同任务条件下运行。图片来源：<a href="https://huggingface.co/blog/smolvla">official Hugging Face article</a>。</em></p>

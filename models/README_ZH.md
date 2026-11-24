@@ -1,14 +1,21 @@
 # 模型
 
-> 介绍视觉—语言—动作模型与机器人策略的技术档案。
+> 按照模型在 Embodied System 中承担的能力组织技术档案。
 
 [English](README.md)
 
-| 模型 | 重点 |
-| --- | --- |
-| [OpenVLA / OpenVLA-OFT](openvla_ZH.md) | 开放 VLA 架构与 Open X-Embodiment pretraining |
-| [SmolVLA](smolvla_ZH.md) | LeRobot 生态中的 compact VLA 实验 |
-| [π0 / π0-FAST / π0.5](openpi_ZH.md) | Flow matching、FAST action representation 与 cross-embodiment adaptation |
-| [NVIDIA Isaac GR00T N1.7](gr00t-n1.7_ZH.md) | Cross-embodiment training、policy serving 与 deployment |
+## 模型家族
 
-每篇档案围绕模型定位、架构、数据、动作接口、适配方式、部署能力、使用边界和原始来源展开。
+### 🧠 [Vision-Language-Action Models](vla/README_ZH.md)
+
+将视觉观测、语言指令与机器人动作连接起来的 generalist policy。目前收录 OpenVLA、SmolVLA、π0 / π0-FAST / π0.5 和 NVIDIA Isaac GR00T N1.7。
+
+### ✋ [Grasping Models](grasping/README_ZH.md)
+
+覆盖 parallel gripper 的 grasp perception，以及 dexterous hand 的 grasp pose generation 与 execution。当前通过统一的 grasping taxonomy 串联 AnyGrasp、UniDexGrasp、DexGraspNet 2.0 和 DexGrasp Anything。
+
+## 组织原则
+
+模型档案按照 capability domain 划分，而不是按照 framework 或研究机构分类。后续当内容达到一定规模时，可以自然增加 `world-models/`、`navigation/` 或 `humanoid-control/`，避免把无关方法堆叠在同一目录。
+
+每篇档案会区分 research contribution 与实际发布的代码、数据、checkpoint、运行依赖、license 和 deployment boundary。

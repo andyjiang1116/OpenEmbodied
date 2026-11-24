@@ -5,7 +5,7 @@
 > **Category:** Vision-Language-Action Model · [Repository](https://github.com/openvla/openvla) · [Project Page](https://openvla.github.io/) · [Paper](https://arxiv.org/abs/2406.09246) · [OpenVLA-OFT](https://openvla-oft.github.io/)
 
 <p align="center">
-  <img src="../docs/assets/models/openvla-model.jpg" alt="OpenVLA model architecture" width="820" />
+  <img src="../../docs/assets/models/openvla-model.jpg" alt="OpenVLA model architecture" width="820" />
 </p>
 
 <p align="center"><em>OpenVLA maps images and language instructions to tokenized robot actions. Image source: <a href="https://openvla.github.io/">official project page</a>.</em></p>

@@ -5,7 +5,7 @@
 > **Category:** Vision-Language-Action Model · [Repository](https://github.com/Physical-Intelligence/openpi) · [π0](https://www.pi.website/blog/pi0) · [π0.5](https://www.pi.website/blog/pi05) · [Paper](https://arxiv.org/abs/2410.24164)
 
 <p align="center">
-  <img src="../docs/assets/models/openpi-overview.jpg" alt="π0 model, data, and adaptation overview" width="820" />
+  <img src="../../docs/assets/models/openpi-overview.jpg" alt="π0 model, data, and adaptation overview" width="820" />
 </p>
 
 <p align="center"><em>π0 model, data, and adaptation overview. Image source: <a href="https://arxiv.org/abs/2410.24164">official paper</a>.</em></p>
