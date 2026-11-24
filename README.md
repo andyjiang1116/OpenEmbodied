@@ -1,80 +1,77 @@
-<div align="center">
-  <img src="docs/assets/openembodied-logo-adaptive.svg" alt="OpenEmbodied" width="760" />
+![OpenEmbodied](docs/assets/openembodied-logo.svg)
 
-  <p><strong>An evidence-first atlas for Embodied AI.</strong></p>
-  <p>Track the frontier · Compare methods · Reproduce what matters</p>
-  <p>
-    <a href="README_ZH.md">简体中文</a>
-    ·
-    <a href="#-why-openembodied">Why OpenEmbodied</a>
-    ·
-    <a href="#-explore">Explore</a>
-  </p>
-</div>
+### A structured research atlas for Embodied AI
+
+`Perception` · `Reasoning` · `World Models` · `Navigation` · `Manipulation` · `Deployment`
+
+![OpenEmbodied research atlas](docs/assets/openembodied-atlas.png)
+
+[简体中文](README_ZH.md) · [About](#-about) · [Technical Catalog](#-technical-catalog) · [Research Maps](#-research-maps) · [Contributing](#-contributing)
 
 ---
 
 ## 🌐 About
 
-Embodied AI moves quickly, but more information does not always produce better understanding. Papers use different datasets, evaluation protocols, hardware, and reporting conventions; repositories often show successful demos without documenting the conditions or failures behind them.
+Embodied AI is not a single model or benchmark. It is a system problem spanning perception, reasoning, prediction, planning, control, evaluation, simulation, and physical deployment.
 
-**OpenEmbodied turns scattered resources into structured, comparable, and verifiable knowledge.**
+**OpenEmbodied organizes this field as a connected technical atlas.** It turns fragmented papers, repositories, datasets, benchmarks, and robot systems into clear research paths—showing what each work contributes, how different components relate, and where results can or cannot be compared.
 
-Instead of building another link collection, this project records what a method solves, how it works, what evidence supports it, what it costs to reproduce, and where it stops working.
+The goal is not to collect everything. The goal is to make the field easier to understand, navigate, and build upon.
 
-> [!IMPORTANT]
-> OpenEmbodied is in its foundation stage. The standards and first flagship collections are being designed before the repository expands in breadth.
+## ✨ How OpenEmbodied Is Structured
 
-## ✨ Why OpenEmbodied
+OpenEmbodied organizes the field through three connected layers:
 
-| Common problem | OpenEmbodied approach |
-| --- | --- |
-| Long lists of papers with little context | Structured model, benchmark, dataset, simulator, and robot notes |
-| Results that are difficult to compare | Dataset, benchmark, metric, and evaluation-protocol context |
-| “Open source” without reproducibility details | Explicit code, weights, data, license, compute, and environment status |
-| Successful demos without failure analysis | Limitations, failure modes, and unresolved questions |
-| Claims without clear provenance | Primary sources, explicit scope, and reproducible context |
+- **Research Atlas** connects intelligence—perception, reasoning, world models, planning, and control—with interaction and infrastructure, from navigation and manipulation to datasets, simulators, robots, and real-world deployment.
+- **Technical Catalog** provides structured profiles of models, policies, benchmarks, and the resources around them.
+- **Research Maps** connect related works and compare them across consistent technical dimensions without collapsing different tasks and protocols into one ranking.
 
-## 🧭 Explore
+This structure is designed to grow with the field. New collections fit into a stable capability map instead of becoming another disconnected paper list.
 
-**Catalog:** [Models](models/README.md) · [Benchmarks](benchmarks/README.md)
+## 🗂️ Technical Catalog
+
+### 🧠 [Models & Policies](models/README.md)
+
+Capability-oriented profiles for VLA systems, grasp perception, dexterous grasp generation, and future model families.
+
+[VLA Models →](models/vla/README.md) · [Grasping Models →](models/grasping/README.md)
+
+### 📏 [Evaluation Benchmarks](benchmarks/README.md)
+
+Technical guides to what evaluation suites measure, which protocols matter, and how to read reported results.
+
+[Browse Benchmarks →](benchmarks/README.md)
+
+## 🧭 Research Maps
 
 ### 🔭 [Open VLA Landscape](docs/vla-landscape/README.md)
 
-A practical comparison of OpenVLA, SmolVLA, openpi, and GR00T N1.7 across architecture, actions, openness, compute, and evaluation.
+Compare open VLA families across architecture, action generation, adaptation, compute, evaluation, and deployment surfaces.
 
-### 🦾 [Robot Manipulation Benchmark Map](docs/benchmark-map/README.md)
+[Model Matrix →](docs/vla-landscape/model-matrix.md)
 
-A guide to what LIBERO, CALVIN, SimplerEnv, RoboTwin 2.0, and RoboDojo measure—and when their results can be compared.
+### 🦾 [Manipulation Benchmark Map](docs/benchmark-map/README.md)
 
-## 🗂️ How the Repository Is Organized
+Understand how LIBERO, CALVIN, SimplerEnv, RoboTwin 2.0, RoboDojo, and RoboDyna test different capabilities.
 
-```text
-Track the frontier → Understand the work → Verify the result → Choose with context
-```
+[Benchmark Matrix →](docs/benchmark-map/benchmark-matrix.md) · [Protocol Guide →](docs/benchmark-map/protocol-guide.md)
 
-- **Frontier Watch** highlights important new work and explains why it matters.
-- **Models & Benchmarks** provide source-backed technical notes on individual systems and evaluation suites.
-- **Reproduction Reports** document runnable experiments, results, and failure cases.
-- **Documentation** connects individual entries into research landscapes, benchmark maps, and reproduction reports.
+### Expanding the Atlas
+
+The repository is being built toward dedicated collections for:
+
+`perception` · `reasoning` · `world-models` · `navigation` · `datasets` · `simulators` · `robots` · `deployment`
+
+Each collection will use the same principles: clear scope, stable taxonomy, primary sources, meaningful comparisons, and explicit system context.
 
 ## 🤝 Contributing
 
-OpenEmbodied welcomes corrections, primary-source updates, technical notes, benchmark analysis, and reproduction reports.
+OpenEmbodied welcomes corrections, new technical profiles, landscape improvements, benchmark analysis, and implementation experience.
 
-A useful contribution includes:
-
-- the official source and release date;
-- the relevant research area;
-- a factual summary and reason for inclusion;
-- availability of code, weights, data, and license;
-- evaluation or reproduction evidence when available;
-- known limitations or unresolved questions.
-
-Contribution templates will be added with the first repository structure release. Until then, open an Issue to propose a resource or correction.
+A strong contribution is factual, source-linked, technically scoped, and clear about what is released, what is measured, and what remains uncertain. Open an Issue to propose a new area, resource, or correction.
 
 ## 🙏 Acknowledgments
 
-OpenEmbodied is inspired by the researchers, engineers, educators, and open-source contributors advancing embodied intelligence.
+OpenEmbodied is built on the work of researchers, engineers, educators, and open-source communities advancing embodied intelligence.
 
-External papers, code, datasets, and other resources remain the property of their respective owners. Follow each source's license and citation requirements.
+External papers, code, datasets, images, and other resources remain the property of their respective owners. Follow each source's license and citation requirements.
