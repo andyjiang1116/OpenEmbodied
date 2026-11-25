@@ -21,7 +21,7 @@ Before placing two results in the same row, record:
 - simulator and dependency versions;
 - whether evaluation uses a local policy, remote server, or optimized runtime.
 
-OpenEmbodied will not create a unified LIBERO leaderboard until these fields are normalized.
+LIBERO results with different settings should be presented separately or accompanied by explicit protocol differences.
 
 ## SimplerEnv Checklist
 
@@ -45,11 +45,11 @@ SO100/SO101, DROID, ALOHA, humanoid, and other real-robot results should include
 - inference hardware, communication path, and measured latency;
 - safety controller or post-processing that changes policy outputs.
 
-## Rules for the Landscape
+## Reporting Principles
 
 1. Prefer official tables and scripts, but label all unverified numbers as author-reported.
 2. Never infer equivalence from the benchmark name alone.
 3. Keep simulation and real-robot evidence separate.
-4. Store failed runs and protocol deviations alongside successful results.
-5. Promote a result to reproduced only after the exact environment and aggregation are recorded.
+4. Report failed runs and protocol deviations alongside successful results when presenting a reproduction study.
+5. A reproduced result requires the environment, checkpoint, and aggregation procedure to be specified.
 

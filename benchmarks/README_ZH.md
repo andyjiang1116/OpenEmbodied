@@ -1,4 +1,4 @@
-# 基准
+# 机器人操作评测基准
 
 > 介绍机器人操作评测体系的技术档案。
 
@@ -6,11 +6,11 @@
 
 | 基准 | 重点 |
 | --- | --- |
-| [LIBERO](libero_ZH.md) | Language-conditioned tasks 中的 lifelong learning 与 knowledge transfer |
-| [CALVIN](calvin_ZH.md) | Language-conditioned long-horizon task chains |
-| [SimplerEnv](simplerenv_ZH.md) | 使用 simulation 评估 real-robot policies |
-| [RoboTwin 2.0](robotwin-2_ZH.md) | Bimanual data generation 与 domain-randomized robustness |
-| [RoboDojo](robodojo_ZH.md) | Generalist policy 的 sim-and-real capability diagnosis |
-| [RoboDyna](robodyna_ZH.md) | Dynamic physical reasoning 与 latency-aware manipulation evaluation |
+| [LIBERO](libero_ZH.md) | 语言条件任务中的终身学习与知识迁移 |
+| [CALVIN](calvin_ZH.md) | 语言条件下的长程连续操作 |
+| [SimplerEnv](simplerenv_ZH.md) | 仿真评测与真机策略表现的一致性 |
+| [RoboTwin 2.0](robotwin-2_ZH.md) | 双臂操作数据生成与域随机化鲁棒性 |
+| [RoboDojo](robodojo_ZH.md) | 仿真与真机中的通用操作策略能力评测 |
+| [RoboDyna](robodyna_ZH.md) | 动态物理推理与推理延迟敏感的操作评测 |
 
-每篇档案说明基准所测能力、环境与机器人形态、任务与数据设计、评测指标、协议边界、适用场景和原始来源。
+每篇档案说明评测目标、环境与机器人平台、任务与数据设计、评测指标、协议边界及参考资料。

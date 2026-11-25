@@ -10,14 +10,14 @@
 
 *Official project demonstration.*
 
-## Snapshot
+## Technical Summary
 
 - **Problem:** Detect stable 6-DoF grasp poses and track them over time in cluttered or dynamic scenes.
 - **End effector:** Parallel gripper.
 - **Observation:** Point clouds derived from depth sensing, optionally cropped or masked for a target region.
 - **Output:** Grasp pose, width, score, and tracked candidates for downstream motion planning.
 
-## Why It Matters
+## Technical Contribution
 
 Many grasp detectors treat each frame independently. AnyGrasp joins spatial grasp perception with temporal correspondence, so a robot can preserve stable candidates while the camera, objects, or robot move. The system targets practical throughput and has demonstrations spanning clutter removal, deformable objects, transparent objects, and moving targets.
 
@@ -31,13 +31,13 @@ The released SDK exposes options for dense prediction, object-mask filtering, an
 
 AnyGrasp is a perception component, not a complete pick-and-place policy. A working robot system still needs calibrated RGB-D sensing, point-cloud preprocessing, robot–camera transforms, candidate selection, inverse kinematics, motion planning, gripper control, and failure recovery.
 
-The official SDK lists Python 3.6–3.10, PyTorch 1.7.1+, CUDA, MinkowskiEngine, and a compiled `pointnet2` module. Compatibility should be checked against the target GPU and operating system before treating the demo environment as deployable.
+The current SDK documentation lists Python 3.6–3.14, PyTorch 1.7.1+, CUDA 11.x/12.x/13.x, and MinkowskiEngine 0.5.4. The supported combination still depends on the target GPU, operating system, and compiled extensions; the [official installation instructions](https://github.com/graspnet/anygrasp_sdk#installation) define the current setup.
 
 ## Availability and License Boundary
 
-The official repository provides SDK wrappers and examples, but the core AnyGrasp library is distributed through machine-bound license registration because of stated IP constraints. Users submit a machine feature ID and request a license. This is materially different from a conventional fully open-source implementation and should be considered before product integration or reproducibility claims.
+The official repository provides SDK wrappers and examples, while use of the core library requires license registration. The SDK replaced its previous license tool in July 2026; existing instructions based on the older `lib_cxx.so` or `license_checker` tools do not apply to the updated release. The [current registration guide](https://github.com/graspnet/anygrasp_sdk/tree/main/license_registration) should be consulted before installation or redistribution.
 
-## Primary Sources
+## References
 
 - [Official project page](https://graspnet.net/anygrasp.html)
 - [Official AnyGrasp SDK](https://github.com/graspnet/anygrasp_sdk)

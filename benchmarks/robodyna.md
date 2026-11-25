@@ -10,7 +10,7 @@
 
 <p align="center"><em>RoboDyna evaluates language-conditioned dual-arm manipulation in worlds that continue evolving while a policy thinks. Image source: <a href="https://robodyna.github.io/robodyna/">official project page</a>.</em></p>
 
-## Snapshot
+## Technical Summary
 
 - **Primary purpose:** evaluate physical understanding and closed-loop action in dynamic scenes.
 - **Environment:** language-conditioned dual-arm manipulation in SAPIEN 3.
@@ -18,7 +18,7 @@
 - **Data:** 3,500 expert demonstrations from task-specific controllers.
 - **Distinctive protocol:** paired synchronous and asynchronous evaluation on identical seeds.
 
-## Why It Matters
+## Evaluation Objective
 
 Most manipulation benchmarks present a scene, wait for policy inference, execute an action, and then advance the environment. That design removes computation time from the task. RoboDyna instead studies a world governed continuously by gravity, friction, collision, contact, and state changes. Under its asynchronous protocol, the scene continues evolving for the measured inference duration, so a late action can become a wrong action.
 
@@ -68,11 +68,11 @@ The reported policy results should be read as findings under the released checkp
 - Report both success rate and progress score when partial completion matters.
 - Keep policy and human control modes distinct.
 
-## Best Fit
+## Research Use
 
 Use RoboDyna when the research claim concerns dynamic physical reasoning, time-critical action, latency-aware evaluation, or compositional generalization under physically grounded motion. It complements static manipulation suites; it does not replace benchmarks designed specifically for lifelong transfer, long-horizon instruction chains, or standardized real-robot evaluation.
 
-## Primary Sources
+## References
 
 - [Official repository](https://github.com/RoboDyna/robodyna)
 - [Project page and task gallery](https://robodyna.github.io/robodyna/)

@@ -10,14 +10,14 @@
 
 <p align="center"><em>OpenVLA maps images and language instructions to tokenized robot actions. Image source: <a href="https://openvla.github.io/">official project page</a>.</em></p>
 
-## Snapshot
+## Technical Summary
 
 - **Role in the landscape:** influential open VLA baseline and Open X-Embodiment lineage.
 - **Flagship size:** 7B parameters.
 - **Inputs/outputs:** image and language to robot action; exact state, view, and action interfaces depend on checkpoint and recipe.
 - **Action representation:** flagship OpenVLA discretizes actions as tokens; OFT documents a continuous-action fine-tuning recipe.
 
-## Why It Matters
+## Technical Contribution
 
 OpenVLA made a generalist 7B VLA, checkpoints, inference, fine-tuning, evaluation, and serving material publicly accessible. It remains a useful reference point for studying how pretrained VLMs are adapted to robot control and how Open X-Embodiment data is mixed for generalist manipulation policies.
 
@@ -54,11 +54,11 @@ OpenVLA-OFT is a distinct optimized fine-tuning recipe rather than a rename of t
 - Open X-Embodiment is a collection of datasets with dataset-specific availability and terms; a published mixture does not make every source uniformly redistributable.
 - “OpenVLA result” is ambiguous unless the checkpoint and recipe—vanilla, FAST-related work, or OFT—are named.
 
-## When to Use It
+## Research Use
 
 OpenVLA is a strong reference when studying the original open VLA design, Open X-Embodiment pretraining, or parameter-efficient adaptation of a 7B policy. SmolVLA is usually easier for a first low-resource experiment, while openpi and GR00T expose different continuous-action and deployment choices.
 
-## Primary Sources
+## References
 
 - [Official repository](https://github.com/openvla/openvla)
 - [Project page](https://openvla.github.io/)

@@ -11,7 +11,7 @@ This matrix separates facts published by project owners from OpenEmbodied's inte
 | Main scope | Manipulation VLA | Affordable, efficient VLA | π0, π0-FAST, π0.5 policy family | Cross-embodiment generalist robot skills |
 | Approx. size | OpenVLA flagship: 7B | 450M / model card reports ~0.5B | Not summarized as one size in the repo; variant-dependent | Released base checkpoint: 3B |
 | Visual/language base | Prismatic VLM; DINOv2 + SigLIP vision, Llama 2 language model for flagship | SmolVLM-family backbone | Gemma-family dependencies; variant-dependent | Cosmos-Reason2-2B / Qwen3-VL-based VLM backbone |
-| Action approach | Flagship uses discretized action tokens; OFT documents continuous actions | Continuous actions, flow matching | π0 and π0.5: flow matching; π0-FAST: autoregressive action tokens | Diffusion-transformer action head over continuous actions |
+| Action approach | Flagship uses discretized action tokens; OFT documents continuous actions | Continuous actions, flow matching | π0 and π0.5: flow matching; π0-FAST: autoregressive action tokens | Flow-matching action transformer over continuous action chunks |
 | Typical inputs | Image + language; exact multi-view/state support depends on recipe | Multi-view images + state + optional language | Robot observations + prompt; schema depends on robot config | Images + language + proprioceptive state, configured by embodiment |
 | Typical outputs | Robot action, unnormalized for dataset/robot | Continuous action chunks | Action chunks | Continuous action chunks |
 
@@ -46,7 +46,7 @@ This matrix separates facts published by project owners from OpenEmbodied's inte
 | Real-robot references | Bridge/WidowX and other manipulation settings | SO100/SO101 | DROID, ALOHA, UR5 examples | SO100 and multiple humanoid/bimanual embodiments |
 | Protocol caution | Do not merge vanilla OpenVLA and OFT results | Community data and task-specific fine-tuning matter | Checkpoint-to-robot mismatch is explicitly warned | Embodiment tags and environment prefixes must match |
 
-## OpenEmbodied Interpretation
+## Comparison Boundaries
 
 - **Lowest initial barrier:** SmolVLA, because the model is smaller and the model card connects directly to LeRobot data and policy APIs.
 - **Best historical reference point:** OpenVLA, because it anchors the open VLA/OXE lineage and exposes important licensing distinctions.

@@ -10,13 +10,13 @@
 
 <p align="center"><em>π0 model, data, and adaptation overview. Image source: <a href="https://arxiv.org/abs/2410.24164">official paper</a>.</em></p>
 
-## Snapshot
+## Technical Summary
 
 - **Role in the landscape:** an official implementation and release surface for Physical Intelligence robot-policy models.
 - **Variants:** π0, π0-FAST, and π0.5.
 - **Action generation:** flow matching for π0 and the currently supported π0.5 head; autoregressive action tokens for π0-FAST.
 
-## Why It Matters
+## Technical Contribution
 
 openpi makes architectural alternatives visible within one model family and publishes both base checkpoints and several task/robot-specific expert checkpoints. It also exposes data conversion, normalization, training, policy serving, and robot/simulation examples, which makes system boundaries easier to inspect.
 
@@ -61,11 +61,11 @@ These are project estimates and have not been reproduced by OpenEmbodied.
 - Repository license and model dependency terms should be reviewed separately.
 - Reported LIBERO performance should be compared only after aligning the exact checkpoint and protocol.
 
-## When to Use It
+## Research Use
 
 openpi is particularly useful for studying flow matching versus autoregressive action tokens, cross-embodiment adaptation, and remote policy serving. It offers more model-family breadth than a single-checkpoint repository, but new robot integrations require careful observation/action transforms and are not guaranteed to inherit the published capabilities.
 
-## Primary Sources
+## References
 
 - [Official repository](https://github.com/Physical-Intelligence/openpi)
 - [π0 project page](https://www.physicalintelligence.company/blog/pi0)

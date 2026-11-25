@@ -1,79 +1,79 @@
-# 协议指南
+# 机器人操作评测协议
 
-[English](protocol-guide.md) · [专题概览](README_ZH.md) · [基准矩阵](benchmark-matrix_ZH.md) · [资料来源](sources.md)
+[English](protocol-guide.md) · [评测概览](README_ZH.md) · [基准对比](benchmark-matrix_ZH.md) · [参考资料](references_ZH.md)
 
 ## 比较两个结果之前
 
-需要从 paper、repository 或 evaluation config 中核对：
+对比实验结果时，需要从论文、官方仓库或评测配置中核对以下信息：
 
-1. **Benchmark release 与 task suite：** 是否使用相同 tasks、split、assets 与 simulator version。
-2. **Training data：** 区分 official demonstrations、extra robot data、synthetic data 与 benchmark-specific fine-tuning。
-3. **Observation interface：** Camera views、resolution、proprioception、language、history 与 privileged state。
-4. **Action interface：** Joint/Cartesian、absolute/delta、control frequency、action chunking 与 post-processing。
-5. **Initial-state distribution：** Scene seeds、object placements、clean/randomized setting 与 reset rules。
-6. **Rollout protocol：** Time limit、termination condition、episodes、seeds 与 retry policy。
-7. **Checkpoint selection：** 区分 last checkpoint、validation-selected 与 task-selected checkpoints。
-8. **Metric aggregation：** 确认结果平均的是 tasks、episodes、suites、chain lengths、capability dimensions 还是 robot stations。
-9. **Inference timing：** 说明 environment 是否会在 policy inference 时暂停；如果 task dynamics 持续演化，需要记录 measured latency。
+1. **基准版本与任务套件：** 任务、数据划分、资源文件和仿真器版本是否相同。
+2. **训练数据：** 是否使用官方示教、额外机器人数据、合成数据或基准专用微调。
+3. **观测接口：** 相机视角、分辨率、本体状态、语言指令、历史观测与特权状态。
+4. **动作接口：** 关节或笛卡尔空间动作、绝对或增量控制、控制频率、动作分块与后处理。
+5. **初始状态分布：** 场景随机种子、物体摆放、基础或随机化设置与重置规则。
+6. **执行协议：** 时间限制、终止条件、评测回合数、随机种子与重试规则。
+7. **权重选择：** 最终权重、验证集选定权重和针对任务选定的权重应分别标注。
+8. **指标汇总：** 确认平均对象是回合、任务、套件、序列长度、能力维度还是机器人平台。
+9. **推理时序：** 环境是否在策略推理期间暂停；动态场景需记录实测推理延迟。
 
-## Benchmark-Specific Reading
+## 各基准的协议要点
 
 ### LIBERO
 
 - 说明 `LIBERO-Spatial`、`LIBERO-Object`、`LIBERO-Goal`、`LIBERO-10` 或 `LIBERO-90`。
-- 区分 multitask training 与 sequential lifelong learning。
-- Lifelong-learning 结论需要报告 task order 与 transfer/forgetting metric，而不只是 final success。
-- 记录 image views、state inputs、demonstrations per task 与 rollout horizon。
+- 区分多任务训练与顺序式终身学习。
+- 终身学习结论需报告任务顺序及迁移、遗忘指标，不能仅依据最终成功率。
+- 记录相机视角、状态输入、每项任务的示教数量与执行步数。
 
 ### CALVIN
 
-- 说明 dataset split，以及 evaluation 是否使用 language annotations。
-- 报告连续完成至少 1 至 5 条指令的五个数值与 average sequence length。
-- 说明 policy 是否观察 history，以及 internal state 是否在 subtasks 间 reset。
-- 不应使用独立 atomic-task success 代替 official chained evaluation，却保留相同 benchmark label。
+- 说明数据集划分，以及评测是否使用语言标注。
+- 报告连续完成至少 1 至 5 条指令的成功率及平均完成长度。
+- 说明策略是否使用历史观测，以及子任务间是否重置内部状态。
+- 独立原子任务成功率不能替代官方连续任务协议的结果。
 
 ### SimplerEnv
 
-- 说明 robot 与 task family，例如 Google Robot 或 WidowX setup。
-- 说明使用 visual matching 还是 environment-variant aggregation。
-- Policy checkpoint、observation preprocessing 与 action transforms 应与目标 real-world evaluation 匹配。
-- 提出 sim-to-real fidelity 结论时，报告与 paired real result 的 correlation 或 ranking agreement。
+- 说明机器人平台与任务类别，例如 Google Robot 或 WidowX 设置。
+- 说明采用视觉匹配还是多环境变体汇总。
+- 策略权重、观测预处理与动作变换应与对应真机评测保持一致。
+- 讨论仿真对真机结果的预测能力时，报告配对结果的相关性或排序一致性。
 
 ### RoboTwin 2.0
 
-- 说明 task list 与 robot embodiment。
-- 分开报告 clean 与 randomized evaluation，并描述启用的 randomizations。
-- 记录 episodes per task、scene seeds、language variants 与 step limits。
-- 区分使用 RoboTwin-generated training data、zero-shot 或 externally trained policy 的结果。
+- 说明任务列表与机器人形态。
+- 分别报告基础场景和随机化场景结果，并说明启用的随机化条件。
+- 记录各任务回合数、场景随机种子、语言指令变化与步数上限。
+- 区分使用 RoboTwin 生成数据训练的策略、零样本策略及外部训练策略。
 
 ### RoboDojo
 
-- 分别报告 Generalization、Memory、Precision、Long-Horizon 与 Open 五个 simulation dimensions。
-- 区分 simulation、remote real-world evaluation 与本地复刻的 setup。
-- 记录 benchmark layouts、seeds、XPolicyLab adapter、action interface 与 submitted checkpoint。
-- 与 public leaderboard 比较时使用 official scoring 与 verification protocol。
+- 分别报告泛化、记忆、精细控制、长程操作和开放指令五类仿真能力结果。
+- 区分仿真、远程真机评测与本地搭建的实验环境。
+- 记录场景布局、随机种子、XPolicyLab 适配器、动作接口与提交的权重。
+- 与公开排行榜比较时，核对官方计分和验证协议。
 
 ### RoboDyna
 
-- 在相同 task conditions 与 seeds 上分开报告 synchronous 和 asynchronous results。
-- 记录 measured policy latency、inference hardware，以及是否包含 communication 或 preprocessing time。
-- 说明 conceptual / household task，以及 `base`、`var1`、`var2` 或 held-out `var1+2` condition。
-- Partial completion 有意义时，同时报告 success rate 与 progress score。
-- 不能把 frozen-world result 与 real-time result 当成相同 protocol 直接比较。
+- 在相同任务条件和随机种子下分别报告同步与异步结果。
+- 记录策略推理延迟、推理硬件，以及计时是否包含通信或预处理。
+- 说明概念任务或家庭场景任务，以及 `base`、`var1`、`var2` 或留出的 `var1+2` 条件。
+- 部分任务进度有意义时，同时报告成功率与进度分数。
+- 暂停环境的同步结果与持续演化环境中的异步结果不能直接比较。
 
 ## 最低结果记录
 
 ```text
-Model and checkpoint:
-Training data and adaptation:
-Benchmark version and tasks:
-Robot and simulator:
-Observations and actions:
-Episodes, seeds, and horizon:
-Metric and aggregation:
-Hardware and policy frequency:
-Inference latency and timing protocol:
-Source:
+模型与权重：
+训练数据与适配方案：
+基准版本与任务：
+机器人平台与仿真器：
+观测与动作接口：
+回合数、随机种子与执行步数：
+指标与汇总方式：
+硬件与策略控制频率：
+推理延迟与时序协议：
+参考资料：
 ```
 
-这些信息不会让不同 benchmark 的数字自动可比，但能让每个结果更容易理解与复现。
+完整记录实验条件有助于解释和复查结果；不同评测基准的分数仍不能直接比较。

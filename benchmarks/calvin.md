@@ -10,14 +10,14 @@
 
 <p align="center"><em>CALVIN composes language-conditioned tabletop skills into long-horizon sequences. Image source: <a href="https://github.com/mees/calvin">official repository</a>.</em></p>
 
-## Snapshot
+## Technical Summary
 
 - **Primary purpose:** language-conditioned, long-horizon manipulation.
 - **Setting:** a Franka arm in a PyBullet tabletop environment.
 - **Task organization:** 34 atomic tasks that can be composed into instruction sequences.
 - **Representative metric:** average number of consecutive instructions completed in a five-instruction chain.
 
-## Why It Matters
+## Evaluation Objective
 
 CALVIN evaluates more than isolated reach-and-grasp success. A policy must interpret a changing sequence of language goals, preserve relevant context, transition between subtasks, and avoid errors that prevent later goals. This exposes compounding error and temporal composition more clearly than independent one-step trials.
 
@@ -42,11 +42,11 @@ For a chain of five instructions, evaluation records whether at least 1, 2, 3, 4
 - Atomic-task success and chained success are not interchangeable.
 - A strong first-task score with a steep chain-length decline indicates a different failure mode from uniformly low success.
 
-## Best Fit
+## Research Use
 
 Use CALVIN when language grounding, history, subtask transitions, and compounding error are central. Use an independent-task benchmark instead when the goal is to isolate a single manipulation skill without sequence dependencies.
 
-## Primary Sources
+## References
 
 - [Official repository](https://github.com/mees/calvin)
 - [Project page](http://calvin.cs.uni-freiburg.de/)

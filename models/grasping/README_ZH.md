@@ -1,35 +1,35 @@
-# Grasping Models
+# 抓取模型
 
-> 从 parallel gripper 的 grasp perception，延伸到 dexterous hand 的物理可行姿态生成与执行。
+> 涵盖平行夹爪的抓取检测、灵巧手的抓取姿态生成与执行。
 
 [English](README.md) · [全部模型家族](../README_ZH.md)
 
-## 两类 Grasping Regime
+## 抓取任务与末端执行器
 
-### 🤏 Parallel Gripper
+### 🤏 平行夹爪
 
-Parallel-gripper system 通常从 RGB-D 或 point cloud 预测刚性 gripper pose、opening width 和 confidence。由于抓取执行可以交给传统 motion planner，这类方法更容易用于 clutter removal 和 industrial picking。
+平行夹爪方法通常根据 RGB-D 图像或点云预测夹爪的六自由度姿态、开口宽度与候选评分。感知结果还需经过碰撞检测、运动规划和控制执行，才能转化为实际抓取。
 
-- [AnyGrasp](anygrasp_ZH.md) 将 spatial grasp detection 与 temporal tracking 结合，用于 clutter 和 dynamic scene 中快速、稳定的 grasp perception。
+- [AnyGrasp](anygrasp_ZH.md) 将空间抓取检测与时序跟踪结合，用于杂乱和动态场景中的抓取候选估计。
 
-### ✋ Dexterous Hand
+### ✋ 灵巧手
 
-Dexterous hand 除了 global hand pose，还需要处理大量 articulated joint states、self-collision、object penetration、contact stability 和更复杂的 execution。因此需要明确区分 pose generation 与 policy execution。
+灵巧手抓取除了全局手部姿态，还涉及多个关节自由度、自碰撞、物体穿透、接触稳定性与执行控制。因此，抓取姿态的生成质量与端到端执行成功率需要分开评估。
 
-- [UniDexGrasp](unidexgrasp_ZH.md) 将 diverse proposal generation 与 goal-conditioned grasp execution 拆分为两个阶段。
-- [DexGraspNet 2.0](dexgraspnet-2_ZH.md) 面向大规模 synthetic cluttered scenes 学习 generative dexterous grasping。
-- [DexGrasp Anything](dexgrasp-anything_ZH.md) 将 physics-aware guidance 引入 diffusion training 与 sampling。
+- [UniDexGrasp](unidexgrasp_ZH.md) 将多样化候选姿态生成与目标条件控制分为两个阶段。
+- [DexGraspNet 2.0](dexgraspnet-2_ZH.md) 在大规模合成杂乱场景中生成灵巧手抓取姿态。
+- [DexGrasp Anything](dexgrasp-anything_ZH.md) 在扩散模型训练与采样阶段引入物理约束。
 
-## 能力地图
+## 方法对比
 
-| 工作 | End effector | 主要输入 | 主要输出 | 核心贡献 |
+| 方法 | 末端执行器 | 主要输入 | 主要输出 | 技术侧重点 |
 | --- | --- | --- | --- | --- |
-| AnyGrasp | Parallel gripper | Scene point cloud | Tracked grasp poses | Spatial-temporal grasp perception |
-| UniDexGrasp | Dexterous hand | Object point cloud | Proposals 与 execution policy | Two-stage universal grasping |
-| DexGraspNet 2.0 | Dexterous hand | Cluttered-scene point cloud | Generative grasp poses | Scene-level grasp generation |
-| DexGrasp Anything | Dexterous hand | Object geometry 与 conditions | Diverse hand poses | Physics-guided diffusion |
+| AnyGrasp | 平行夹爪 | 场景点云 | 可跟踪的抓取姿态 | 空间检测与时序关联 |
+| UniDexGrasp | 灵巧手 | 物体点云 | 候选姿态与执行策略 | 分阶段生成与控制 |
+| DexGraspNet 2.0 | 灵巧手 | 杂乱场景点云 | 场景条件抓取姿态 | 邻近障碍物约束 |
+| DexGrasp Anything | 灵巧手 | 物体几何与条件信息 | 多样化手部姿态 | 物理约束引导的扩散生成 |
 
-这些工作的 raw success rate 不能直接横向比较，因为 end effector、输入假设、object split、simulator、collision rule、pose initialization 和 success criterion 并不一致。
+这些方法的成功率不能直接横向比较：末端执行器、输入条件、物体划分、仿真环境、碰撞规则、初始姿态和成功判据均可能不同。
 
 ## 基础工作与关联资源
 
@@ -38,4 +38,4 @@ Dexterous hand 除了 global hand pose，还需要处理大量 articulated joint
 - [DexGraspNet](https://pku-epic.github.io/DexGraspNet/) 提供 132 万个 simulated dexterous grasps 和可扩展的 synthesis pipeline。
 - [UniDexGrasp++](https://pku-epic.github.io/UniDexGrasp++/) 通过 geometry-aware curriculum 与 generalist-specialist iteration 研究 universal dexterous policy learning。
 
-这些资源同时跨越 model、dataset 和 benchmark。后续建立 `datasets/` catalog 时，dataset profile 应放入独立目录，而不是在这里重复维护。
+上述资源分别涉及模型、数据集和评测基准，阅读结果时应区分姿态生成指标与完整执行指标。

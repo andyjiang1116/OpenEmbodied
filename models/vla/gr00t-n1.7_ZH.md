@@ -2,34 +2,34 @@
 
 [English](gr00t-n1.7.md)
 
-> **类别：** Vision-Language-Action Model · [Repository](https://github.com/NVIDIA/Isaac-GR00T) · [Publication](https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots) · [Paper](https://arxiv.org/abs/2503.14734)
+> **类别：** 视觉—语言—动作模型 · [官方仓库](https://github.com/NVIDIA/Isaac-GR00T) · [GR00T N1 研究论文](https://arxiv.org/abs/2503.14734)
 
 <p align="center">
   <img src="../../docs/assets/models/gr00t-architecture.jpg" alt="NVIDIA Isaac GR00T N1.7 architecture" width="820" />
 </p>
 
-<p align="center"><em>GR00T N1.7 model architecture。图片来源：<a href="https://github.com/NVIDIA/Isaac-GR00T">official repository</a>。</em></p>
+<p align="center"><em>GR00T N1.7 模型架构。图片来源：<a href="https://github.com/NVIDIA/Isaac-GR00T">官方仓库</a>。</em></p>
 
 ## 概览
 
-- **定位：** 面向 manipulation 与 humanoid skills 的 cross-embodiment VLA 和 deployment stack。
-- **公开 checkpoint：** `nvidia/GR00T-N1.7-3B`。
-- **Backbone：** Cosmos-Reason2-2B / Qwen3-VL-based vision-language model。
-- **动作生成：** 使用 diffusion-transformer head 对 continuous actions 进行 denoising。
+- **研究定位：** 面向跨机器人形态操作任务的 VLA 模型与部署工具链。
+- **公开权重：** `nvidia/GR00T-N1.7-3B`。
+- **视觉语言主干：** 官方仓库列出的 Cosmos-Reason2-2B / Qwen3-VL 方案。
+- **动作生成：** 流匹配动作 Transformer 生成连续动作片段。
 
-## 为什么重要
+## 技术贡献
 
-GR00T N1.7 覆盖较完整的工程链路，包括 LeRobot-format data、embodiment configuration、fine-tuning、PyTorch inference、server-client deployment、TensorRT、simulation benchmarks 和 humanoid whole-body workflow。
+GR00T N1.7 官方仓库提供数据格式转换、机器人形态配置、微调、PyTorch 推理、策略服务、TensorRT 加速和仿真评测等流程。不同机器人平台需要分别配置观测和动作接口。
 
 ## 架构与接口
 
-Policy 将 multimodal reasoning 与高频 action generation 分开处理。Vision-language backbone 读取图像和指令，diffusion-transformer action head 根据这些特征与 robot state 生成 continuous action chunks。Embodiment-specific configuration 定义 observation keys、state/action dimensions、horizon 与 normalization behavior。
+模型将视觉语言处理与动作生成分开：视觉语言主干读取图像和指令，流匹配动作 Transformer 结合机器人状态生成连续动作片段。机器人形态配置定义观测字段、状态与动作维度、预测时域及归一化方式。
 
-这种设计让同一仓库能够支持 tabletop arms、bimanual systems 与 humanoid workflow，但 “cross-embodiment” 不代表一个 checkpoint 可以在没有匹配数据与配置的情况下控制所有平台。
+同一工具链可用于机械臂、双臂与人形机器人任务，但跨形态支持不意味着单一权重无需适配即可控制任意平台。
 
 ## 训练与部署流程
 
-官方流程从 demonstrations 转换为 LeRobot format 开始，随后选择 embodiment configuration 并 fine-tune base checkpoint。Inference 可以直接在 Python 中运行，也可以部署为 ZMQ policy server。NVIDIA 还提供 TensorRT 与 workstation、DGX、Jetson 等平台相关的配置路径。
+官方流程先将示教数据转换为 LeRobot 格式，再选择机器人形态配置并微调基础权重。推理可以在 Python 进程中直接运行，也可通过 ZMQ 策略服务与控制客户端通信。仓库还提供 TensorRT 及工作站、DGX、Jetson 平台的部署说明。
 
 ## 已开放内容
 
@@ -37,8 +37,8 @@ Policy 将 multimodal reasoning 与高频 action generation 分开处理。Visio
 - 使用 NVIDIA Open Model License 的 weights。
 - Base 与部分 fine-tuned checkpoints。
 - Single-GPU 与 multi-GPU fine-tuning commands。
-- LIBERO、SimplerEnv Fractal/Bridge 和 SO100 benchmark guides。
-- ZMQ policy server 与 TensorRT/platform deployment paths。
+- LIBERO、SimplerEnv Fractal/Bridge 和 SO100 的评测指南。
+- 基于 ZMQ 的策略服务，以及 TensorRT 和特定平台的部署流程。
 
 ## 环境与开放性边界
 
@@ -48,16 +48,17 @@ Policy 将 multimodal reasoning 与高频 action generation 分开处理。Visio
 - 官方 TensorRT 性能只适用于特定 NVIDIA hardware，不能直接推广到其他设备。
 - Weight terms 与 Apache-2.0 code license 不相同。
 
-## Benchmark 范围
+## 评测范围
 
-仓库针对不同 benchmark 提供独立 workflow，而不是一条 universal command。为了得到可比结果，需要记录 embodiment tag、environment prefix、action space、checkpoint variant 与 runtime backend。
+官方仓库为不同评测基准提供独立流程。比较结果时，应记录机器人形态标识、环境配置前缀、动作空间、权重版本和运行后端。
 
-## 适用场景
+## 研究用途
 
-GR00T N1.7 适合研究 deployment engineering、heterogeneous embodiments，以及 NVIDIA simulation 和 acceleration stack。它具有本组中最完整的 systems surface，同时环境和硬件门槛也最高。
+GR00T N1.7 涉及跨形态模型适配、策略服务及 NVIDIA 推理加速。具体硬件需求、依赖组合和可用权重应以对应版本的官方仓库说明为准。
 
-## 原始来源
+## 参考资料
 
 - [Official repository](https://github.com/NVIDIA/Isaac-GR00T)
+- [GR00T N1.7 模型卡](https://huggingface.co/nvidia/GR00T-N1.7-3B)
 - [GR00T N1 publication](https://research.nvidia.com/publication/2025-03_nvidia-isaac-gr00t-n1-open-foundation-model-humanoid-robots)
 - [GR00T N1 paper](https://arxiv.org/abs/2503.14734)

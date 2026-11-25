@@ -24,7 +24,7 @@
 
 ## 🌐 关于项目
 
-OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模型与评测基准档案，并通过横向分析梳理技术路线、评测协议和原始资料。当前内容聚焦机器人操作，后续研究主题见下文。
+OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模型与评测基准档案，并通过横向分析梳理技术路线、评测协议和已发表的研究成果。当前内容聚焦机器人操作，其他研究方向见下文。
 
 ## 🗂️ 研究方向
 
@@ -50,7 +50,7 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 - [研究概览](maps/vla-landscape/README_ZH.md) — 模型系列，以及代码、权重、数据和部署工具的开放情况。
 - [技术对比](maps/vla-landscape/model-matrix_ZH.md) — 对照架构、动作生成方式与开放资源。
 - [评测可比性](maps/vla-landscape/benchmark-notes_ZH.md) — 评测设置及跨模型比较的边界。
-- [参考资料](maps/vla-landscape/sources.md) — 官方论文、仓库与文档。
+- [参考资料](maps/vla-landscape/references_ZH.md) — 官方论文、仓库与文档。
 
 #### [Grasping](models/grasping/README_ZH.md)
 
@@ -79,7 +79,7 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 - [评测概览](maps/benchmark-map/README_ZH.md) — 六项操作评测基准的侧重点与适用场景。
 - [基准对比](maps/benchmark-map/benchmark-matrix_ZH.md) — 对照任务、机器人平台、环境、观测输入与指标。
 - [评测协议](maps/benchmark-map/protocol-guide_ZH.md) — 解读或复现已报告结果前需要核对的条件。
-- [参考资料](maps/benchmark-map/sources.md) — 官方论文、仓库与文档。
+- [参考资料](maps/benchmark-map/references_ZH.md) — 官方论文、仓库与文档。
 
 ## 🛰️ 规划中的研究主题
 
@@ -96,7 +96,7 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 
 ## 🤝 参与贡献
 
-欢迎补充模型与评测基准档案、横向分析和原始资料，并修正文档中的错误。
+欢迎补充模型与评测基准档案、横向分析及参考文献，并修正文档中的错误。
 
 请优先引用论文、官方仓库或项目文档，并区分原作者报告的结果与独立验证结果。可通过 Issue 提议研究主题或提交勘误。
 
@@ -104,4 +104,4 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 
 OpenEmbodied 建立在具身智能研究者、工程师、教育者与开源社区的工作之上。
 
-本仓库引用的外部论文、代码、Dataset、图片及其他资源，其权利归原作者所有。使用时请遵循各来源的 License 与引用要求。
+本仓库引用的外部论文、代码、数据集、图片及其他资源，其权利归原作者所有。使用时请遵循相应的许可协议与引用要求。

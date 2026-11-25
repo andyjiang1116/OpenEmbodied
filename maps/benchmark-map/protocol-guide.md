@@ -2,7 +2,7 @@
 
 [简体中文](protocol-guide_ZH.md)
 
-[Overview](README.md) · [Benchmark matrix](benchmark-matrix.md) · [Sources](sources.md)
+[Overview](README.md) · [Benchmark comparison](benchmark-matrix.md) · [References](references.md)
 
 ## Before Comparing Two Results
 
@@ -77,7 +77,7 @@ Episodes, seeds, and horizon:
 Metric and aggregation:
 Hardware and policy frequency:
 Inference latency and timing protocol:
-Source:
+Reference:
 ```
 
 This information does not make different benchmarks numerically comparable. It makes each reported result understandable and repeatable.

@@ -14,8 +14,4 @@ Generalist policies that connect visual observations and language instructions t
 
 Methods for parallel-gripper grasp perception and dexterous-hand pose generation or execution. The collection connects AnyGrasp, UniDexGrasp, DexGraspNet 2.0, and DexGrasp Anything through a shared grasping taxonomy.
 
-## Organization
-
-Model profiles live under capability-oriented directories rather than framework or institution names. New families can be added without flattening unrelated methods into one list—for example `world-models/`, `navigation/`, or `humanoid-control/` when those collections become substantial.
-
-Each profile separates the research contribution from the released implementation, data, checkpoints, runtime dependencies, license, and deployment boundary.
+Each profile describes the research objective, model inputs and outputs, method design, available artifacts, evaluation setting, and integration constraints. Claims about reported performance are attributed to the original source.

@@ -10,14 +10,14 @@
 
 <p align="center"><em>LIBERO studies knowledge transfer across language-conditioned manipulation tasks. Image source: <a href="https://libero-project.github.io/">official project page</a>.</em></p>
 
-## Snapshot
+## Technical Summary
 
 - **Primary purpose:** knowledge transfer in lifelong and multitask robot learning.
 - **Setting:** language-conditioned tabletop manipulation in robosuite/MuJoCo.
 - **Task organization:** spatial, object, goal, 10-task, and 90-task suites.
 - **Typical output:** task success; lifelong-learning studies additionally measure transfer and forgetting.
 
-## Why It Matters
+## Evaluation Objective
 
 LIBERO separates several sources of task variation so researchers can ask what knowledge moves between tasks. Spatial tasks change target relations, object tasks emphasize object identity, goal tasks vary the requested behavior, and larger suites test learning across broader task collections.
 
@@ -48,11 +48,11 @@ Independent rollouts typically report binary task success. Lifelong-learning exp
 - Do not infer resistance to forgetting from final average success alone.
 - Check whether extra data, observation history, multiple camera views, or benchmark-specific fine-tuning were used.
 
-## Best Fit
+## Research Use
 
 Use LIBERO for controlled comparisons of language-conditioned tabletop policies, data-efficient adaptation, or sequential knowledge transfer. It is less suitable for claims about bimanual coordination, real-world deployment, or broad sim-to-real robustness.
 
-## Primary Sources
+## References
 
 - [Official repository](https://github.com/Lifelong-Robot-Learning/LIBERO)
 - [Project page](https://libero-project.github.io/)

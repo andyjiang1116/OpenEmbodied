@@ -10,7 +10,7 @@
 
 *Image source: official project repository.*
 
-## Snapshot
+## Technical Summary
 
 - **Problem:** Generate diverse, physically plausible high-DoF hand poses across many object categories.
 - **Approach:** Conditional diffusion with physical constraints applied during training and sampling.
@@ -35,7 +35,7 @@ The official repository provides source code, dataset links, checkpoints, traini
 
 The code repository declares an MIT license. Dataset and borrowed upstream assets should still be checked individually before redistribution.
 
-## Primary Sources
+## References
 
 - [Official project page](https://dexgraspanything.github.io/)
 - [Official repository](https://github.com/4DVLab/DexGrasp-Anything)

@@ -1,36 +1,36 @@
-# 基准矩阵
+# 机器人操作评测基准对比
 
-[English](benchmark-matrix.md) · [专题概览](README_ZH.md) · [协议指南](protocol-guide_ZH.md) · [资料来源](sources.md)
+[English](benchmark-matrix.md) · [评测概览](README_ZH.md) · [评测协议](protocol-guide_ZH.md) · [参考资料](references_ZH.md)
 
-| Benchmark | 主要研究问题 | Environment 与 embodiment | Task structure | 代表性报告方式 |
+| 评测基准 | 研究问题 | 环境与机器人平台 | 任务设计 | 常用指标 |
 | --- | --- | --- | --- | --- |
-| LIBERO | Lifelong 与 multitask knowledge transfer | robosuite/MuJoCo tabletop manipulation，7-DoF arm | Spatial、Object、Goal、10-task、90-task suites | Task success；用于 lifelong learning 时增加 transfer/forgetting metrics |
-| CALVIN | Language-conditioned long-horizon control | PyBullet tabletop environment，Franka arm | 34 个 atomic tasks，组合为五条指令链 | 平均连续完成指令数，以及各 chain length 的 success |
-| SimplerEnv | Simulation 是否能反映 real-world policy comparison | 基于 SAPIEN/ManiSkill 的常见 robot setup digital twins | 使用 visual matching 或 environment variants 重建真实任务 | Task success 与 sim-to-real correlation / ranking agreement |
-| RoboTwin 2.0 | Scalable bimanual data generation 与 robust policy evaluation | 基于 SAPIEN 的 dual-arm manipulation，多种 embodiments | 50 个 tasks 与 domain-randomized scenes | Per-task 与 mean success，区分 clean/randomized settings |
-| RoboDojo | Generalist policy 的 sim-and-real 综合评测 | Isaac Sim 与三种 bimanual embodiments 的标准化 real stations | 42 个 simulation tasks、18 个 real-world tasks、五个 capability dimensions | Per-task、per-dimension 与 aggregate score/success |
-| RoboDyna | Dynamic physical reasoning 与 latency-aware manipulation | SAPIEN 3 dual-arm simulation，environment 持续按 physics 演化 | 20 个 conceptual tasks、10 个 household tasks、五类能力与四档 conceptual difficulty | 按 difficulty、capability 与 sync/async protocol 报告 success 和 progress score |
+| LIBERO | 终身学习与多任务知识迁移 | robosuite/MuJoCo 桌面操作、七自由度机械臂 | Spatial、Object、Goal、10 与 90 任务套件 | 任务成功率；序列学习还报告迁移与遗忘 |
+| CALVIN | 语言条件下的长程连续控制 | PyBullet 桌面环境、Franka 机械臂 | 34 项原子任务，组合为五指令序列 | 平均连续完成任务数及各序列长度的成功率 |
+| SimplerEnv | 仿真能否预测真机策略表现 | 基于 SAPIEN/ManiSkill 的机器人场景 | 视觉匹配或多环境变体 | 任务成功率、仿真与真机结果的相关性和排序一致性 |
+| RoboTwin 2.0 | 双臂数据生成与策略鲁棒性 | 基于 SAPIEN 的多机器人双臂仿真 | 约 50 项任务及域随机化场景 | 按任务和整体汇总的成功率；区分基础与随机化设置 |
+| RoboDojo | 通用策略在仿真和真机中的能力表现 | Isaac Sim 与标准化双臂真机平台 | 42 项仿真任务、18 项真机任务、五类能力 | 按任务、能力维度和整体汇总的结果 |
+| RoboDyna | 动态物理推理与推理延迟影响 | SAPIEN 3 双臂仿真；环境持续演化 | 20 项概念任务、10 项家庭场景任务 | 按难度、能力及同步/异步协议报告成功率与进度分数 |
 
-## Capability Coverage
+## 能力覆盖范围
 
-| Capability | LIBERO | CALVIN | SimplerEnv | RoboTwin 2.0 | RoboDojo | RoboDyna |
+| 评测能力 | LIBERO | CALVIN | SimplerEnv | RoboTwin 2.0 | RoboDojo | RoboDyna |
 | --- | --- | --- | --- | --- | --- | --- |
-| Language-conditioned control | 核心 | 核心 | 取决于 policy/task | 支持 | Open-instruction tasks 的核心 | 核心 |
-| Long-horizon composition | 受 suite/task 限制 | 核心 | 取决于 task | 部分任务包含 | 独立维度 | 部分 household tasks 包含 |
-| Continual-learning transfer | 核心 | 非主要目标 | 非主要目标 | 非主要目标 | 非主要目标 | 非主要目标 |
-| Sim-to-real evaluation | 间接 | 间接 | 核心 | 明确研究目标 | 直接包含 simulation 与 real-world tracks | Simulation-only benchmark |
-| Bimanual manipulation | 否 | 否 | 经典 setup 中否 | 核心 | 核心 | 核心 |
-| Memory diagnosis | 未独立隔离 | Sequence context 相关 | 未独立隔离 | 由独立 RMBench 扩展 | 独立维度 | State transition 需要 temporal tracking |
-| Domain randomization | 有限或取决于配置 | Dataset split 与 scene variation | Visual matching 与 variant aggregation | 核心 | Controlled layouts 与 capability-specific tests | Composable task variations |
-| Dynamic physics | 未独立隔离 | 有限 | 非主要目标 | 有限 | 非独立维度 | 核心 |
-| Protocol 是否计入 inference latency | 否 | 否 | 否 | 否 | 否 | Paired sync/async evaluation |
+| 语言条件控制 | 核心 | 核心 | 取决于策略和任务 | 支持 | 开放指令任务的核心 | 核心 |
+| 长程任务组合 | 受任务套件限制 | 核心 | 取决于任务 | 部分任务包含 | 独立维度 | 部分家庭场景任务包含 |
+| 持续学习与迁移 | 核心 | 非主要目标 | 非主要目标 | 非主要目标 | 非主要目标 | 非主要目标 |
+| 仿真与真机一致性 | 间接涉及 | 间接涉及 | 核心 | 相关研究目标 | 包含仿真与真机评测 | 仅提供仿真评测 |
+| 双臂操作 | 否 | 否 | 典型设置中否 | 核心 | 核心 | 核心 |
+| 记忆能力 | 未独立隔离 | 与任务序列上下文相关 | 未独立隔离 | 由独立 RMBench 扩展 | 独立维度 | 状态变化需要时序跟踪 |
+| 域随机化 | 有限或取决于配置 | 数据划分与场景变化 | 视觉匹配与环境变体 | 核心 | 受控布局与能力测试 | 可组合的任务变化 |
+| 动态物理过程 | 未独立隔离 | 有限 | 非主要目标 | 有限 | 非独立维度 | 核心 |
+| 推理延迟计入结果 | 否 | 否 | 否 | 否 | 否 | 提供成对同步与异步评测 |
 
 ## 解读边界
 
-- LIBERO 平均成功率本身不能证明 forgetting 或 forward transfer。
-- CALVIN chain score 不等于独立 single-task success，因为错误会终止后续 sequence。
-- SimplerEnv 只有在 simulation 与 physical protocol 严格配对时，才支持 real-world proxy 结论。
-- RoboTwin 2.0 的 clean 与 randomized result 必须分开标注。
-- RoboDojo 的 overall result 应结合五个 capability dimensions 阅读，否则 aggregate 会掩盖集中 weakness。
-- RoboDyna 的 synchronous 与 asynchronous results 不能互换，只有 asynchronous protocol 会将 measured inference time 计入任务结果。
-- 不同 benchmark 的百分比不位于统一量尺上。
+- LIBERO 的平均成功率不能单独证明遗忘抑制或前向迁移。
+- CALVIN 的连续任务分数与独立单任务成功率不同，前序错误会影响后续任务。
+- SimplerEnv 对真机表现的预测结论依赖配对的仿真与真机协议。
+- RoboTwin 2.0 的基础场景与随机化场景结果应分别标注。
+- RoboDojo 的整体分数应结合各能力维度解读。
+- RoboDyna 的同步与异步结果采用不同时间处理方式；只有异步协议将策略推理延迟计入环境演化。
+- 不同评测基准的成功率百分比不在统一量尺上。

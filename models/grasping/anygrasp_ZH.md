@@ -2,7 +2,7 @@
 
 [English](anygrasp.md) · [Grasping Models](README_ZH.md)
 
-> 基于 point cloud 的 parallel-gripper grasp detection 与 tracking · [Project](https://graspnet.net/anygrasp.html) · [SDK](https://github.com/graspnet/anygrasp_sdk) · [Paper](https://arxiv.org/abs/2212.08333)
+> 基于点云的平行夹爪抓取检测与时序跟踪 · [项目主页](https://graspnet.net/anygrasp.html) · [SDK](https://github.com/graspnet/anygrasp_sdk) · [论文](https://arxiv.org/abs/2212.08333)
 
 <p align="center">
   <img src="../../docs/assets/models/grasping/anygrasp-demo.gif" alt="AnyGrasp grasp perception demonstration" width="820" />
@@ -12,32 +12,32 @@
 
 ## 概览
 
-- **问题：** 在 cluttered 或 dynamic scene 中检测稳定的 6-DoF grasp pose，并在时间维度持续跟踪。
-- **End effector：** Parallel gripper。
-- **Observation：** 由 depth sensor 获取的 point cloud，也可以通过目标区域或 mask 进行裁剪。
-- **Output：** Grasp pose、width、score，以及供下游 motion planning 使用的 tracked candidates。
+- **研究问题：** 在杂乱或动态场景中检测六自由度抓取姿态，并在连续观测中跟踪候选抓取。
+- **末端执行器：** 平行夹爪。
+- **输入：** 深度传感器生成的点云，可按目标区域或掩码筛选。
+- **输出：** 抓取姿态、夹爪开口宽度、评分及供运动规划使用的候选抓取。
 
-## 为什么重要
+## 技术贡献
 
-很多 grasp detector 会独立处理每一帧。AnyGrasp 将 spatial grasp perception 与 temporal correspondence 结合，使机器人在相机、物体或本体运动时仍能保持稳定的 grasp candidates。官方演示覆盖 clutter removal、deformable object、transparent object 和 moving target，体现了它面向实际抓取吞吐量的定位。
+逐帧独立检测可能导致候选抓取随观测变化而抖动。AnyGrasp 结合空间抓取检测与跨帧关联，在相机或物体运动时维持候选姿态的时序一致性。官方演示包括杂乱物体清理、柔性和透明物体以及运动目标等场景；这些演示不等同于统一协议下的成功率评测。
 
 ## 技术结构
 
-Spatial component 延续 GraspNet 与 Graspness / GSNet 路线中的 dense graspability reasoning，并结合 objectness filtering 和 model-free collision checking。Temporal component 在连续观测之间关联 grasp，从而降低 pose jitter，避免每一帧都从头生成候选。
+空间模块沿用 GraspNet 与 Graspness / GSNet 系列的密集抓取可行性估计，并结合目标筛选与无需物体模型的碰撞检测。时序模块在连续观测之间关联抓取候选，以降低姿态抖动。
 
-官方 SDK 提供 dense prediction、object-mask filtering 与 collision detection 选项。Dense mode 会用更多显存和推理时间换取更密集的候选，官方将其定位为特殊场景选项，而不是默认设置。
+官方 SDK 提供密集预测、物体掩码筛选与碰撞检测等选项。密集预测会增加候选数量，同时提高显存与推理开销。
 
 ## 部署边界
 
-AnyGrasp 是 perception component，不是完整的 pick-and-place policy。实际机器人系统仍需要 calibrated RGB-D sensing、point-cloud preprocessing、robot–camera transform、candidate selection、inverse kinematics、motion planning、gripper control 和 failure recovery。
+AnyGrasp 输出抓取候选，并不直接完成抓取执行。端到端系统还需要 RGB-D 相机标定、点云预处理、相机与机器人坐标变换、候选选择、逆运动学、运动规划、夹爪控制与失败恢复。
 
-官方 SDK 列出的环境包括 Python 3.6–3.10、PyTorch 1.7.1+、CUDA、MinkowskiEngine 和编译后的 `pointnet2`。在把 demo 环境视为可部署方案之前，需要针对目标 GPU 与操作系统重新核对兼容性。
+当前 SDK 文档列出 Python 3.6–3.14、PyTorch 1.7.1+、CUDA 11.x/12.x/13.x 与 MinkowskiEngine 0.5.4。具体组合仍受 GPU、操作系统和编译扩展影响，安装时应以[官方安装说明](https://github.com/graspnet/anygrasp_sdk#installation)为准。
 
 ## 发布与 License 边界
 
-官方仓库公开 SDK wrapper 与示例，但由于其声明的 IP 限制，AnyGrasp 核心 library 通过绑定机器的 license registration 分发。使用者需要提交 machine feature ID 并申请 license。这与完整开源实现有本质区别，在产品集成或复现结论中必须明确说明。
+官方仓库提供 SDK 接口与示例，但核心库的使用需要许可证注册。SDK 于 2026 年 7 月更换注册工具，旧版 `lib_cxx.so` 和 `license_checker` 流程不适用于更新后的版本。安装与再分发条件应以[当前注册说明](https://github.com/graspnet/anygrasp_sdk/tree/main/license_registration)为准。
 
-## 原始来源
+## 参考资料
 
 - [Official project page](https://graspnet.net/anygrasp.html)
 - [Official AnyGrasp SDK](https://github.com/graspnet/anygrasp_sdk)

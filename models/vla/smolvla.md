@@ -10,7 +10,7 @@
 
 <p align="center"><em>SmolVLA operating across task variations. Image source: <a href="https://huggingface.co/blog/smolvla">official Hugging Face article</a>.</em></p>
 
-## Snapshot
+## Technical Summary
 
 - **Role in the landscape:** compact VLA designed for affordable experimentation and LeRobot workflows.
 - **Size:** 450M in official materials; the Hub model card displays approximately 0.5B parameters.
@@ -18,7 +18,7 @@
 - **Output:** continuous action chunks.
 - **Training objective:** flow matching.
 
-## Why It Matters
+## Technical Contribution
 
 SmolVLA connects a relatively small policy to a maintained data, training, evaluation, and robot-control ecosystem. Its official model card provides a direct load-and-infer example, and the project is explicitly designed for task-specific fine-tuning and lower-cost hardware.
 
@@ -52,7 +52,7 @@ LeRobot connects the model to dataset recording, offline training, evaluation, a
 
 SmolVLA is the most approachable profile in this set for learning the complete VLA loop: record demonstrations, publish or load a LeRobot dataset, fine-tune the base model, and evaluate on the same robot configuration. It is not a zero-shot universal policy; dataset quality, camera consistency, action normalization, and control frequency remain decisive.
 
-## Primary Sources
+## References
 
 - [LeRobot repository](https://github.com/huggingface/lerobot)
 - [Official SmolVLA documentation](https://github.com/huggingface/lerobot/blob/main/docs/source/smolvla.mdx)

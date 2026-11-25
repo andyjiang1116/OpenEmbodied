@@ -1,8 +1,8 @@
-# Robot Manipulation Benchmark Map
+# Robot Manipulation Benchmark Comparison
 
-> LIBERO vs CALVIN vs SimplerEnv vs RoboTwin 2.0 vs RoboDojo vs RoboDyna: what does each benchmark actually measure?
+> Tasks, capabilities, metrics, and evaluation protocols across six manipulation benchmarks.
 
-[简体中文](README_ZH.md) · [Benchmark matrix](benchmark-matrix.md) · [Protocol guide](protocol-guide.md) · [Sources](sources.md)
+[简体中文](README_ZH.md) · [Benchmark comparison](benchmark-matrix.md) · [Evaluation protocols](protocol-guide.md) · [References](references.md)
 
 ## Executive Summary
 
@@ -17,7 +17,7 @@ This guide compares six representative benchmarks:
 - [RoboDojo](../../benchmarks/robodojo.md) evaluates generalist manipulation policies across complementary capability dimensions in simulation and on standardized real-robot setups.
 - [RoboDyna](../../benchmarks/robodyna.md) evaluates physical reasoning and time-critical action in dynamic scenes that continue evolving during policy inference.
 
-The central lesson is: **choose a benchmark from the claim you want to test, not from its popularity.**
+Benchmark selection depends on the research question. Scores from different suites do not form a common ranking.
 
 ## The Six Questions
 
@@ -56,14 +56,14 @@ RoboDojo contains 42 simulation tasks organized around five capability dimension
 
 RoboDyna evaluates language-conditioned dual-arm policies in scenes that evolve continuously through gravity, friction, collision, contact, and state transitions. Its paired synchronous and asynchronous protocols use the same seeds but differ in whether the world advances during measured policy inference. Twenty conceptual tasks isolate five physical capabilities, while ten household tasks place them in richer office and kitchen scenes. This makes latency part of the evaluation rather than an external deployment statistic.
 
-## Choosing a Benchmark
+## Research Questions and Benchmark Scope
 
-- **Continual or multitask transfer:** use LIBERO and preserve its task-suite and learning-order semantics.
-- **Long-horizon instruction following:** use CALVIN and report the full five-instruction chain curve.
-- **A simulation proxy for real-world evaluation:** use SimplerEnv and examine sim-to-real correlation or ranking agreement.
-- **Bimanual data generation and robustness:** use RoboTwin 2.0, separating clean from randomized settings.
-- **Broad generalist-policy diagnosis:** use RoboDojo and report per-dimension as well as aggregate results.
-- **Dynamic physical reasoning or latency-aware control:** use RoboDyna and report synchronous and asynchronous results separately.
+- **Continual or multitask transfer:** LIBERO, with task-suite and learning-order details.
+- **Long-horizon instruction following:** CALVIN, with the full five-instruction chain curve.
+- **Simulation as a proxy for real-world evaluation:** SimplerEnv, with correlation or ranking agreement between paired settings.
+- **Bimanual data generation and robustness:** RoboTwin 2.0, separating clean and randomized settings.
+- **Generalist-policy capabilities:** RoboDojo, with per-dimension and aggregate results.
+- **Dynamic physical reasoning and inference latency:** RoboDyna, separating synchronous and asynchronous results.
 
 ## What Can Be Compared
 

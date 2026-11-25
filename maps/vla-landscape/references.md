@@ -1,4 +1,6 @@
-# Primary Sources
+# References
+
+[中文](references_ZH.md)
 
 Links below are official project-owned repositories, project pages, documentation, papers, or model cards.
 

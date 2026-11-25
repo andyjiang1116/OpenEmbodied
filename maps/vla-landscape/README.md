@@ -1,32 +1,32 @@
-# Open VLA Landscape
+# VLA Model Comparison
 
-> What is actually open, comparable, and reproducible?
+> Architecture, action representations, released resources, and evaluation protocols.
 
-[简体中文](README_ZH.md) · [Model matrix](model-matrix.md) · [Benchmark notes](benchmark-notes.md) · [Sources](sources.md)
+[简体中文](README_ZH.md) · [Technical comparison](model-matrix.md) · [Evaluation comparability](benchmark-notes.md) · [References](references.md)
 
-## Executive Summary
+## Overview
 
 “Open VLA” can mean very different things. A project may publish inference code but not training data, release weights under a separate license, provide a base checkpoint that still needs task-specific fine-tuning, or report results under a protocol that is not directly comparable with another project.
 
-This first OpenEmbodied landscape compares four representative open VLA stacks:
+This comparison covers four VLA model families with publicly documented implementations or checkpoints:
 
 - [OpenVLA / OpenVLA-OFT](../../models/vla/openvla.md): the influential 7B open-source VLA line built on a pretrained VLM and Open X-Embodiment data.
 - [SmolVLA](../../models/vla/smolvla.md): a compact 450M flow-matching policy integrated with the LeRobot ecosystem.
 - [π0 / π0-FAST / π0.5 via openpi](../../models/vla/openpi.md): Physical Intelligence's flow-based and autoregressive policy family with released base and task checkpoints.
 - [Isaac GR00T N1.7](../../models/vla/gr00t-n1.7.md): NVIDIA's cross-embodiment VLA stack with documented fine-tuning, evaluation, and deployment paths.
 
-The main conclusion is simple: **there is no single “most open” or “best” VLA independent of the intended robot, task, compute budget, license constraints, and evaluation protocol.**
+These models differ in action representation, adaptation path, released artifacts, and supported robot interfaces. Performance claims must be read alongside the task, embodiment, training data, and evaluation protocol.
 
 ## Quick Comparison
 
-| Project | Primary strength | Action generation | Published starting point | Practical entry barrier |
-| --- | --- | --- | --- | --- |
-| OpenVLA | Established research baseline and broad OXE pretraining | Discrete action tokens; OFT adds continuous actions | 7B checkpoints, inference, LoRA/full fine-tuning, evaluation code | Medium–high |
-| SmolVLA | Small model and integrated low-cost robotics workflow | Continuous actions with flow matching | 450M base model, LeRobot training/inference tools | Low–medium |
-| openpi | Multiple π-family policies and released base/task checkpoints | Flow matching for π0/π0.5; autoregressive tokens for π0-FAST | Base and expert checkpoints, training, serving, LIBERO examples | Medium–high |
-| GR00T N1.7 | Cross-embodiment engineering and deployment stack | Continuous actions with a diffusion-transformer head | Base/fine-tuned checkpoints, benchmark guides, policy server | High |
+| Model family | Action generation | Released resources | Integration considerations |
+| --- | --- | --- | --- |
+| OpenVLA | Discrete action tokens; OFT uses a continuous-action head | 7B checkpoints, inference, fine-tuning, and evaluation code | Robot-specific action normalization; original and OFT recipes differ |
+| SmolVLA | Continuous action chunks generated with flow matching | 450M base model and LeRobot training/inference tools | Task-specific demonstrations and adaptation are generally required |
+| openpi | Flow matching for π0/π0.5; autoregressive tokens for π0-FAST | Base and task checkpoints, training and serving examples | Robot-specific data schema and action interface |
+| GR00T N1.7 | Continuous action chunks from a flow-matching action transformer | Checkpoints, fine-tuning workflows, benchmark guides, policy server | Platform-specific dependencies and embodiment configuration |
 
-See [model-matrix.md](model-matrix.md) for the detailed comparison and source-level caveats.
+See the [technical comparison](model-matrix.md) for detailed fields and comparison boundaries.
 
 ## What “Open” Means Here
 
@@ -39,33 +39,33 @@ OpenEmbodied records openness across separate dimensions instead of using one bi
 5. **Evaluation** — a benchmark name alone does not prove that task suites, seeds, horizons, image inputs, or success aggregation match.
 6. **Deployment** — a runnable policy server is different from a validated end-to-end robot integration.
 
-## Findings
+## Technical Observations
 
-### 1. SmolVLA is the clearest low-cost starting point
+### SmolVLA: compact model and integrated tooling
 
-SmolVLA publishes a 450M Apache-2.0 base model, uses continuous actions and flow matching, and is integrated into LeRobot's dataset, training, evaluation, and hardware workflows. The official documentation includes a direct model-loading path and positions the model for task-specific fine-tuning. This makes it the strongest candidate for OpenEmbodied's first hands-on reproduction attempt.
+SmolVLA publishes a 450M Apache-2.0 base model, uses continuous actions and flow matching, and is integrated into LeRobot's dataset, training, evaluation, and hardware workflows. The official documentation describes model loading and task-specific fine-tuning. The smaller model size reduces compute requirements, while task performance still depends on the data and robot configuration.
 
-### 2. OpenVLA remains a useful reference baseline, but “MIT” needs context
+### OpenVLA: distinguish code, weights, and adaptation recipe
 
 The OpenVLA repository is MIT-licensed and provides inference, fine-tuning, serving, and evaluation material. Its published 7B checkpoints derive from Llama 2, so the model terms are not described by the repository's MIT license alone. OpenVLA-OFT also changes important implementation choices, including continuous action prediction, so results should identify the exact recipe rather than use “OpenVLA” as a single undifferentiated label.
 
-### 3. openpi exposes unusually useful system boundaries
+### openpi: multiple policy formulations and robot interfaces
 
-The official repository distinguishes π0, π0-FAST, and π0.5; releases base checkpoints and several robot/task-specific checkpoints; documents GPU-memory expectations; and provides remote policy serving. It also explicitly warns that adaptation to a different robot may fail. That warning is valuable evidence rather than a weakness: embodiment transfer is not guaranteed by checkpoint availability.
+The official repository distinguishes π0, π0-FAST, and π0.5; releases base checkpoints and several robot/task-specific checkpoints; documents GPU-memory expectations; and provides remote policy serving. It also notes that adaptation to a different robot may fail. Checkpoint availability does not establish transfer to an unsupported embodiment.
 
-### 4. GR00T N1.7 has the broadest documented deployment surface in this set
+### GR00T N1.7: documented training and deployment workflows
 
-GR00T N1.7 documents data conversion, inference, fine-tuning, policy serving, TensorRT deployment, and benchmark-specific workflows for LIBERO, SimplerEnv, and SO100. Its code is Apache-2.0, while weights use the NVIDIA Open Model License. The stack is comprehensive, but the environment, gated backbone access, submodules, GPU dependencies, and platform-specific paths raise the entry cost.
+GR00T N1.7 documents data conversion, inference, fine-tuning, policy serving, TensorRT deployment, and benchmark-specific workflows for LIBERO, SimplerEnv, and SO100. Its code is Apache-2.0, while weights use the NVIDIA Open Model License. Reproduction depends on model access, submodules, GPU packages, and platform-specific installation paths.
 
-### 5. Benchmark results must not be collapsed into one leaderboard
+### Evaluation: preserve the experimental protocol
 
-LIBERO results can differ through task suite, observation history, image views, action representation, fine-tuning recipe, rollout horizon, seed count, and aggregation. Real-robot SO100/SO101 results introduce another set of hardware and data-collection variables. This landscape therefore records results with their protocol rather than ranking isolated headline numbers. See [benchmark-notes.md](benchmark-notes.md).
+LIBERO results can differ through task suite, observation history, image views, action representation, fine-tuning recipe, rollout horizon, seed count, and aggregation. Real-robot SO100/SO101 results introduce another set of hardware and data-collection variables. Results must therefore be interpreted together with their protocols. See [evaluation comparability](benchmark-notes.md).
 
-## Recommendations by Goal
+## Selecting a Relevant Reference
 
-- **First VLA experiment or modest hardware:** start with SmolVLA and LeRobot.
-- **Study the canonical open VLA architecture and OXE lineage:** start with OpenVLA, then compare the OFT recipe.
-- **Study flow matching, FAST tokenization, or DROID/ALOHA adaptation:** use openpi.
-- **Build around a documented cross-embodiment deployment stack:** evaluate GR00T N1.7.
-- **Compare paper results:** first normalize the benchmark protocol; do not compare model names alone.
+- **Compact model and LeRobot integration:** SmolVLA.
+- **Discrete action tokens and Open X-Embodiment pretraining:** OpenVLA; OFT represents a separate continuous-action adaptation recipe.
+- **Flow matching, FAST tokenization, and published task checkpoints:** openpi.
+- **Cross-embodiment fine-tuning and policy serving:** GR00T N1.7.
+- **Reported benchmark performance:** task suites, observations, training data, and rollout protocols determine whether results are comparable.
 

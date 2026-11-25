@@ -10,7 +10,7 @@
 
 *Image source: official project repository.*
 
-## Snapshot
+## Technical Summary
 
 - **Problem:** Grasp and lift seen and unseen tabletop objects with a high-DoF dexterous hand.
 - **Input:** Realistic object point-cloud observations and robot state during execution.
@@ -33,7 +33,7 @@ The official repository separates `dexgrasp_generation` and `dexgrasp_policy`, r
 
 The repository states that the work and dataset use CC BY-NC 4.0. The non-commercial restriction should be reviewed before downstream deployment or redistribution.
 
-## Primary Sources
+## References
 
 - [Official project page](https://pku-epic.github.io/UniDexGrasp/)
 - [Official repository](https://github.com/PKU-EPIC/UniDexGrasp)

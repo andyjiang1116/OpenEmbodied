@@ -10,14 +10,14 @@
 
 <p align="center"><em>RoboTwin 2.0 combines task generation, expert data synthesis, and bimanual policy evaluation. Image source: <a href="https://robotwin-platform.github.io/">official project page</a>.</em></p>
 
-## Snapshot
+## Technical Summary
 
 - **Primary purpose:** scalable data generation and robust bimanual manipulation evaluation.
 - **Setting:** SAPIEN-based dual-arm simulation with multiple supported robot embodiments.
 - **Task organization:** 50 bimanual tasks built around a diverse object collection.
 - **Key variation:** clean and domain-randomized evaluation settings.
 
-## Why It Matters
+## Evaluation Objective
 
 RoboTwin 2.0 connects three problems that are often treated separately: authoring manipulation tasks, generating expert demonstrations at scale, and evaluating learned policies under environmental variation. Its focus on dual-arm coordination and diverse objects makes it complementary to single-arm tabletop suites.
 
@@ -46,11 +46,11 @@ The 50 tasks cover coordinated picking, placement, handover, tool use, articulat
 - Record scene seeds, episode count, step limits, language variants, and enabled randomizations.
 - RoboTwin 2.0 and RoboDojo can share XPolicyLab integration, but they use different tasks and evaluation designs.
 
-## Best Fit
+## Research Use
 
 Use RoboTwin 2.0 for scalable synthetic demonstrations, bimanual coordination, and robustness to structured domain variation. Use RoboDojo when the primary goal is capability-oriented diagnosis across both simulation and standardized real-robot evaluation.
 
-## Primary Sources
+## References
 
 - [Official repository](https://github.com/RoboTwin-Platform/RoboTwin)
 - [Project page](https://robotwin-platform.github.io/)

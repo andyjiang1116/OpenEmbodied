@@ -1,42 +1,41 @@
-# Open VLA 模型矩阵
+# VLA 模型技术对比
 
-[English](model-matrix.md) · [专题概览](README_ZH.md) · [Benchmark 说明](benchmark-notes_ZH.md) · [来源清单](sources.md)
+[English](model-matrix.md) · [研究概览](README_ZH.md) · [评测可比性](benchmark-notes_ZH.md) · [参考资料](references_ZH.md)
 
-本矩阵区分项目官方公开的事实与 OpenEmbodied 的归纳。“Available” 表示存在官方 artifact 或明确文档路径，不代表 OpenEmbodied 已经实际运行。
+下表依据各项目官方公开资料整理。公开代码、权重或文档并不等同于在统一环境中完成独立复现。
 
-## Architecture 与 Interface
+## 模型架构与输入输出接口
 
 | 项目 | OpenVLA / OFT | SmolVLA | openpi | GR00T N1.7 |
 | --- | --- | --- | --- | --- |
-| 主要定位 | 经典开放 VLA baseline 与 OXE pretraining | LeRobot 中的 compact VLA | π-family models 与 robot adaptation | Cross-embodiment training 和 deployment stack |
-| 代表规模 | 7B | 450M | π0 / π0-FAST / π0.5 family | 3B released checkpoint |
-| 动作生成 | 原版为 discrete action tokens；OFT 使用 continuous head | Flow matching continuous action chunks | π0/π0.5 使用 flow matching；π0-FAST 使用 autoregressive tokens | Diffusion-transformer continuous action head |
-| 主要生态 | PyTorch、Hugging Face、Open X-Embodiment | LeRobot datasets、training 与 hardware | JAX/PyTorch、LeRobot-format data、WebSocket serving | LeRobot-format data、ZMQ、TensorRT、Isaac ecosystem |
-| 入门门槛 | 中高 | 低至中 | 中高 | 高 |
+| 主要定位 | 基于 OXE 数据预训练的开放 VLA | 集成于 LeRobot 的紧凑模型 | 包含多种动作表示的 π 系列模型 | 跨机器人形态训练与部署工具链 |
+| 代表规模 | 约 70 亿参数 | 约 4.5 亿参数 | 因 π0、π0-FAST、π0.5 版本而异 | 公开 30 亿参数权重 |
+| 动作生成 | 原版使用离散动作 token；OFT 使用连续动作头 | 流匹配生成连续动作片段 | π0/π0.5 使用流匹配；π0-FAST 使用自回归动作 token | 流匹配动作 Transformer 生成连续动作片段 |
+| 相关工具链 | PyTorch、Hugging Face、Open X-Embodiment | LeRobot 数据、训练与硬件接口 | JAX/PyTorch、LeRobot 格式数据、WebSocket 服务 | LeRobot 格式数据、ZMQ、TensorRT、Isaac 工具链 |
 
-## Code、Weights 与 Data
+## 代码、权重与训练数据
 
-| 项目 | Code | Weights | Training data 可见性 | License 要点 |
+| 项目 | 代码 | 权重 | 训练数据信息 | 许可条件 |
 | --- | --- | --- | --- | --- |
-| OpenVLA | Inference、fine-tuning、training、evaluation 与 serving | 公开 7B checkpoints | 公开 OXE mixture 说明，各 source dataset 条款不同 | Repository 为 MIT；weights 还涉及 Llama 2 terms |
-| SmolVLA | LeRobot 内提供 training、inference 与 evaluation | `lerobot/smolvla_base` | 使用开放社区 LeRobot datasets，官方说明少于 3 万 episodes | Code 与 base model card 为 Apache-2.0 |
-| openpi | Training、configuration、data conversion 与 serving | Base 与部分 expert checkpoints | 官方说明超过 1 万小时 robot data，完整 proprietary mixture 不公开 | Apache-2.0 code，同时需要检查 upstream model terms |
-| GR00T N1.7 | Training、inference、serving 与 deployment | Base 与 selected fine-tuned checkpoints | 支持公开与自定义 LeRobot-format data | Apache-2.0 code；weights 使用 NVIDIA Open Model License |
+| OpenVLA | 推理、训练、微调、评测与策略服务 | 公开约 70 亿参数权重 | 公布 OXE 数据混合说明；各来源数据集条款不同 | 仓库代码为 MIT；权重还涉及 Llama 2 条款 |
+| SmolVLA | LeRobot 内的训练、推理与评测实现 | `lerobot/smolvla_base` | 使用开放的 LeRobot 社区数据集；官方报告少于 3 万段轨迹 | 代码与基础模型卡标注 Apache-2.0 |
+| openpi | 训练、配置、数据转换与策略服务 | 基础权重与部分任务专用权重 | 官方描述超过 1 万小时机器人数据；完整自有数据混合不公开 | 代码为 Apache-2.0；上游模型条款需另行核对 |
+| GR00T N1.7 | 训练、推理、策略服务与部署 | 基础权重与部分微调权重 | 提供公开及自定义 LeRobot 格式数据流程 | 代码为 Apache-2.0；权重使用 NVIDIA Open Model License |
 
 ## 输入、动作与适配
 
-| 项目 | 典型输入 | 动作接口 | 新 Robot 的适配方式 |
+| 项目 | 典型输入 | 动作接口 | 新机器人适配方式 |
 | --- | --- | --- | --- |
-| OpenVLA | Image、language，部分 recipe 加入 state/history | Dataset-specific normalized actions | Dataset conversion、normalization statistics、LoRA/full fine-tuning |
-| SmolVLA | 多 camera images、robot state、可选 language | Continuous action chunks | 在 LeRobot dataset 与 policy config 上 fine-tune |
-| openpi | 多图像、language、proprioception | Continuous flow actions 或 FAST tokens | Data conversion、robot config、normalization、LoRA/full tuning |
-| GR00T N1.7 | Images、language、robot state | Embodiment-specific continuous chunks | LeRobot conversion、embodiment config、fine-tuning 与 serving |
+| OpenVLA | 图像与语言；部分适配方案加入状态或历史观测 | 按数据集归一化的动作 | 数据转换、动作统计量、LoRA 或全参数微调 |
+| SmolVLA | 多路相机图像、机器人状态与语言指令 | 连续动作片段 | LeRobot 数据集与策略配置、任务微调 |
+| openpi | 多路图像、语言与本体状态 | 连续动作或 FAST 动作 token | 数据转换、机器人配置、归一化与微调 |
+| GR00T N1.7 | 图像、语言与机器人状态 | 按机器人形态定义的连续动作片段 | LeRobot 格式转换、形态配置、微调与策略服务 |
 
-## 选择建议
+## 比较边界
 
-- 理解经典开放 VLA architecture 与 OXE 路线：选择 OpenVLA，并区分原版与 OFT。
-- 以较低成本完成第一个 end-to-end VLA experiment：选择 SmolVLA。
-- 比较 flow matching、FAST tokenization 或研究 remote policy serving：选择 openpi。
-- 研究 cross-embodiment deployment、TensorRT 或 NVIDIA robotics stack：选择 GR00T N1.7。
+- OpenVLA 的原版与 OFT 在动作预测和控制方案上不同，不能合并为同一实验条件。
+- SmolVLA 的模型规模较小，但目标任务仍需要匹配的数据与机器人配置。
+- openpi 中的 π0、π0-FAST 与 π0.5 采用不同动作表示，结果需标注具体版本。
+- GR00T N1.7 的跨形态部署需要分别配置观测、动作与推理环境。
 
-这些项目在不同 benchmark、observation、action interface 与 adaptation recipe 下报告结果。本矩阵用于理解系统设计，不构成统一性能排名。
+这些项目在不同评测基准、观测条件、动作接口与适配方案下报告结果。本表用于比较系统设计，不构成统一性能排名。

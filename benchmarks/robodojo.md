@@ -10,14 +10,14 @@
 
 <p align="center"><em>RoboDojo unifies simulation and standardized real-world evaluation. Image source: <a href="https://robodojo-benchmark.com/">official project page</a>.</em></p>
 
-## Snapshot
+## Technical Summary
 
 - **Primary purpose:** comprehensive evaluation of generalist robot manipulation policies.
 - **Coverage:** 42 simulation tasks and 18 real-world tasks.
 - **Capability dimensions:** generalization, memory, precision, long-horizon execution, and open-vocabulary instruction following.
 - **Policy integration:** XPolicyLab provides a common serving and deployment interface.
 
-## Why It Matters
+## Evaluation Objective
 
 Many manipulation benchmarks compress performance into one task-average success rate. RoboDojo instead groups challenging tasks by the capability they are intended to probe and connects simulation with a standardized real-world evaluation track. This makes it useful for finding where a generalist policy fails rather than only assigning it a single rank.
 
@@ -51,11 +51,11 @@ RoboDojo-RealEval standardizes the physical station, scene reset, deployment int
 - Use the official protocol for comparisons with verified leaderboard entries.
 - Do not treat RoboDojo and RoboTwin 2.0 scores as comparable merely because they share policy infrastructure.
 
-## Best Fit
+## Research Use
 
 Use RoboDojo to diagnose a generalist policy across distinct manipulation capabilities or to connect simulated evaluation with a controlled real-robot protocol. It is not a training dataset release or a substitute for task-specific data collection.
 
-## Primary Sources
+## References
 
 - [Official repository](https://github.com/RoboDojo-Benchmark/RoboDojo)
 - [Project page](https://robodojo-benchmark.com/)

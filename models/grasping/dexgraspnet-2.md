@@ -10,7 +10,7 @@
 
 *Image source: official project repository.*
 
-## Snapshot
+## Technical Summary
 
 - **Problem:** Generate dexterous-hand grasps directly in cluttered scenes rather than treating every object in isolation.
 - **Input:** Scene point clouds with object and neighborhood geometry.
@@ -33,7 +33,7 @@ The paper reports real-world experiments, but transferring a generated pose stil
 
 The official setup targets Ubuntu 20.04, Python 3.8, CUDA 11.7, PyTorch 2.0.1, PyTorch3D, TorchSDF, and additional SDF tooling. These tightly coupled compiled dependencies make environment reproduction a first-class part of the experiment.
 
-## Primary Sources
+## References
 
 - [Official repository](https://github.com/PKU-EPIC/DexGraspNet2)
 - [CoRL 2024 paper](https://openreview.net/forum?id=885c47df6263f6be3a883d6b1bcd3e55048d7f2d)

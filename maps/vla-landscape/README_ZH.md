@@ -1,36 +1,36 @@
-# Open VLA Landscape
+# VLA 模型对比
 
-> 哪些模型真正开放、可比较、可复现？
+> 对照模型架构、动作表示、开放资源与评测协议。
 
-[English](README.md) · [详细模型矩阵](model-matrix_ZH.md) · [Benchmark 说明](benchmark-notes_ZH.md) · [来源清单](sources.md)
+[English](README.md) · [技术对比](model-matrix_ZH.md) · [评测可比性](benchmark-notes_ZH.md) · [参考资料](references_ZH.md)
 
 ## 摘要
 
-“开放 VLA”可能代表完全不同的开放程度：有的项目只公开推理代码，有的权重采用单独许可证，有的基础模型仍需面向具体任务微调，也有不同项目虽然都报告 LIBERO，却使用了不可直接比较的协议。
+VLA 项目的开放范围并不一致：推理代码、训练代码、模型权重和训练数据可能分别采用不同的发布方式与使用条款。即使报告相同评测基准的结果，任务配置与实验协议也可能不同。
 
-OpenEmbodied 第一版选择四条具有代表性的开源路线：
+本专题涵盖四组具有公开实现或权重的 VLA 模型：
 
-- [OpenVLA / OpenVLA-OFT](../../models/vla/openvla_ZH.md)：建立在 pretrained VLM 和 Open X-Embodiment 数据上的经典 7B VLA 路线。
-- [SmolVLA](../../models/vla/smolvla_ZH.md)：与 LeRobot 生态深度集成的 450M compact flow-matching policy。
-- [π0 / π0-FAST / π0.5 与 openpi](../../models/vla/openpi_ZH.md)：同时覆盖 flow matching 与 autoregressive action representation，并公开 base 与 task checkpoints。
-- [Isaac GR00T N1.7](../../models/vla/gr00t-n1.7_ZH.md)：提供 cross-embodiment fine-tuning、evaluation 与 deployment 链路。
+- [OpenVLA / OpenVLA-OFT](../../models/vla/openvla_ZH.md)：基于预训练视觉语言模型和 Open X-Embodiment 数据的 7B 参数模型系列。
+- [SmolVLA](../../models/vla/smolvla_ZH.md)：与 LeRobot 工具链集成的 450M 参数流匹配策略。
+- [π0 / π0-FAST / π0.5 与 openpi](../../models/vla/openpi_ZH.md)：涵盖流匹配与自回归动作表示，并提供基础和任务专用权重。
+- [Isaac GR00T N1.7](../../models/vla/gr00t-n1.7_ZH.md)：提供跨机器人形态微调、评测与部署流程。
 
-核心结论是：**脱离机器人形态、任务、算力、许可证和评测协议，不存在唯一“最开放”或“最好”的 VLA。**
+模型在动作表示、适配方式、开放资源和机器人接口方面存在差异。性能结果需要结合任务、机器人形态、训练数据与评测协议解读。
 
 ## 快速对比
 
-| 项目 | 主要优势 | 动作生成 | 官方起点 | 实践门槛 |
-| --- | --- | --- | --- | --- |
-| OpenVLA | 经典研究基线和广泛 OXE 预训练 | 离散动作 token；OFT 使用连续动作 | 7B 权重、推理、微调与评测代码 | 中高 |
-| SmolVLA | 模型轻量并连接低成本机器人工作流 | 连续动作与 flow matching | 450M 基础模型、LeRobot 训练和推理工具 | 低到中 |
-| openpi | 多种 π 系列策略及基础、任务权重 | π0/π0.5 使用 flow matching；π0-FAST 使用自回归 token | 训练、推理、服务和 LIBERO 示例 | 中高 |
-| GR00T N1.7 | 跨形态训练与部署工程栈 | diffusion-transformer 连续动作头 | 基础/微调权重、Benchmark 指南、策略服务 | 高 |
+| 模型系列 | 动作生成 | 公开资源 | 系统集成要点 |
+| --- | --- | --- | --- |
+| OpenVLA | 原版使用离散动作 token；OFT 使用连续动作头 | 约 70 亿参数权重、推理、微调与评测代码 | 需要匹配机器人动作归一化统计量；原版与 OFT 不能混为同一方案 |
+| SmolVLA | 流匹配生成连续动作片段 | 约 4.5 亿参数基础模型及 LeRobot 训练、推理工具 | 目标任务通常需要示教数据与微调 |
+| openpi | π0/π0.5 使用流匹配；π0-FAST 使用自回归动作 token | 基础及任务专用权重、训练与策略服务示例 | 需要配置对应机器人数据格式和动作接口 |
+| GR00T N1.7 | 流匹配动作 Transformer 生成连续动作片段 | 权重、微调流程、评测文档与策略服务 | 依赖平台专用环境和机器人形态配置 |
 
-详细字段和来源限制见 [model-matrix.md](model-matrix.md)。
+详细字段与比较条件见[技术对比](model-matrix_ZH.md)。
 
 ## 如何定义“开放”
 
-OpenEmbodied 不使用单一的“开源/不开源”标签，而是分别记录：
+开放范围需要从以下维度分别判断：
 
 1. **代码：** 推理、微调、预训练、评测和部署代码分别判断。
 2. **权重：** 基础权重与任务权重可能采用不同发布方式或条款。
@@ -39,33 +39,33 @@ OpenEmbodied 不使用单一的“开源/不开源”标签，而是分别记录
 5. **评测：** 相同 Benchmark 名称不代表任务、种子、视角、步数和统计方式相同。
 6. **部署：** 能够启动策略服务，不等于已经在目标机器人上完成端到端验证。
 
-## 主要发现
+## 技术观察
 
-### 1. SmolVLA 最适合作为低成本起点
+### SmolVLA：紧凑模型与集成工具链
 
-SmolVLA 提供 450M、Apache-2.0 的基础模型，使用连续动作和 flow matching，并接入 LeRobot 的数据、训练、评测与硬件工具。官方文档提供直接加载模型的路径，并明确基础模型需要针对具体任务微调。因此，它最适合作为 OpenEmbodied 第一个实际复现对象。
+SmolVLA 提供 450M 参数的基础模型，使用连续动作和流匹配，并接入 LeRobot 的数据、训练、评测与硬件工具。官方文档提供模型加载与任务微调流程。较小的模型规模降低了算力要求，但任务表现仍取决于数据与机器人配置。
 
-### 2. OpenVLA 仍是重要基线，但不能只看 MIT 标签
+### OpenVLA：区分代码、权重与适配方案
 
 OpenVLA 仓库采用 MIT 许可证，并提供推理、微调、服务与评测材料；但公开的 7B 权重建立在 Llama 2 之上，模型使用条件不能只用仓库的 MIT 许可证概括。OpenVLA-OFT 还改变了动作预测等关键实现，因此比较时必须标注具体版本和训练配方。
 
-### 3. openpi 对系统边界的说明很有价值
+### openpi：多种策略形式与机器人接口
 
 官方仓库明确区分 π0、π0-FAST 和 π0.5，发布基础权重及多种机器人、任务权重，给出显存预估并支持远程策略服务。它也明确提醒：把模型迁移到不同机器人上不一定成功。这类限制说明本身就是重要证据。
 
-### 4. GR00T N1.7 的工程链路最完整
+### GR00T N1.7：训练与部署流程
 
 GR00T N1.7 文档覆盖数据转换、推理、微调、策略服务、TensorRT 部署，以及 LIBERO、SimplerEnv 和 SO100 的专用流程。代码采用 Apache-2.0，权重采用 NVIDIA Open Model License。工程覆盖面很广，但 gated backbone、子模块、GPU 依赖和平台差异也提高了入门成本。
 
-### 5. 不能把 Benchmark 结果压缩成一个排行榜
+### 评测结果：实验协议与可比性
 
-LIBERO 结果可能受到任务套件、历史观测、图像视角、动作表示、微调配方、rollout 长度、随机种子和统计方式影响；SO100/SO101 真机实验还受到硬件与采集流程影响。因此本专题记录“结果 + 协议”，而不是对单个分数排序。详见 [benchmark-notes.md](benchmark-notes.md)。
+LIBERO 结果可能受到任务套件、观测历史、相机视角、动作表示、微调方案、执行步数、随机种子和统计方式影响；SO100/SO101 真机实验还受到硬件与数据采集流程影响。不同结果的可比性取决于这些实验条件。详见[评测可比性](benchmark-notes_ZH.md)。
 
-## 按目标选择
+## 技术适用范围
 
-- **第一次尝试 VLA 或算力有限：** 从 SmolVLA 和 LeRobot 开始。
-- **研究经典开源 VLA 与 OXE 路线：** 先看 OpenVLA，再比较 OFT。
-- **研究 flow matching、FAST tokenizer 或 DROID/ALOHA 适配：** 选择 openpi。
-- **需要较完整的跨形态部署链路：** 评估 GR00T N1.7。
-- **比较论文结果：** 先统一评测协议，不要只比较模型名称。
+- **紧凑模型与 LeRobot 集成：** SmolVLA。
+- **离散动作 token 与 Open X-Embodiment 预训练：** OpenVLA；OFT 是独立的连续动作适配方案。
+- **流匹配、FAST 动作 token 与任务权重：** openpi。
+- **跨机器人形态微调与策略服务：** GR00T N1.7。
+- **论文结果对比：** 需要核对任务套件、观测输入、训练数据与 rollout 协议。
 

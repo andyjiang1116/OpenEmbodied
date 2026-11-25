@@ -13,4 +13,4 @@
 | [RoboDojo](robodojo.md) | Generalist-policy diagnosis across simulation and real robots |
 | [RoboDyna](robodyna.md) | Dynamic physical reasoning and latency-aware manipulation evaluation |
 
-Each note explains the capability being measured, environment and embodiment, task and data design, metrics, protocol boundaries, appropriate use, and primary sources.
+Each note explains the capability being measured, environment and embodiment, task and data design, metrics, protocol boundaries, research use, and references.

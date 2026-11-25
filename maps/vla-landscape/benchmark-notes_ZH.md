@@ -1,43 +1,43 @@
-# Benchmark 可比性说明
+# 评测结果可比性
 
-[English](benchmark-notes.md) · [专题概览](README_ZH.md) · [模型矩阵](model-matrix_ZH.md) · [来源清单](sources.md)
+[English](benchmark-notes.md) · [研究概览](README_ZH.md) · [技术对比](model-matrix_ZH.md) · [参考资料](references_ZH.md)
 
-## 为什么需要单独说明
+## 评测结果的比较条件
 
-模型名称和 benchmark score 不足以支撑公平比较。VLA evaluation 对 policy checkpoint、task suite、observation pipeline、action representation、fine-tuning data、rollout settings 与 success aggregation 都非常敏感。
+仅有模型名称和评测分数不足以判断性能差异。VLA 结果还取决于策略权重、任务套件、观测处理、动作表示、微调数据、执行设置及成功率汇总方式。
 
 ## 阅读 VLA 结果时需要确认
 
-1. **Checkpoint 与 recipe：** 区分 base、task-specific、LoRA、full fine-tuning、OFT 或其他优化方案。
-2. **Training data：** 是否加入 benchmark demonstrations、extra robot data 或 synthetic data。
-3. **Observations：** Camera 数量、resolution、proprioception、language 与 history。
-4. **Actions：** Joint 或 Cartesian、absolute 或 delta、control frequency 与 action chunk length。
-5. **Evaluation：** Task list、episodes、seeds、horizon、reset 与 success definition。
-6. **Aggregation：** 先按 episode、task 还是 suite 平均，是否报告 variance。
+1. **权重与适配方案：** 区分基础权重、任务专用权重、LoRA、全参数微调及 OFT 等方案。
+2. **训练数据：** 是否使用基准示教、额外机器人数据或合成数据。
+3. **观测输入：** 相机数量、图像分辨率、本体状态、语言指令与历史观测。
+4. **动作接口：** 关节或笛卡尔空间控制、绝对或增量动作、控制频率与动作片段长度。
+5. **评测设置：** 任务列表、回合数、随机种子、执行步数、重置规则与成功判据。
+6. **指标汇总：** 按回合、任务或套件汇总的顺序，以及是否报告方差。
 
 ## LIBERO
 
-LIBERO 是开放 VLA 论文中常见的共同 benchmark，但不同实现仍可能改变 observation history、camera inputs、action chunking、rollout length 与 suite aggregation。应报告 Spatial、Object、Goal 与 Long 等具体 suite，不能只给出缺少上下文的总分。
+LIBERO 是 VLA 论文中常见的评测基准，但不同实现可能采用不同的历史观测、相机输入、动作分块、执行步数和套件汇总方式。结果应标明 LIBERO-Spatial、LIBERO-Object、LIBERO-Goal、LIBERO-10 或其他具体设置；不能仅给出缺少上下文的总分。
 
 ## SimplerEnv
 
-SimplerEnv 的核心价值是比较 simulation 与对应 real-world evaluation 的一致性。结果应说明 robot setup、task variant、visual matching 或 environment aggregation、policy checkpoint，以及 paired real result。单独的 simulated success 不能证明 sim-to-real fidelity。
+SimplerEnv 检验仿真评测与对应真机评测的一致性。结果需要说明机器人平台、任务变体、视觉匹配或环境变体汇总方式、策略权重，以及配对的真机结果。单独的仿真成功率不能证明仿真对真机性能的预测能力。
 
-## Real-Robot Evaluation
+## 真机评测
 
-真实 robot 结果还受到 hardware revision、camera calibration、controller、reset procedure、operator intervention、trial count 与 safety termination 的影响。不同实验室中的同名任务通常不能视为统一 benchmark。
+真机结果还受到硬件版本、相机标定、控制器、任务重置、人工干预、试验次数与安全终止条件影响。不同实验室的同名任务未必采用相同协议。
 
-## 建议报告格式
+## 结果报告要素
 
 ```text
-Model and checkpoint:
-Adaptation recipe and data:
-Benchmark and task suite:
-Observations and actions:
-Episodes, seeds, and horizon:
-Metric and aggregation:
-Hardware and control frequency:
-Source:
+模型与权重：
+适配方案与训练数据：
+评测基准与任务套件：
+观测与动作接口：
+回合数、随机种子与执行步数：
+指标与汇总方式：
+硬件与控制频率：
+参考资料：
 ```
 
-这些信息让结果更容易理解与复查，但不会自动使不同 protocol 下的数字可比。
+这些信息支持复查结果，但不同协议下的分数仍不能直接比较。

@@ -24,7 +24,7 @@
 
 ## 🌐 About
 
-OpenEmbodied is a curated reference for embodied AI research. It organizes model and benchmark profiles by research direction, with comparative analyses that trace technical choices, evaluation protocols, and primary sources. The current collection focuses on robotic manipulation; the broader scope is outlined below.
+OpenEmbodied is a curated reference for embodied AI research. It organizes model and benchmark profiles by research direction, with comparative analyses of technical choices, evaluation protocols, and published research. The current collection focuses on robotic manipulation; the broader scope is outlined below.
 
 ## 🗂️ Research Directions
 
@@ -50,7 +50,7 @@ Architecture, action representations, released resources, and evaluation protoco
 - [Research Overview](maps/vla-landscape/README.md) — model families and the availability of code, weights, data, and deployment tools.
 - [Technical Comparison](maps/vla-landscape/model-matrix.md) — architectures, action generation, and released resources.
 - [Evaluation Comparability](maps/vla-landscape/benchmark-notes.md) — evaluation settings and limits on cross-model comparison.
-- [References](maps/vla-landscape/sources.md) — official papers, repositories, and documentation.
+- [References](maps/vla-landscape/references.md) — official papers, repositories, and documentation.
 
 #### [Grasping](models/grasping/README.md)
 
@@ -79,7 +79,7 @@ Tasks, embodiments, metrics, and protocol differences across manipulation benchm
 - [Benchmark Overview](maps/benchmark-map/README.md) — the focus and intended use of six manipulation benchmarks.
 - [Benchmark Comparison](maps/benchmark-map/benchmark-matrix.md) — tasks, robots, environments, observations, and metrics side by side.
 - [Evaluation Protocols](maps/benchmark-map/protocol-guide.md) — what to check before interpreting or reproducing a reported result.
-- [References](maps/benchmark-map/sources.md) — official papers, repositories, and documentation.
+- [References](maps/benchmark-map/references.md) — official papers, repositories, and documentation.
 
 ## 🛰️ Planned Research Topics
 
@@ -98,7 +98,7 @@ The next research topics span embodied capabilities and the data, simulation, an
 
 Contributions to model and benchmark profiles, comparative analyses, and primary-source references are welcome.
 
-Please cite primary sources and distinguish reported results from independent verification. Open an Issue to propose a topic or report a correction.
+Please cite the original papers, official repositories, or project documentation, and distinguish reported results from independently verified results. Open an Issue to propose a topic or report a correction.
 
 ## 🙏 Acknowledgments
 

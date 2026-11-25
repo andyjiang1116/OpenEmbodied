@@ -10,14 +10,14 @@
 
 <p align="center"><em>SimplerEnv pairs simulated scenes with corresponding real-robot evaluations. Image source: <a href="https://simpler-env.github.io/">official project page</a>.</em></p>
 
-## Snapshot
+## Technical Summary
 
 - **Primary purpose:** evaluate real-world robot policies in simulation.
 - **Setting:** SAPIEN/ManiSkill-based simulated counterparts of common real-robot setups.
 - **Representative systems:** Google Robot and WidowX manipulation environments.
 - **Key analysis:** agreement between simulated and real-world policy performance.
 
-## Why It Matters
+## Evaluation Objective
 
 Real-robot evaluation is costly, slow, and difficult to reproduce. SimplerEnv tests whether a controlled simulation can serve as a useful proxy by comparing policies in paired simulated and physical setups. Its central question is not whether a simulator looks realistic in isolation, but whether conclusions drawn from it track real-world results.
 
@@ -45,11 +45,11 @@ Pearson correlation measures linear agreement between simulated and real policy 
 - A high simulated success rate is not evidence of real-world fidelity without paired real results.
 - Correlation depends on which policies and tasks are included; it is not a permanent property of the simulator.
 
-## Best Fit
+## Research Use
 
 Use SimplerEnv when deciding whether simulation can reduce the cost of evaluating a fixed set of real-robot policies. It is not primarily a training-data benchmark or a claim that simulation fully reproduces real-world behavior.
 
-## Primary Sources
+## References
 
 - [Official repository](https://github.com/simpler-env/SimplerEnv)
 - [Project page](https://simpler-env.github.io/)

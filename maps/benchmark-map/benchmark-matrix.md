@@ -2,7 +2,7 @@
 
 [简体中文](benchmark-matrix_ZH.md)
 
-[Overview](README.md) · [简体中文](README_ZH.md) · [Protocol guide](protocol-guide.md) · [Sources](sources.md)
+[Overview](README.md) · [简体中文](README_ZH.md) · [Evaluation protocols](protocol-guide.md) · [References](references.md)
 
 | Benchmark | Primary focus | Environment and embodiment | Task structure | Representative reporting |
 | --- | --- | --- | --- | --- |

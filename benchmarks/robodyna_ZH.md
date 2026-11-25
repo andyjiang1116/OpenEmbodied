@@ -2,79 +2,79 @@
 
 [English](robodyna.md)
 
-> **类别：** Robot Manipulation Benchmark · [Repository](https://github.com/RoboDyna/robodyna) · [Project Page](https://robodyna.github.io/robodyna/) · [Paper](https://arxiv.org/abs/2611.26969) · [Data & Assets](https://huggingface.co/RoboDyna)
+> **类别：** 动态机器人操作评测基准 · [官方仓库](https://github.com/RoboDyna/robodyna) · [项目主页](https://robodyna.github.io/robodyna/) · [论文](https://arxiv.org/abs/2611.26969) · [数据与资源](https://huggingface.co/RoboDyna)
 
 <p align="center">
   <img src="https://robodyna.github.io/robodyna/figures/fig1_teaser.png" alt="RoboDyna benchmark overview" width="860" />
 </p>
 
-<p align="center"><em>RoboDyna 在 policy 思考期间仍持续演化的环境中评估 language-conditioned dual-arm manipulation。图片来源：<a href="https://robodyna.github.io/robodyna/">official project page</a>。</em></p>
+<p align="center"><em>RoboDyna 评估动态环境中的语言条件双臂操作，环境在策略推理期间仍持续演化。图片来源：<a href="https://robodyna.github.io/robodyna/">官方项目主页</a>。</em></p>
 
 ## 概览
 
-- **主要目标：** 评估 dynamic scenes 中的 physical understanding 与 closed-loop action。
-- **环境：** SAPIEN 3 中的 language-conditioned dual-arm manipulation。
-- **任务组织：** 5 个 capability categories、20 个 conceptual tasks 与 10 个 household tasks。
-- **数据：** 由 task-specific controllers 生成的 3,500 条 expert demonstrations。
-- **关键协议：** 在相同 seeds 上配对进行 synchronous 与 asynchronous evaluation。
+- **主要目标：** 评估动态场景中的物理理解与闭环操作能力。
+- **环境：** 基于 SAPIEN 3 的语言条件双臂操作场景。
+- **任务组织：** 五类能力、20 项概念任务和 10 项家庭场景任务。
+- **数据：** 由任务专用控制器生成的 3500 条专家示教。
+- **关键协议：** 使用相同随机种子进行成对同步与异步评测。
 
-## 为什么重要
+## 评测目标
 
-多数 manipulation benchmark 会在 policy inference 时暂停环境，得到 action 后才继续 simulation。这种设计使 computation time 不会影响任务。RoboDyna 中的环境持续受到 gravity、friction、collision、contact 与 state changes 影响；在 asynchronous protocol 下，场景会在真实 inference latency 内继续演化，因此一个正确但过晚的 action 也可能失败。
+在同步评测中，环境通常会在策略推理期间暂停，推理时长不影响任务状态。RoboDyna 的异步协议则让场景在实际推理延迟内持续演化；重力、摩擦、碰撞和接触可能使动作在执行时失效。因此策略结果需要同时考虑动作选择与推理延迟。
 
-RoboDyna 由此将三个问题拆开：policy 是否理解 physical dynamics、是否选择了有效 action，以及能否足够快地生成该 action。
+同步与异步结果的差异可用于分析策略对物理动态的理解、动作有效性及推理时效性。
 
-## Capability Categories
+## 能力类别
 
-- **Trajectory Prediction：** 预测 moving object 的未来位置，包括 contact 或 collision 改变后的轨迹。
-- **Periodic Pattern：** 识别重复运动规律，并在短暂 opportunity window 中行动。
-- **Dynamic Avoidance：** 绕开独立移动的 objects 与 obstacles 规划 robot motion。
-- **State Transition：** 跟踪无法仅通过 pose 表达的变化，例如 ripeness、doneness 或 availability。
-- **Static to Dynamic：** 预测 robot 通过 pushing、striking 或 releasing 主动触发的运动。
+- **轨迹预测（Trajectory Prediction）：** 预测运动物体的未来位置，包括接触或碰撞后的轨迹变化。
+- **周期模式（Periodic Pattern）：** 识别重复运动规律，并在短暂的可操作时间窗口内行动。
+- **动态避障（Dynamic Avoidance）：** 在物体与障碍物独立运动时规划机器人动作。
+- **状态变化（State Transition）：** 跟踪无法仅用位姿描述的变化，例如成熟度、烹饪程度或可用状态。
+- **静态转动态（Static to Dynamic）：** 预测机器人推动、击打或释放物体后引发的运动。
 
-每类包含 4 个 scene clutter 很少的 conceptual tasks。10 个 household tasks 则在更丰富的 office 与 kitchen scenes 中评测类似能力，并加入 rising liquids、overflow、dispensing 和 spreading spills 等现象。
+每类包含 4 项场景干扰较少的概念任务。另有 10 项家庭场景任务，在更复杂的办公室和厨房场景中评测相同能力，并涉及液面上升、溢出、分装和液体扩散等现象。
 
-## Difficulty Design
+## 难度设计
 
-每个 conceptual task 有四种条件：
+每项概念任务有四种条件：
 
-- `base`：easy condition；
-- `var1` 与 `var2`：分别加入一种 task-specific variation 的 medium conditions；
-- `var1+2`：组合两种变化且不参与训练的 hard condition。
+- `base`：基础条件；
+- `var1` 与 `var2`：分别加入一种任务特定变化；
+- `var1+2`：组合两种变化，作为训练中未出现的高难度条件。
 
-这种设计可以区分对单个已知变化的 robustness，与对组合条件的 compositional generalization。
+这种设计能够分别考察策略对单一已知变化的鲁棒性，以及对组合条件的泛化能力。
 
-## Synchronous 与 Asynchronous Evaluation
+## 同步与异步评测
 
-两套 protocol 使用相同 tasks 与 seeds，但对 inference time 的处理不同：
+两套评测协议使用相同任务与随机种子，但对推理时间的处理不同：
 
-- **Synchronous：** Policy 计算下一步 action 时，environment 实际上被冻结。
-- **Asynchronous：** Action 执行前，environment 会按照测得的 inference latency 继续演化。
+- **同步（Synchronous）：** 策略计算下一步动作时，环境保持暂停。
+- **异步（Asynchronous）：** 动作执行前，环境在实际测得的推理延迟内继续演化。
 
-官方研究显示，latency 会改变 5–12% episodes 的最终结果，虽然平均 success rate 的变化更小。因此只报告 aggregate average 可能掩盖重要的 timing failures。
+论文报告，推理延迟会改变 5%–12% 测试回合的最终结果，尽管平均成功率的变化较小。仅报告总体均值可能掩盖由动作时机造成的失败。
 
-## Metrics 与 Baselines
+## 评测指标与基线
 
-RoboDyna 同时报告 binary success 与 progress score；后者根据 task milestones 提供 partial credit，并对错误进行惩罚。论文在 5.4K episodes 中评估 π0.5、X-VLA 与 FastWAM，并在相同 seeds 上提供 human baselines。结果按 difficulty、household tasks、capability category、metric 与 sync/async protocol 拆分。
+RoboDyna 同时报告二元成功率与进度分数。进度分数根据任务里程碑给予部分得分，并对错误进行惩罚。论文在约 5400 个测试回合中评估 π0.5、X-VLA 与 FastWAM，并使用相同随机种子提供人类操作者基线。结果按难度、家庭场景任务、能力类别、指标以及同步或异步协议分别呈现。
 
-这些结果只代表 released checkpoints 与 official protocol 下的发现，不能视为 model family 的永久排名。Human performance 也区分 teleoperation 与 scene-interactive control，因为 low-level control cost 会改变任务难度。
+这些结果对应论文发布的模型权重和评测协议，不代表模型家族的固定排名。人类操作者结果还区分远程操作与场景交互控制，因为底层控制负担会影响任务难度。
 
 ## 结果解读
 
-- 分开报告 synchronous 与 asynchronous results，不能只给平均值。
-- 记录 measured inference latency 以及对应 hardware。
-- 说明使用 `base`、`var1`、`var2` 还是 held-out `var1+2`。
-- 区分 conceptual 与 household tasks，它们的 clutter 和 semantic complexity 不同。
-- 在 partial completion 有意义时同时报告 success rate 与 progress score。
-- 不混合 policy 与不同 human control modes。
+- 分别报告同步与异步结果，并说明总体均值的计算范围。
+- 记录实测推理延迟及对应硬件。
+- 说明使用 `base`、`var1`、`var2` 还是留出的 `var1+2` 条件。
+- 区分概念任务与家庭场景任务，两者的场景干扰和语义复杂度不同。
+- 在任务允许部分完成时，同时报告成功率与进度分数。
+- 分别呈现机器人策略与不同控制方式下的人类操作者结果。
 
-## 适用场景
+## 研究用途
 
-RoboDyna 适合研究 dynamic physical reasoning、time-critical action、latency-aware evaluation，以及 physically grounded motion 下的 compositional generalization。它用于补充 static manipulation suites，并不能替代专门研究 lifelong transfer、long-horizon instruction chains 或标准化 real-robot evaluation 的 benchmark。
+RoboDyna 用于研究动态物理推理、时效性动作、考虑推理延迟的评测，以及物理交互中的组合泛化。其动态场景协议可补充静态操作评测；持续学习、长程指令执行和标准化真机评测仍需相应的专门基准。
 
-## 原始来源
+## 参考资料
 
-- [Official repository](https://github.com/RoboDyna/robodyna)
-- [Project page and task gallery](https://robodyna.github.io/robodyna/)
-- [Paper](https://arxiv.org/abs/2611.26969)
-- [Data and assets](https://huggingface.co/RoboDyna)
+- [官方仓库](https://github.com/RoboDyna/robodyna)
+- [项目主页与任务展示](https://robodyna.github.io/robodyna/)
+- [论文](https://arxiv.org/abs/2611.26969)
+- [数据与资源](https://huggingface.co/RoboDyna)

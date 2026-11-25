@@ -38,4 +38,4 @@ Raw success percentages should not be compared across these works: the end effec
 - [DexGraspNet](https://pku-epic.github.io/DexGraspNet/) provides 1.32 million simulated dexterous grasps and a scalable synthesis pipeline.
 - [UniDexGrasp++](https://pku-epic.github.io/UniDexGrasp++/) focuses on universal dexterous policy learning with geometry-aware curriculum and generalist-specialist iteration.
 
-These resources cross model, dataset, and benchmark boundaries. Dedicated dataset profiles should live under `datasets/` rather than being duplicated here when that catalog is introduced.
+These resources provide background on models, datasets, and benchmarks relevant to grasp generation.

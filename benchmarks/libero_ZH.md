@@ -2,44 +2,44 @@
 
 [English](libero.md)
 
-> **类别：** Robot Manipulation Benchmark · [Repository](https://github.com/Lifelong-Robot-Learning/LIBERO) · [Project Page](https://libero-project.github.io/) · [Paper](https://arxiv.org/abs/2306.03310)
+> **类别：** 机器人操作评测基准 · [官方仓库](https://github.com/Lifelong-Robot-Learning/LIBERO) · [项目主页](https://libero-project.github.io/) · [论文](https://arxiv.org/abs/2306.03310)
 
 <p align="center">
   <img src="../docs/assets/benchmarks/libero-overview.jpg" alt="LIBERO benchmark overview" width="820" />
 </p>
 
-<p align="center"><em>LIBERO 研究 language-conditioned manipulation tasks 之间的知识迁移。图片来源：<a href="https://libero-project.github.io/">official project page</a>。</em></p>
+<p align="center"><em>LIBERO 研究语言条件操作任务之间的知识迁移。图片来源：<a href="https://libero-project.github.io/">官方项目主页</a>。</em></p>
 
 ## 概览
 
-- **主要目标：** 研究 lifelong robot learning 与 multitask learning 中的 knowledge transfer。
-- **环境：** 基于 robosuite/MuJoCo 的 language-conditioned tabletop manipulation。
-- **任务组织：** Spatial、Object、Goal、10-task 与 90-task suites。
-- **典型结果：** Task success；lifelong-learning 实验还需要衡量 transfer 与 forgetting。
+- **主要目标：** 研究终身学习与多任务机器人学习中的知识迁移。
+- **环境：** 基于 robosuite/MuJoCo 的语言条件桌面操作。
+- **任务组织：** LIBERO-Spatial、LIBERO-Object、LIBERO-Goal、LIBERO-10 与 LIBERO-90。
+- **结果指标：** 任务成功率；序列学习实验还需衡量迁移与遗忘。
 
-## 为什么重要
+## 评测目标
 
-LIBERO 将不同类型的任务变化拆分开，使研究者能够分析知识如何在任务之间迁移。Spatial suite 主要改变空间关系，Object suite 强调 object identity，Goal suite 改变目标行为，更大的 suite 则用于测试更广泛的任务学习。
+LIBERO 通过不同任务套件控制变化来源，以分析知识在任务之间的迁移。Spatial 套件改变空间关系，Object 套件改变操作物体，Goal 套件改变任务目标；LIBERO-100 则提供更大规模的任务集合，其中 LIBERO-90 与 LIBERO-10 分别用于预训练和下游评测。
 
-LIBERO 也被广泛用于 VLA fine-tuning evaluation，但如果没有 sequential learning 与 transfer/forgetting metric，这种用法回答的是 policy adaptation 问题，而不是完整的 lifelong-learning 问题。
+LIBERO 也常用于 VLA 微调评测。若实验不采用顺序学习协议，也不报告迁移与遗忘指标，其结果主要反映策略适配和任务成功率，不能直接支持终身学习结论。
 
 ## 实验设计
 
-LIBERO 提供程序化 manipulation tasks、language descriptions、demonstration datasets 与标准 suites。Policy 通常输入 visual observations、language 和可选 robot state，并输出 continuous control actions。Camera inputs、history、control representation、rollout horizon 与每个任务使用的 demonstrations 数量，在不同论文中可能不同，必须与结果一同说明。
+LIBERO 提供程序化操作任务、语言描述、示教数据与标准任务套件。策略通常接收视觉观测、语言指令和可选的机器人状态，并输出连续控制动作。不同研究可能采用不同的相机输入、历史观测、动作表示、执行步数及每项任务的示教数量；这些条件需要随结果一同报告。
 
-## Task Suites
+## 任务套件
 
-- **LIBERO-Spatial：** 改变 spatial relationship，同时尽量控制 object 与 goal semantics。
-- **LIBERO-Object：** 强调 manipulated object 之间的迁移。
-- **LIBERO-Goal：** 改变目标行为或 goal language。
-- **LIBERO-10：** 一组较紧凑的 long-horizon tasks。
-- **LIBERO-90：** 扩展到更广泛的 short-horizon task collection。
+- **LIBERO-Spatial：** 改变空间关系，同时尽量保持物体和目标语义一致。
+- **LIBERO-Object：** 改变操作物体，考察跨物体迁移。
+- **LIBERO-Goal：** 改变任务目标或语言指令。
+- **LIBERO-10：** 包含 10 项较长程任务。
+- **LIBERO-90：** 包含 90 项短程任务，通常用于更大规模的预训练设置。
 
-Suite 名称本身就是实验定义的一部分。VLA 论文常见的四套件平均成功率可以用于 policy evaluation，但不能替代原始 benchmark 中的 sequential learning protocol。
+任务套件是实验定义的一部分。VLA 论文常报告若干套件的平均成功率，但这种策略评测不能替代原始基准的顺序学习协议。
 
-## Metrics 与研究用途
+## 评测指标与研究用途
 
-独立 rollout 通常报告 binary task success。Lifelong-learning 实验还关注 forward transfer、backward transfer 与学习任务序列后的 forgetting。因此，LIBERO 可用于 policy adaptation 与 continual learning，但 metric 必须与研究结论匹配。
+单次执行通常使用二元任务成功率。终身学习实验还关注前向迁移、后向迁移与顺序学习后的遗忘。LIBERO 可以用于策略适配或持续学习研究，但指标必须与所讨论的问题一致。
 
 ## 结果解读
 
@@ -48,11 +48,11 @@ Suite 名称本身就是实验定义的一部分。VLA 论文常见的四套件�
 - 不能仅根据最终平均成功率推断 forgetting resistance。
 - 检查是否使用额外数据、observation history、多 camera views 或 benchmark-specific fine-tuning。
 
-## 适用场景
+## 研究用途
 
 LIBERO 适合 language-conditioned tabletop policy、data-efficient adaptation 与 sequential knowledge transfer 的受控比较，不适合直接支撑 bimanual coordination、real-world deployment 或广泛 sim-to-real robustness 结论。
 
-## 原始来源
+## 参考资料
 
 - [Official repository](https://github.com/Lifelong-Robot-Learning/LIBERO)
 - [Project page](https://libero-project.github.io/)

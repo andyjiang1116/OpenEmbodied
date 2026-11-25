@@ -2,32 +2,32 @@
 
 [English](robodojo.md)
 
-> **类别：** Robot Manipulation Benchmark · [Repository](https://github.com/RoboDojo-Benchmark/RoboDojo) · [Project Page](https://robodojo-benchmark.com/) · [Paper](https://arxiv.org/abs/2607.04434) · [Leaderboard](https://robodojo-benchmark.com/leaderboard)
+> **类别：** 机器人操作评测基准 · [官方仓库](https://github.com/RoboDojo-Benchmark/RoboDojo) · [项目主页](https://robodojo-benchmark.com/) · [论文](https://arxiv.org/abs/2607.04434) · [排行榜](https://robodojo-benchmark.com/leaderboard)
 
 <p align="center">
   <img src="../docs/assets/benchmarks/robodojo-overview.jpg" alt="RoboDojo simulation and real-world benchmark" width="820" />
 </p>
 
-<p align="center"><em>RoboDojo 统一 simulation 与标准化 real-world evaluation。图片来源：<a href="https://robodojo-benchmark.com/">official project page</a>。</em></p>
+<p align="center"><em>RoboDojo 结合仿真与标准化真机评测。图片来源：<a href="https://robodojo-benchmark.com/">官方项目主页</a>。</em></p>
 
 ## 概览
 
-- **主要目标：** 全面评估 generalist robot manipulation policies。
-- **覆盖范围：** 42 个 simulation tasks 与 18 个 real-world tasks。
-- **能力维度：** Generalization、Memory、Precision、Long-Horizon 与 Open-vocabulary instruction following。
-- **Policy integration：** XPolicyLab 提供统一的 serving 与 deployment interface。
+- **主要目标：** 按能力维度评估通用机器人操作策略。
+- **覆盖范围：** 官方资料列出 42 项仿真任务和 18 项真机任务。
+- **能力维度：** 泛化、记忆、精细控制、长程操作与开放词汇指令执行。
+- **策略接入：** 通过 XPolicyLab 连接策略服务与评测环境。
 
-## 为什么重要
+## 评测目标
 
-许多 manipulation benchmark 将结果压缩为单一平均成功率。RoboDojo 按能力维度组织高难度任务，并连接 simulation 与标准化 real-world track，更适合定位 generalist policy 的具体 weakness，而不只是给出一个总排名。
+RoboDojo 按能力维度组织任务，并分别提供仿真与真机评测。除总体成功率外，分维度结果可用于分析策略在泛化、记忆、精细控制及长程任务中的表现差异。
 
-## Simulation 与 Real-World Evaluation
+## 仿真与真机评测
 
-Simulation benchmark 使用 Isaac Sim，并支持在不同 task 与 scene 间进行 heterogeneous parallel execution。RoboDojo-RealEval 对 physical testing 的 hardware、scene reset、evaluation protocol 与 deployment interface 进行标准化，并支持 remote evaluation。Real-world track 覆盖三种 bimanual embodiments。
+仿真评测基于 Isaac Sim，支持不同任务与场景的异构并行执行。RoboDojo-RealEval 统一真机评测的硬件、场景重置、评测协议与部署接口，并支持远程评测。真机赛道覆盖三种双臂机器人形态。
 
-RoboDojo 的公开架构以 evaluation 为核心：policy 通过 XPolicyLab 集成，RoboDojo 负责 environment、task、layout、validation、scoring 与 result artifacts。XPolicyLab 同时支持 RoboTwin，但两个 benchmark 仍然独立。
+RoboDojo 的公开架构围绕评测设计：策略通过 XPolicyLab 接入，RoboDojo 管理环境、任务、场景布局、验证、评分与结果文件。XPolicyLab 同时支持 RoboTwin，但两项评测基准各自独立。
 
-## Capability Dimensions
+## 能力维度
 
 - **Generalization：** 改变 objects、layouts 或其他条件，测试超出狭窄设置的迁移能力。
 - **Memory：** 要求保留当前 observation 中已经不可见的 task-relevant information。
@@ -37,25 +37,25 @@ RoboDojo 的公开架构以 evaluation 为核心：policy 通过 XPolicyLab 集�
 
 需要分别报告这些维度，因为总体结果相同的两个 policy，实际能力结构可能完全不同。
 
-## Evaluation Architecture
+## 评测体系
 
-RoboDojo simulator client 运行 environment，并将 observations 发送给 policy server。XPolicyLab 管理 policy adapters 与统一 serving interface，使同一 policy 可以在 RoboDojo simulation 与 real stations 中评测，并减少 policy-side adaptation。Heterogeneous parallel execution 可以同时运行不同任务与场景。
+RoboDojo 仿真客户端运行环境，并将观测发送给策略服务。XPolicyLab 管理策略适配器和统一的服务接口，使同一策略能够在仿真及真机工作站接受评测，减少策略侧的适配工作。异构并行执行可同时运行不同任务与场景。
 
-RoboDojo-RealEval 对 physical station、scene reset、deployment interface 与 scoring procedure 进行标准化。它提高了相对于独立实验室 setup 的 reproducibility，但 simulation 与 real-world result 仍应作为不同 track 报告。
+RoboDojo-RealEval 统一真机工作站、场景重置、部署接口和评分流程，以提高实验可复现性。仿真与真机结果应按不同赛道分别报告。
 
 ## 结果解读
 
 - 先查看 per-dimension results，再查看 aggregate score。
-- 区分 simulation 与 real-robot results。
+- 区分仿真结果与真机结果。
 - 记录 checkpoint、XPolicyLab adapter、layout/seed protocol、action interface 与 evaluation track。
-- 与 verified leaderboard 比较时使用 official protocol。
-- RoboDojo 与 RoboTwin 2.0 共享 policy infrastructure，不代表两者 score 可直接比较。
+- 与经过核验的排行榜结果比较时，使用官方评测协议。
+- RoboDojo 与 RoboTwin 2.0 共用部分策略基础设施，但分数不可直接比较。
 
-## 适用场景
+## 研究用途
 
-RoboDojo 适合诊断 generalist policy 在不同 manipulation capabilities 上的表现，或连接 simulated evaluation 与受控 real-robot protocol。它不是 training dataset release，也不能替代 task-specific data collection。
+RoboDojo 可用于分析通用策略在不同操作能力上的表现，并连接仿真评测与受控真机评测。该项目的主要定位是评测框架，任务专用训练数据仍需按相应的数据来源获取。
 
-## 原始来源
+## 参考资料
 
 - [Official repository](https://github.com/RoboDojo-Benchmark/RoboDojo)
 - [Project page](https://robodojo-benchmark.com/)

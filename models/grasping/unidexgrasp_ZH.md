@@ -2,7 +2,7 @@
 
 [English](unidexgrasp.md) · [Grasping Models](README_ZH.md)
 
-> 通过 diverse proposal generation 与 goal-conditioned execution 实现 universal dexterous grasping · [Project](https://pku-epic.github.io/UniDexGrasp/) · [Code](https://github.com/PKU-EPIC/UniDexGrasp) · [Paper](https://arxiv.org/abs/2303.00938)
+> 结合多样化候选姿态生成与目标条件控制的灵巧手抓取方法 · [项目主页](https://pku-epic.github.io/UniDexGrasp/) · [代码仓库](https://github.com/PKU-EPIC/UniDexGrasp) · [论文](https://arxiv.org/abs/2303.00938)
 
 <p align="center">
   <img src="../../docs/assets/models/grasping/unidexgrasp-pipeline.png" alt="UniDexGrasp proposal generation and execution" width="820" />
@@ -12,28 +12,28 @@
 
 ## 概览
 
-- **问题：** 使用 high-DoF dexterous hand 抓取并抬升 tabletop 场景中的 seen 与 unseen objects。
-- **Input：** 真实感 object point-cloud observation，以及执行阶段的 robot state。
-- **Output：** Diverse target grasp poses，以及执行所选目标的 policy。
-- **Venue：** CVPR 2023。
+- **研究问题：** 使用高自由度灵巧手抓取并抬升桌面场景中已见和未见的物体。
+- **输入：** 物体点云；执行阶段还使用机器人状态。
+- **输出：** 多样化目标抓取姿态，以及执行选定姿态的控制策略。
+- **发表信息：** CVPR 2023。
 
-## Two-Stage Design
+## 两阶段方法设计
 
-UniDexGrasp 将问题拆分为 grasp proposal generation 与 grasp execution。Proposal model 以 object point cloud 为条件，将 rotation 与 translation、hand articulation 分解建模，从而采样多样的目标姿态。由于 dexterous contact 与 articulation 让直接规划更加困难，execution stage 使用 goal-conditioned policy 替代传统 motion planning。
+UniDexGrasp 将问题分为候选抓取生成与抓取执行两个阶段。候选生成模型以物体点云为条件，分别建模手部的旋转、平移和关节配置，以采样多种目标姿态。执行阶段使用目标条件策略，使灵巧手从初始状态运动到选定的抓取姿态并完成抬升。
 
-Policy learning pipeline 使用 state canonicalization、object curriculum 和 teacher–student distillation，在训练时利用 privileged simulation information，同时在部署时接收更真实的观测。这里必须区分两个问题：静态姿态具有物理可行性，并不意味着机械手一定能完成 approach、contact、lift 和 error recovery。
+策略训练包含状态规范化、物体课程学习与教师—学生蒸馏。训练阶段可以利用仿真中的额外状态信息，部署阶段则依赖可获得的观测。静态姿态的物理可行性与完整执行成功率属于不同指标：后者还涉及接近、接触、抬升和失败恢复。
 
 ## 数据与评估
 
-该工作建立在大规模 synthetic dexterous-grasp collection 上，并评估大量 object instances 及 unseen objects 的 generalization。最终 success 会受到 proposal generator、target selection、simulator setup、policy observation 和 execution criterion 的共同影响，因此 pose-generation score 与 end-to-end lift success 应分别报告。
+该工作基于大规模合成灵巧手抓取数据，并评估对未见物体的泛化能力。最终执行成功率受到候选生成、目标选择、仿真设置、策略观测和成功判据共同影响，因此姿态生成质量与端到端抬升成功率需要分别解读。
 
 ## 复现边界
 
-官方仓库分别提供 `dexgrasp_generation` 和 `dexgrasp_policy`，对应其 two-stage design。它是一套 research stack，而不是封装完整的 robot SDK；simulation、CUDA、point-cloud 与 reinforcement-learning dependencies 需要严格对齐版本。
+官方仓库的 `dexgrasp_generation` 和 `dexgrasp_policy` 对应两个阶段。公开实现是研究代码，并非完整机器人 SDK；仿真、CUDA、点云处理与强化学习依赖需要按仓库说明配置。
 
-官方仓库说明该工作与 dataset 使用 CC BY-NC 4.0，进行下游部署或再分发前需要特别检查 non-commercial restriction。
+官方仓库说明相关工作与数据集采用 CC BY-NC 4.0；商业部署或再分发需核对其非商业用途限制。
 
-## 原始来源
+## 参考资料
 
 - [Official project page](https://pku-epic.github.io/UniDexGrasp/)
 - [Official repository](https://github.com/PKU-EPIC/UniDexGrasp)
