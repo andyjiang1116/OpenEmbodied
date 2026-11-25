@@ -32,7 +32,9 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 
 ### 🦾 Embodied Manipulation｜具身操作
 
-聚焦机器人操作任务中的策略学习、抓取生成与性能评测。
+涵盖机器人操作中的策略学习、世界动作建模、Agent 控制、抓取生成与性能评测。
+
+[具身操作技术范式](analysis/manipulation-paradigms/README_ZH.md) — 对照世界建模、动作生成、控制频率与评测条件。
 
 #### [Vision-Language-Action](models/vla/README_ZH.md)
 
@@ -43,14 +45,30 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 - [π0 / π0-FAST / π0.5](models/vla/openpi_ZH.md)
 - [NVIDIA Isaac GR00T N1.7](models/vla/gr00t-n1.7_ZH.md)
 
+#### [世界动作模型（WAM）](models/wam/README_ZH.md)
+
+联合建模环境变化与机器人动作；不同方法在执行时是否显式生成未来观测方面存在区别。
+
+- [Unified World Models](models/wam/uwm_ZH.md) — 耦合视频与动作扩散建模。
+- [DreamZero](models/wam/dreamzero_ZH.md) — 基于视频世界模型的闭环控制。
+- [Fast-WAM](models/wam/fast-wam_ZH.md) — 使用视频联合训练，并在推理时直接生成动作。
+
+#### [Agent 式具身操作](systems/agents/README_ZH.md)
+
+结合多模态推理、机器人工具、执行反馈，以及可选的学习型动作策略，构成闭环控制系统。
+
+- [GPT-6 Astra as an Embodied Policy](systems/agents/gpt-as-policy_ZH.md) — 直接控制与 π0.5 辅助控制。
+- [π0.5 + Astra 按需介入](systems/agents/pi05-call-astra_ZH.md) — 针对恢复场景学习控制权切换。
+- [GPT-Policy](systems/agents/gpt-policy_ZH.md) — 通过受约束工具接口进行上下文机器人学习。
+
 ##### VLA 模型对比
 
 对比开放 VLA 系统的模型架构、动作表示、开放资源与评测协议。
 
-- [研究概览](maps/vla-landscape/README_ZH.md) — 模型系列，以及代码、权重、数据和部署工具的开放情况。
-- [技术对比](maps/vla-landscape/model-matrix_ZH.md) — 对照架构、动作生成方式与开放资源。
-- [评测可比性](maps/vla-landscape/benchmark-notes_ZH.md) — 评测设置及跨模型比较的边界。
-- [参考资料](maps/vla-landscape/references_ZH.md) — 官方论文、仓库与文档。
+- [研究概览](analysis/vla/README_ZH.md) — 模型系列，以及代码、权重、数据和部署工具的开放情况。
+- [技术对比](analysis/vla/model-matrix_ZH.md) — 对照架构、动作生成方式与开放资源。
+- [评测可比性](analysis/vla/benchmark-notes_ZH.md) — 评测设置及跨模型比较的边界。
+- [参考资料](analysis/vla/references_ZH.md) — 官方论文、仓库与文档。
 
 #### [Grasping](models/grasping/README_ZH.md)
 
@@ -76,10 +94,10 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 
 对比操作评测基准的任务、机器人平台、指标与实验协议。
 
-- [评测概览](maps/benchmark-map/README_ZH.md) — 六项操作评测基准的侧重点与适用场景。
-- [基准对比](maps/benchmark-map/benchmark-matrix_ZH.md) — 对照任务、机器人平台、环境、观测输入与指标。
-- [评测协议](maps/benchmark-map/protocol-guide_ZH.md) — 解读或复现已报告结果前需要核对的条件。
-- [参考资料](maps/benchmark-map/references_ZH.md) — 官方论文、仓库与文档。
+- [评测概览](analysis/manipulation-benchmarks/README_ZH.md) — 六项操作评测基准的侧重点与适用场景。
+- [基准对比](analysis/manipulation-benchmarks/benchmark-matrix_ZH.md) — 对照任务、机器人平台、环境、观测输入与指标。
+- [评测协议](analysis/manipulation-benchmarks/protocol-guide_ZH.md) — 解读或复现已报告结果前需要核对的条件。
+- [参考资料](analysis/manipulation-benchmarks/references_ZH.md) — 官方论文、仓库与文档。
 
 ## 🛰️ 规划中的研究主题
 
@@ -89,7 +107,7 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 | --- | --- |
 | **Perception｜感知** | 三维场景理解、视觉语义定位、可供性预测与主动感知 |
 | **Embodied Reasoning｜具身推理** | 空间推理、任务规划、记忆与决策 |
-| **World Models｜世界模型** | 动力学预测、视频与动作生成、基于模型的规划 |
+| **World Models｜世界模型** | 面向操作策略之外的通用动力学预测、视频生成与基于模型的规划 |
 | **Navigation｜导航** | 视觉语言导航、定位、建图与探索 |
 | **Data & Simulation｜数据与仿真** | 具身数据集、合成数据生成、仿真平台与评测环境 |
 | **Robotic Systems｜机器人系统** | 机器人平台、策略部署与 sim-to-real 迁移 |

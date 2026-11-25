@@ -2,7 +2,7 @@
 
 > Generalist robot policies that map visual observations and language instructions to actions.
 
-[简体中文](README_ZH.md) · [All model families](../README.md) · [VLA landscape](../../maps/vla-landscape/README.md)
+[简体中文](README_ZH.md) · [All model families](../README.md) · [VLA landscape](../../analysis/vla/README.md)
 
 | Model family | Primary focus |
 | --- | --- |
@@ -11,4 +11,4 @@
 | [π0 / π0-FAST / π0.5](openpi.md) | Flow matching, FAST action tokens, and cross-embodiment adaptation |
 | [NVIDIA Isaac GR00T N1.7](gr00t-n1.7.md) | Cross-embodiment training, serving, and deployment |
 
-Use the [VLA landscape](../../maps/vla-landscape/README.md) for cross-model interpretation and the individual profiles for implementation and deployment details.
+Use the [VLA landscape](../../analysis/vla/README.md) for cross-model interpretation and the individual profiles for implementation and deployment details.

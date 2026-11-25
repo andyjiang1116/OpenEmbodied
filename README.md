@@ -32,7 +32,9 @@ Research directions bring together representative methods, evaluation benchmarks
 
 ### 🦾 Embodied Manipulation
 
-Policy learning, grasp generation, and evaluation for robot manipulation tasks.
+Robot manipulation through learned policies, world-action modeling, agent-based control, grasp generation, and evaluation.
+
+[Manipulation Paradigms](analysis/manipulation-paradigms/README.md) — how these approaches differ in world modeling, action generation, control frequency, and evaluation.
 
 #### [Vision-Language-Action](models/vla/README.md)
 
@@ -43,14 +45,30 @@ Robot policies that map visual observations and language instructions to actions
 - [π0 / π0-FAST / π0.5](models/vla/openpi.md)
 - [NVIDIA Isaac GR00T N1.7](models/vla/gr00t-n1.7.md)
 
+#### [World Action Models](models/wam/README.md)
+
+Joint modeling of world dynamics and robot actions. The approaches differ in whether future observations are generated during execution.
+
+- [Unified World Models](models/wam/uwm.md) — coupled video and action diffusion.
+- [DreamZero](models/wam/dreamzero.md) — video-based world modeling for closed-loop control.
+- [Fast-WAM](models/wam/fast-wam.md) — video co-training with direct action generation at inference.
+
+#### [Agent-Based Manipulation](systems/agents/README.md)
+
+Closed-loop control systems that combine multimodal reasoning, robot tools, execution feedback, and, in some cases, learned action policies.
+
+- [GPT-6 Astra as an Embodied Policy](systems/agents/gpt-as-policy.md) — direct control and π0.5-assisted control.
+- [π0.5 + Astra with Selective Intervention](systems/agents/pi05-call-astra.md) — learned handoff for recovery.
+- [GPT-Policy](systems/agents/gpt-policy.md) — in-context robot learning through a constrained tool interface.
+
 ##### VLA Model Comparison
 
 Architecture, action representations, released resources, and evaluation protocols across open VLA systems.
 
-- [Research Overview](maps/vla-landscape/README.md) — model families and the availability of code, weights, data, and deployment tools.
-- [Technical Comparison](maps/vla-landscape/model-matrix.md) — architectures, action generation, and released resources.
-- [Evaluation Comparability](maps/vla-landscape/benchmark-notes.md) — evaluation settings and limits on cross-model comparison.
-- [References](maps/vla-landscape/references.md) — official papers, repositories, and documentation.
+- [Research Overview](analysis/vla/README.md) — model families and the availability of code, weights, data, and deployment tools.
+- [Technical Comparison](analysis/vla/model-matrix.md) — architectures, action generation, and released resources.
+- [Evaluation Comparability](analysis/vla/benchmark-notes.md) — evaluation settings and limits on cross-model comparison.
+- [References](analysis/vla/references.md) — official papers, repositories, and documentation.
 
 #### [Grasping](models/grasping/README.md)
 
@@ -76,10 +94,10 @@ Evaluation suites covering transfer, long-horizon control, sim-to-real evaluatio
 
 Tasks, embodiments, metrics, and protocol differences across manipulation benchmarks.
 
-- [Benchmark Overview](maps/benchmark-map/README.md) — the focus and intended use of six manipulation benchmarks.
-- [Benchmark Comparison](maps/benchmark-map/benchmark-matrix.md) — tasks, robots, environments, observations, and metrics side by side.
-- [Evaluation Protocols](maps/benchmark-map/protocol-guide.md) — what to check before interpreting or reproducing a reported result.
-- [References](maps/benchmark-map/references.md) — official papers, repositories, and documentation.
+- [Benchmark Overview](analysis/manipulation-benchmarks/README.md) — the focus and intended use of six manipulation benchmarks.
+- [Benchmark Comparison](analysis/manipulation-benchmarks/benchmark-matrix.md) — tasks, robots, environments, observations, and metrics side by side.
+- [Evaluation Protocols](analysis/manipulation-benchmarks/protocol-guide.md) — what to check before interpreting or reproducing a reported result.
+- [References](analysis/manipulation-benchmarks/references.md) — official papers, repositories, and documentation.
 
 ## 🛰️ Planned Research Topics
 
@@ -89,7 +107,7 @@ The next research topics span embodied capabilities and the data, simulation, an
 | --- | --- |
 | **Perception** | 3D scene understanding, visual grounding, affordance prediction, and active perception |
 | **Embodied Reasoning** | spatial reasoning, task planning, memory, and decision making |
-| **World Models** | dynamics prediction, video and action generation, and model-based planning |
+| **World Models** | general-purpose dynamics prediction, video generation, and model-based planning beyond manipulation policies |
 | **Navigation** | visual-language navigation, localization, mapping, and exploration |
 | **Data & Simulation** | embodied datasets, synthetic data generation, simulators, and evaluation environments |
 | **Robotic Systems** | robot platforms, policy deployment, and sim-to-real transfer |
