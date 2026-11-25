@@ -3,12 +3,7 @@
 </p>
 
 <p align="center">
-  <strong>从感知与推理出发，连接机器人行动、评测体系与真实世界部署。</strong>
-</p>
-
-<p align="center">
-  👁️ 感知 &nbsp;·&nbsp; 🧠 推理 &nbsp;·&nbsp; 🌐 世界模型<br/>
-  🧭 导航 &nbsp;·&nbsp; 🦾 操作 &nbsp;·&nbsp; 🤖 部署
+  <strong>具身智能领域的模型、评测基准与研究图谱。</strong>
 </p>
 
 ![OpenEmbodied research atlas](docs/assets/openembodied-atlas.png)
@@ -18,9 +13,9 @@
   &nbsp;·&nbsp;
   <a href="#-关于项目">关于项目</a>
   &nbsp;·&nbsp;
-  <a href="#-技术目录">技术目录</a>
+  <a href="#-研究方向">研究方向</a>
   &nbsp;·&nbsp;
-  <a href="#-研究地图">研究地图</a>
+  <a href="#-规划中的研究主题">规划中的研究主题</a>
   &nbsp;·&nbsp;
   <a href="#-参与贡献">参与贡献</a>
 </p>
@@ -29,79 +24,81 @@
 
 ## 🌐 关于项目
 
-OpenEmbodied 是一个面向 Embodied AI 的结构化研究图谱，覆盖从 perception、reasoning、world models 到 navigation、manipulation 与 real-world deployment 的完整技术链路。仓库不以堆积链接为目标，而是基于原始资料梳理 methods、evaluation systems 与 embodied platforms 之间的关系。
+OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模型与评测基准档案，并通过横向分析梳理技术路线、评测协议和原始资料。当前内容聚焦机器人操作，后续研究主题见下文。
 
-- **探索技术方法：** 通过结构化档案理解 model family、核心思路、开放资源与实际应用场景。
-- **理解评测体系：** 通过 Benchmark 页面厘清 task、embodiment、protocol、metric 与结果的比较边界。
-- **把握研究全景：** 通过 Research Maps 连接 models、benchmarks、datasets、simulators、robots 与 deployment stacks。
+## 🗂️ 研究方向
 
-## 🗂️ 技术目录
+各研究方向汇集代表性方法、评测基准与横向分析。
 
-### 🧠 Models & Policies｜模型与策略
+### 🦾 Embodied Manipulation｜具身操作
 
-#### [Vision-Language-Action Models](models/vla/README_ZH.md)
+聚焦机器人操作任务中的策略学习、抓取生成与性能评测。
 
-将视觉观测和语言指令连接到机器人动作的 generalist policy。
+#### [Vision-Language-Action](models/vla/README_ZH.md)
+
+将视觉观测与语言指令映射为机器人动作的策略模型。
 
 - [OpenVLA / OpenVLA-OFT](models/vla/openvla_ZH.md)
 - [SmolVLA](models/vla/smolvla_ZH.md)
 - [π0 / π0-FAST / π0.5](models/vla/openpi_ZH.md)
 - [NVIDIA Isaac GR00T N1.7](models/vla/gr00t-n1.7_ZH.md)
 
-#### [Grasping Models](models/grasping/README_ZH.md)
+##### VLA 模型对比
 
-覆盖 parallel-gripper perception、dexterous grasp generation 与 grasp execution 的方法。
+对比开放 VLA 系统的模型架构、动作表示、开放资源与评测协议。
+
+- [研究概览](maps/vla-landscape/README_ZH.md) — 模型系列，以及代码、权重、数据和部署工具的开放情况。
+- [技术对比](maps/vla-landscape/model-matrix_ZH.md) — 对照架构、动作生成方式与开放资源。
+- [评测可比性](maps/vla-landscape/benchmark-notes_ZH.md) — 评测设置及跨模型比较的边界。
+- [参考资料](maps/vla-landscape/sources.md) — 官方论文、仓库与文档。
+
+#### [Grasping](models/grasping/README_ZH.md)
+
+涵盖平行夹爪的抓取检测与灵巧手的抓取姿态生成。
 
 - [AnyGrasp](models/grasping/anygrasp_ZH.md)
 - [UniDexGrasp](models/grasping/unidexgrasp_ZH.md)
 - [DexGraspNet 2.0](models/grasping/dexgraspnet-2_ZH.md)
 - [DexGrasp Anything](models/grasping/dexgrasp-anything_ZH.md)
 
-### 📏 [Evaluation Benchmarks｜评测基准](benchmarks/README_ZH.md)
+#### Manipulation Evaluation｜操作评测
 
-- [LIBERO](benchmarks/libero_ZH.md) — lifelong 与 multitask robot learning 中的 knowledge transfer。
-- [CALVIN](benchmarks/calvin_ZH.md) — language-conditioned long-horizon manipulation。
-- [SimplerEnv](benchmarks/simplerenv_ZH.md) — simulation-to-real evaluation fidelity。
-- [RoboTwin 2.0](benchmarks/robotwin-2_ZH.md) — scalable bimanual data generation 与 robustness evaluation。
-- [RoboDojo](benchmarks/robodojo_ZH.md) — simulation 与 real robot 上的 generalist-policy evaluation。
-- [RoboDyna](benchmarks/robodyna_ZH.md) — dynamic physical reasoning 与 latency-aware manipulation。
+覆盖知识迁移、长程控制、仿真与真实场景的一致性、鲁棒性及动态操作等评测主题。[评测基准索引](benchmarks/README_ZH.md)。
 
-## 🧭 研究地图
+- [LIBERO](benchmarks/libero_ZH.md) — 跨任务套件的终身学习与多任务操作。
+- [CALVIN](benchmarks/calvin_ZH.md) — 语言条件下的长程操作任务。
+- [SimplerEnv](benchmarks/simplerenv_ZH.md) — 仿真评测与真实场景中策略排序的一致性。
+- [RoboTwin 2.0](benchmarks/robotwin-2_ZH.md) — 双臂操作数据生成与鲁棒性评测。
+- [RoboDojo](benchmarks/robodojo_ZH.md) — 仿真与真机环境中的通用操作策略评测。
+- [RoboDyna](benchmarks/robodyna_ZH.md) — 动态场景中的物理推理与时效性操作。
 
-### 🔭 Open VLA Landscape
+##### 操作评测基准对比
 
-从 architecture、action generation、adaptation、compute、evaluation 与 deployment surface 对比开放 VLA 路线。
+对比操作评测基准的任务、机器人平台、指标与实验协议。
 
-- [Landscape Overview](docs/vla-landscape/README_ZH.md)
-- [Model Matrix](docs/vla-landscape/model-matrix_ZH.md)
-- [Benchmark Notes](docs/vla-landscape/benchmark-notes_ZH.md)
-- [Primary Sources](docs/vla-landscape/sources.md)
+- [评测概览](maps/benchmark-map/README_ZH.md) — 六项操作评测基准的侧重点与适用场景。
+- [基准对比](maps/benchmark-map/benchmark-matrix_ZH.md) — 对照任务、机器人平台、环境、观测输入与指标。
+- [评测协议](maps/benchmark-map/protocol-guide_ZH.md) — 解读或复现已报告结果前需要核对的条件。
+- [参考资料](maps/benchmark-map/sources.md) — 官方论文、仓库与文档。
 
-### 🦾 Manipulation Benchmark Map
+## 🛰️ 规划中的研究主题
 
-理解不同 manipulation benchmark 测量什么，以及哪些结果可以合理比较。
+后续研究主题覆盖具身能力，以及支撑这些能力的数据、仿真和机器人系统：
 
-- [Benchmark Map Overview](docs/benchmark-map/README_ZH.md)
-- [Benchmark Matrix](docs/benchmark-map/benchmark-matrix_ZH.md)
-- [Protocol Guide](docs/benchmark-map/protocol-guide_ZH.md)
-- [Primary Sources](docs/benchmark-map/sources.md)
-
-## 🛰️ 持续扩展的 Atlas
-
-| 研究方向 | 计划覆盖范围 |
+| 主题 | 技术重点 |
 | --- | --- |
-| **Perception｜感知** | 3D vision、grounding、mapping、affordance 与 active perception |
-| **Embodied Reasoning｜具身推理** | spatial/temporal reasoning、planning、memory 与 decision making |
-| **World Models｜世界模型** | environment prediction、video-action generation、simulation 与 policy improvement |
-| **Navigation｜导航** | visual-language navigation、exploration、localization 与 mobile interaction |
-| **Datasets & Simulators** | embodied data、synthetic generation、physics engines 与 evaluation environments |
-| **Robots & Deployment** | embodiments、interfaces、policy serving、sim-to-real 与 real-world systems |
+| **Perception｜感知** | 三维场景理解、视觉语义定位、可供性预测与主动感知 |
+| **Embodied Reasoning｜具身推理** | 空间推理、任务规划、记忆与决策 |
+| **World Models｜世界模型** | 动力学预测、视频与动作生成、基于模型的规划 |
+| **Navigation｜导航** | 视觉语言导航、定位、建图与探索 |
+| **Data & Simulation｜数据与仿真** | 具身数据集、合成数据生成、仿真平台与评测环境 |
+| **Robotic Systems｜机器人系统** | 机器人平台、策略部署与 sim-to-real 迁移 |
 
 ## 🤝 参与贡献
 
-OpenEmbodied 欢迎内容纠错、新增技术档案、完善 Research Landscape、Benchmark 分析和实际实现经验。
+欢迎补充模型与评测基准档案、横向分析和原始资料，并修正文档中的错误。
 
-高质量贡献应当基于事实和原始来源，具有清晰的技术范围，并说明实际发布了什么、测量了什么，以及哪些部分仍不确定。可以通过 Issue 推荐新方向、资源或提交纠错。
+请优先引用论文、官方仓库或项目文档，并区分原作者报告的结果与独立验证结果。可通过 Issue 提议研究主题或提交勘误。
 
 ## 🙏 致谢
 

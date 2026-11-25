@@ -3,12 +3,7 @@
 </p>
 
 <p align="center">
-  <strong>Mapping embodied intelligence from perception and reasoning to action and real-world deployment.</strong>
-</p>
-
-<p align="center">
-  👁️ Perception &nbsp;·&nbsp; 🧠 Reasoning &nbsp;·&nbsp; 🌐 World Models<br/>
-  🧭 Navigation &nbsp;·&nbsp; 🦾 Manipulation &nbsp;·&nbsp; 🤖 Deployment
+  <strong>Models, benchmarks, and research maps for embodied intelligence.</strong>
 </p>
 
 ![OpenEmbodied research atlas](docs/assets/openembodied-atlas.png)
@@ -18,9 +13,9 @@
   &nbsp;·&nbsp;
   <a href="#-about">About</a>
   &nbsp;·&nbsp;
-  <a href="#-technical-catalog">Technical Catalog</a>
+  <a href="#-research-directions">Research Directions</a>
   &nbsp;·&nbsp;
-  <a href="#-research-maps">Research Maps</a>
+  <a href="#-planned-research-topics">Planned Research Topics</a>
   &nbsp;·&nbsp;
   <a href="#-contributing">Contributing</a>
 </p>
@@ -29,79 +24,81 @@
 
 ## 🌐 About
 
-OpenEmbodied is a structured research atlas for Embodied AI, tracing the field from perception, reasoning, and world models to navigation, manipulation, and real-world deployment. Instead of collecting isolated links, it organizes primary-source knowledge around the relationships between methods, evaluation systems, and embodied platforms.
+OpenEmbodied is a curated reference for embodied AI research. It organizes model and benchmark profiles by research direction, with comparative analyses that trace technical choices, evaluation protocols, and primary sources. The current collection focuses on robotic manipulation; the broader scope is outlined below.
 
-- **Explore methods** through focused profiles of model families, core ideas, released resources, and practical use cases.
-- **Understand evaluation** through benchmark pages that clarify tasks, embodiments, protocols, metrics, and comparison boundaries.
-- **Navigate the field** through research maps that connect models, benchmarks, datasets, simulators, robots, and deployment stacks.
+## 🗂️ Research Directions
 
-## 🗂️ Technical Catalog
+Research directions bring together representative methods, evaluation benchmarks, and comparative analyses.
 
-### 🧠 Models & Policies
+### 🦾 Embodied Manipulation
 
-#### [Vision-Language-Action Models](models/vla/README.md)
+Policy learning, grasp generation, and evaluation for robot manipulation tasks.
 
-Generalist robot policies that connect visual observations and language instructions to actions.
+#### [Vision-Language-Action](models/vla/README.md)
+
+Robot policies that map visual observations and language instructions to actions.
 
 - [OpenVLA / OpenVLA-OFT](models/vla/openvla.md)
 - [SmolVLA](models/vla/smolvla.md)
 - [π0 / π0-FAST / π0.5](models/vla/openpi.md)
 - [NVIDIA Isaac GR00T N1.7](models/vla/gr00t-n1.7.md)
 
-#### [Grasping Models](models/grasping/README.md)
+##### VLA Model Comparison
 
-Methods for parallel-gripper perception, dexterous grasp generation, and grasp execution.
+Architecture, action representations, released resources, and evaluation protocols across open VLA systems.
+
+- [Research Overview](maps/vla-landscape/README.md) — model families and the availability of code, weights, data, and deployment tools.
+- [Technical Comparison](maps/vla-landscape/model-matrix.md) — architectures, action generation, and released resources.
+- [Evaluation Comparability](maps/vla-landscape/benchmark-notes.md) — evaluation settings and limits on cross-model comparison.
+- [References](maps/vla-landscape/sources.md) — official papers, repositories, and documentation.
+
+#### [Grasping](models/grasping/README.md)
+
+Grasp detection for parallel grippers and grasp synthesis for dexterous hands.
 
 - [AnyGrasp](models/grasping/anygrasp.md)
 - [UniDexGrasp](models/grasping/unidexgrasp.md)
 - [DexGraspNet 2.0](models/grasping/dexgraspnet-2.md)
 - [DexGrasp Anything](models/grasping/dexgrasp-anything.md)
 
-### 📏 [Evaluation Benchmarks](benchmarks/README.md)
+#### Manipulation Evaluation
 
-- [LIBERO](benchmarks/libero.md) — knowledge transfer in lifelong and multitask robot learning.
+Evaluation suites covering transfer, long-horizon control, sim-to-real evaluation, robustness, and dynamic manipulation. [Benchmark index](benchmarks/README.md).
+
+- [LIBERO](benchmarks/libero.md) — lifelong and multitask manipulation across task suites.
 - [CALVIN](benchmarks/calvin.md) — language-conditioned long-horizon manipulation.
-- [SimplerEnv](benchmarks/simplerenv.md) — simulation-to-real evaluation fidelity.
+- [SimplerEnv](benchmarks/simplerenv.md) — simulation-based evaluation and real-world ranking alignment.
 - [RoboTwin 2.0](benchmarks/robotwin-2.md) — scalable bimanual data generation and robustness evaluation.
-- [RoboDojo](benchmarks/robodojo.md) — broad generalist-policy evaluation in simulation and on real robots.
+- [RoboDojo](benchmarks/robodojo.md) — generalist manipulation policy evaluation in simulation and on real robots.
 - [RoboDyna](benchmarks/robodyna.md) — dynamic physical reasoning and latency-aware manipulation.
 
-## 🧭 Research Maps
+##### Manipulation Benchmark Comparison
 
-### 🔭 Open VLA Landscape
+Tasks, embodiments, metrics, and protocol differences across manipulation benchmarks.
 
-Compare open VLA families across architecture, action generation, adaptation, compute, evaluation, and deployment surfaces.
+- [Benchmark Overview](maps/benchmark-map/README.md) — the focus and intended use of six manipulation benchmarks.
+- [Benchmark Comparison](maps/benchmark-map/benchmark-matrix.md) — tasks, robots, environments, observations, and metrics side by side.
+- [Evaluation Protocols](maps/benchmark-map/protocol-guide.md) — what to check before interpreting or reproducing a reported result.
+- [References](maps/benchmark-map/sources.md) — official papers, repositories, and documentation.
 
-- [Landscape Overview](docs/vla-landscape/README.md)
-- [Model Matrix](docs/vla-landscape/model-matrix.md)
-- [Benchmark Notes](docs/vla-landscape/benchmark-notes.md)
-- [Primary Sources](docs/vla-landscape/sources.md)
+## 🛰️ Planned Research Topics
 
-### 🦾 Manipulation Benchmark Map
+The next research topics span embodied capabilities and the data, simulation, and robot systems that support them:
 
-Understand what manipulation benchmarks measure and when their results can be compared.
-
-- [Benchmark Map Overview](docs/benchmark-map/README.md)
-- [Benchmark Matrix](docs/benchmark-map/benchmark-matrix.md)
-- [Protocol Guide](docs/benchmark-map/protocol-guide.md)
-- [Primary Sources](docs/benchmark-map/sources.md)
-
-## 🛰️ Expanding the Atlas
-
-| Research area | Planned coverage |
+| Theme | Technical focus |
 | --- | --- |
-| **Perception** | 3D vision, grounding, mapping, affordance, and active perception |
-| **Embodied Reasoning** | spatial and temporal reasoning, planning, memory, and decision making |
-| **World Models** | environment prediction, video-action generation, simulation, and policy improvement |
-| **Navigation** | visual-language navigation, exploration, localization, and mobile interaction |
-| **Datasets & Simulators** | embodied data, synthetic generation, physics engines, and evaluation environments |
-| **Robots & Deployment** | embodiments, interfaces, policy serving, sim-to-real, and real-world systems |
+| **Perception** | 3D scene understanding, visual grounding, affordance prediction, and active perception |
+| **Embodied Reasoning** | spatial reasoning, task planning, memory, and decision making |
+| **World Models** | dynamics prediction, video and action generation, and model-based planning |
+| **Navigation** | visual-language navigation, localization, mapping, and exploration |
+| **Data & Simulation** | embodied datasets, synthetic data generation, simulators, and evaluation environments |
+| **Robotic Systems** | robot platforms, policy deployment, and sim-to-real transfer |
 
 ## 🤝 Contributing
 
-OpenEmbodied welcomes corrections, new technical profiles, landscape improvements, benchmark analysis, and implementation experience.
+Contributions to model and benchmark profiles, comparative analyses, and primary-source references are welcome.
 
-A strong contribution is factual, source-linked, technically scoped, and clear about what is released, what is measured, and what remains uncertain. Open an Issue to propose a new area, resource, or correction.
+Please cite primary sources and distinguish reported results from independent verification. Open an Issue to propose a topic or report a correction.
 
 ## 🙏 Acknowledgments
 
