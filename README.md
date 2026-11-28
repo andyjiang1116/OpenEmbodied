@@ -11,7 +11,7 @@
 <p align="center">
   <a href="README_ZH.md">简体中文</a>
   &nbsp;·&nbsp;
-  <a href="#-about">About</a>
+  <a href="#-overview">Overview</a>
   &nbsp;·&nbsp;
   <a href="#-research-directions">Research Directions</a>
   &nbsp;·&nbsp;
@@ -22,7 +22,7 @@
 
 ---
 
-## 🌐 About
+## 🌐 Overview
 
 OpenEmbodied is a curated reference for embodied AI research. It organizes model and benchmark profiles by research direction, with comparative analyses of technical choices, evaluation protocols, and published research. The current collection focuses on robotic manipulation; the broader scope is outlined below.
 
