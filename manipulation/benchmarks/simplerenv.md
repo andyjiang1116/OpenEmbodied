@@ -1,0 +1,68 @@
+# SimplerEnv
+
+[简体中文](simplerenv_ZH.md)
+
+> **Category:** Robot Manipulation Benchmark · [Repository](https://github.com/simpler-env/SimplerEnv) · [Project Page](https://simpler-env.github.io/) · [Paper](https://arxiv.org/abs/2405.05941)
+
+<p align="center">
+  <img src="../../docs/assets/benchmarks/simplerenv-teaser.jpg" alt="SimplerEnv simulated and real robot evaluation" width="820" />
+</p>
+
+<p align="center"><em>SimplerEnv pairs simulated scenes with corresponding real-robot evaluations. Image source: <a href="https://simpler-env.github.io/">official project page</a>.</em></p>
+
+## Technical Summary
+
+- **Primary purpose:** evaluate real-world robot policies in simulation.
+- **Setting:** SAPIEN/ManiSkill-based simulated counterparts of common real-robot setups.
+- **Representative systems:** Google Robot and WidowX manipulation environments.
+- **Key analysis:** agreement between simulated and real-world policy performance.
+
+## Evaluation Objective
+
+Real-robot evaluation is costly, slow, and difficult to reproduce. SimplerEnv tests whether a controlled simulation can serve as a useful proxy by comparing policies in paired simulated and physical setups. Its central question is not whether a simulator looks realistic in isolation, but whether conclusions drawn from it track real-world results.
+
+## Evaluation Approaches
+
+SimplerEnv supports visual matching, which adjusts simulated appearance toward real observations, and environment-variant aggregation, which evaluates across visual and physical variations. The project analyzes real-to-sim agreement using task success together with correlation and ranking-oriented measures.
+
+## Environments and Policy Interface
+
+The released environments reproduce task families associated with Google Robot and WidowX setups using SAPIEN and ManiSkill foundations. A uniform Gym-style interface lets policy wrappers receive camera observations and robot state, then convert predicted actions into the simulator's control space.
+
+Two complementary strategies address the reality gap:
+
+- **Visual matching** tunes foreground objects, robot appearance, and backgrounds toward recorded real scenes.
+- **Variant aggregation** evaluates over multiple plausible visual and physical configurations instead of relying on a single digital twin.
+
+## Evaluation Design and Agreement
+
+### From Real Setup to Simulation
+
+An offline evaluation begins by specifying the real robot, camera view, scene, task instruction, action convention, and policy checkpoint. A simulated counterpart must then expose observations and actions in the same format. If an image is resized differently or an end-effector delta is interpreted in another frame, the comparison changes the policy interface as well as the environment. SimplerEnv's policy wrappers and environment variants make these adapters explicit.
+
+Visual matching attempts to reproduce a particular physical scene closely enough for a policy's visual input to be comparable. Variant aggregation asks a different question: whether conclusions are stable across plausible appearances and dynamics. The two approaches should not be collapsed into one success rate. A policy may succeed in one carefully matched view but fail under small changes; conversely, an aggregate can hide a systematic failure in one important condition.
+
+### What Agreement Measures
+
+The relevant unit of comparison is a set of policies evaluated on corresponding real and simulated tasks. Per-policy task success is measured first. Pearson correlation describes linear agreement between the two collections of scores. Mean Maximum Rank Violation examines whether the simulated ranking contradicts real-world performance ordering. Both depend on the policies and tasks included in the comparison. A simulator with high fidelity for one robot and camera configuration cannot be assumed to rank policies correctly for a different setup.
+
+## What the Metrics Mean
+
+Pearson correlation measures linear agreement between simulated and real policy performance, but can behave poorly when the compared policies occupy a narrow score range. SimplerEnv therefore also introduces Mean Maximum Rank Violation, which penalizes simulator rankings that contradict meaningful real-world performance gaps. Neither metric replaces per-task success; they answer whether the simulator supports the same comparative conclusion as the real evaluation.
+
+## Reading Results
+
+- Name the robot, task, environment variant, and policy checkpoint.
+- Match observation preprocessing and action transforms to the policy's real setup.
+- A high simulated success rate is not evidence of real-world fidelity without paired real results.
+- Correlation depends on which policies and tasks are included; it is not a permanent property of the simulator.
+
+## Research Use
+
+Use SimplerEnv when deciding whether simulation can reduce the cost of evaluating a fixed set of real-robot policies. It is not primarily a training-data benchmark or a claim that simulation fully reproduces real-world behavior.
+
+## References
+
+- [Official repository](https://github.com/simpler-env/SimplerEnv)
+- [Project page](https://simpler-env.github.io/)
+- [Paper](https://arxiv.org/abs/2405.05941)
