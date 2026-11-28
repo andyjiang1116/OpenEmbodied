@@ -11,13 +11,13 @@
 <p align="center">
   <a href="README.md">English</a>
   &nbsp;·&nbsp;
-  <a href="#-项目概览">项目概览</a>
+  <a href="#-项目概览">🌐 项目概览</a>
   &nbsp;·&nbsp;
-  <a href="#-研究方向">研究方向</a>
+  <a href="#-研究方向">🧭 研究方向</a>
   &nbsp;·&nbsp;
-  <a href="#-规划中的研究主题">规划中的研究主题</a>
+  <a href="#-其他研究方向">🛰️ 其他研究方向</a>
   &nbsp;·&nbsp;
-  <a href="#-参与贡献">参与贡献</a>
+  <a href="#-参与贡献">🤝 参与贡献</a>
 </p>
 
 ---
@@ -26,11 +26,11 @@
 
 OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模型与评测基准档案，并通过横向分析梳理技术路线、评测协议和已发表的研究成果。当前内容聚焦机器人操作，其他研究方向见下文。
 
-## 🗂️ 研究方向
+## 🧭 研究方向
 
 各研究方向汇集代表性方法、评测基准与横向分析。
 
-### 🦾 [Embodied Manipulation｜具身操作](manipulation/README_ZH.md)
+### <img src="docs/assets/robot-arm-icon.svg" alt="" width="26" /> [Embodied Manipulation｜具身操作](manipulation/README_ZH.md)
 
 涵盖机器人操作中的策略学习、世界动作建模、Agent 控制、抓取生成与性能评测。
 
@@ -84,11 +84,11 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 
 ---
 
-## 🛰️ 规划中的研究主题
+## 🛰️ 其他研究方向
 
-后续研究主题覆盖具身能力，以及支撑这些能力的数据、仿真和机器人系统：
+除具身操作外，OpenEmbodied 的研究范围还涵盖其他具身能力，以及支撑这些能力的数据、仿真与机器人系统：
 
-| 主题 | 技术重点 |
+| 研究方向 | 涵盖主题 |
 | --- | --- |
 | **Perception｜感知** | 三维场景理解、视觉语义定位、可供性预测与主动感知 |
 | **Embodied Reasoning｜具身推理** | 空间推理、任务规划、记忆与决策 |

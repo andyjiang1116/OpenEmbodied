@@ -11,13 +11,13 @@
 <p align="center">
   <a href="README_ZH.md">简体中文</a>
   &nbsp;·&nbsp;
-  <a href="#-overview">Overview</a>
+  <a href="#-overview">🌐 Overview</a>
   &nbsp;·&nbsp;
-  <a href="#-research-directions">Research Directions</a>
+  <a href="#-research-directions">🧭 Research Directions</a>
   &nbsp;·&nbsp;
-  <a href="#-planned-research-topics">Planned Research Topics</a>
+  <a href="#-broader-research-scope">🛰️ Broader Research Scope</a>
   &nbsp;·&nbsp;
-  <a href="#-contributing">Contributing</a>
+  <a href="#-contributing">🤝 Contributing</a>
 </p>
 
 ---
@@ -26,11 +26,11 @@
 
 OpenEmbodied is a curated reference for embodied AI research. It organizes model and benchmark profiles by research direction, with comparative analyses of technical choices, evaluation protocols, and published research. The current collection focuses on robotic manipulation; the broader scope is outlined below.
 
-## 🗂️ Research Directions
+## 🧭 Research Directions
 
 Research directions bring together representative methods, evaluation benchmarks, and comparative analyses.
 
-### 🦾 [Embodied Manipulation](manipulation/README.md)
+### <img src="docs/assets/robot-arm-icon.svg" alt="" width="26" /> [Embodied Manipulation](manipulation/README.md)
 
 Robot manipulation through learned policies, world-action modeling, agent-based control, grasp generation, and evaluation.
 
@@ -84,11 +84,11 @@ Evaluation suites covering transfer, long-horizon control, sim-to-real evaluatio
 
 ---
 
-## 🛰️ Planned Research Topics
+## 🛰️ Broader Research Scope
 
-The next research topics span embodied capabilities and the data, simulation, and robot systems that support them:
+Beyond manipulation, OpenEmbodied's research scope includes other embodied capabilities and the data, simulation, and robotic systems that support them:
 
-| Theme | Technical focus |
+| Research area | Scope |
 | --- | --- |
 | **Perception** | 3D scene understanding, visual grounding, affordance prediction, and active perception |
 | **Embodied Reasoning** | spatial reasoning, task planning, memory, and decision making |
