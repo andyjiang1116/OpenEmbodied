@@ -30,7 +30,7 @@ OpenEmbodied is a curated reference for embodied AI research. It organizes model
 
 Research directions bring together representative methods, evaluation benchmarks, and comparative analyses.
 
-### <img src="docs/assets/robot-arm-icon.svg" alt="" width="26" /> [Embodied Manipulation](manipulation/README.md)
+### <img src="docs/assets/robot-arm-icon.png" alt="" width="34" /> [Embodied Manipulation](manipulation/README.md)
 
 Robot manipulation through learned policies, world-action modeling, agent-based control, grasp generation, and evaluation.
 

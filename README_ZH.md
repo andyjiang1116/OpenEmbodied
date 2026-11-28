@@ -30,7 +30,7 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 
 各研究方向汇集代表性方法、评测基准与横向分析。
 
-### <img src="docs/assets/robot-arm-icon.svg" alt="" width="26" /> [Embodied Manipulation｜具身操作](manipulation/README_ZH.md)
+### <img src="docs/assets/robot-arm-icon.png" alt="" width="34" /> [Embodied Manipulation｜具身操作](manipulation/README_ZH.md)
 
 涵盖机器人操作中的策略学习、世界动作建模、Agent 控制、抓取生成与性能评测。
 
