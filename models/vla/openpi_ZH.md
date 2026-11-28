@@ -1,4 +1,4 @@
-# π0 / π0-FAST / π0.5 via openpi
+# openpi：π0 / π0-FAST / π0.5
 
 [English](openpi.md)
 
@@ -18,7 +18,7 @@
 
 ## 技术贡献
 
-openpi 在同一模型系列中提供不同的动作表示，并发布基础权重及多个面向特定机器人或任务的权重。仓库还包含数据转换、归一化、训练、策略服务及机器人和仿真示例，覆盖从数据到部署的主要接口。
+openpi 是官方代码仓库；π0、π0-FAST 和 π0.5 则是具有各自权重的不同模型变体。openpi 在同一模型系列中提供不同的动作表示，并发布基础权重及多个面向特定机器人或任务的权重。仓库还包含数据转换、归一化、训练、策略服务及机器人和仿真示例，覆盖从数据到部署的主要接口。
 
 ## 模型系列
 
@@ -47,6 +47,44 @@ openpi 在同一模型系列中提供不同的动作表示，并发布基础权�
 
 仓库给出的单 GPU 估算为：inference 需要超过 8 GB GPU memory，LoRA fine-tuning 超过 22.5 GB，full fine-tuning 超过 70 GB。官方测试系统为 Ubuntu 22.04。这些是项目侧估算，不代表所有配置下的独立测量结果。
 
+## 训练流程
+
+以下命令对应官方基于 JAX 的 π0.5 + LIBERO 示例，应在 **openpi 上游仓库的克隆目录** 中、使用受支持的 Ubuntu GPU 环境执行。示例配置 `pi05_libero` 已指向转换后的 LIBERO 数据；接入自有机器人数据时，需要分别配置数据处理与训练参数。
+
+1. 连同子模块克隆仓库，并安装锁定的依赖环境：
+
+   ```bash
+   git clone --recurse-submodules https://github.com/Physical-Intelligence/openpi.git
+   cd openpi
+   GIT_LFS_SKIP_SMUDGE=1 uv sync
+   GIT_LFS_SKIP_SMUDGE=1 uv pip install -e .
+   ```
+
+2. 自有数据需先转换为 LeRobot 格式。上游的 `examples/libero/convert_libero_data_to_lerobot.py` 提供了具体示例。随后在 `src/openpi/training/config.py` 中定义观测输入与动作输出变换、LeRobot 数据配置、基础权重及训练参数。训练和推理中的相机图像、语言、机器人状态与动作维度必须一致。官方 LIBERO 配置已经使用转换后的数据，因此可跳过转换步骤。
+
+3. 根据选定配置计算状态与动作的归一化统计量，再启动微调：
+
+   ```bash
+   uv run scripts/compute_norm_stats.py --config-name pi05_libero
+   XLA_PYTHON_CLIENT_MEM_FRACTION=0.9 uv run scripts/train.py pi05_libero --exp-name=my_experiment
+   ```
+
+   权重保存在 `checkpoints/pi05_libero/my_experiment/` 下。官方示例仅在明确需要覆盖同名实验时使用 `--overwrite`。JAX 训练可通过 `fsdp_devices` 将模型分片至多张 GPU，以降低单卡显存需求；官方说明其 JAX 训练脚本暂不支持多节点训练。LoRA 与全参数微调使用不同配置及显存预算。
+
+官方仓库还提供 π0 和 π0.5 的 PyTorch 实现。使用该路径需先转换 JAX 权重，并按官方说明应用 Transformers 补丁。其文档所列 PyTorch 限制包括暂不支持 π0-FAST、LoRA、FSDP、混合精度训练及 EMA。具体步骤应参照[上游 PyTorch 说明](https://github.com/Physical-Intelligence/openpi#pytorch-support)，不能直接将上述 JAX 命令中的训练脚本替换掉。
+
+## 策略服务与部署
+
+服务端必须加载与训练时 **相同配置和实验** 对应的权重；示例中的 `20000` 应替换为实际存在的训练步数：
+
+```bash
+uv run scripts/serve_policy.py policy:checkpoint \
+  --policy.config=pi05_libero \
+  --policy.dir=checkpoints/pi05_libero/my_experiment/20000
+```
+
+官方示例监听 8000 端口。独立客户端通过 WebSocket 发送观测并接收动作片段。LIBERO 评测参见[官方评测流程](https://github.com/Physical-Intelligence/openpi/blob/main/examples/libero/README.md)；机器人客户端可参考[远程推理协议](https://github.com/Physical-Intelligence/openpi/blob/main/docs/remote_inference.md)。执行动作前应核对训练与运行时的图像字段及预处理、任务指令、机器人状态顺序、动作定义、归一化统计量和控制时序。基础权重与专用权重各有对应的配置和接口，仅更换权重路径无法使策略适配新机器人。
+
 ## 使用边界
 
 - 官方说明：针对特定机器人开发的模型权重，不保证能够直接适配其他平台。
@@ -64,3 +102,5 @@ openpi 提供流匹配、自回归动作 token、跨机器人形态适配和远�
 - [π0 project page](https://www.pi.website/blog/pi0)
 - [π0.5 project page](https://www.pi.website/blog/pi05)
 - [π0 paper](https://arxiv.org/abs/2410.24164)
+- [官方 LIBERO 微调与评测示例](https://github.com/Physical-Intelligence/openpi/blob/main/examples/libero/README.md)
+- [远程推理协议](https://github.com/Physical-Intelligence/openpi/blob/main/docs/remote_inference.md)

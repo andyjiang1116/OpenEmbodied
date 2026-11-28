@@ -10,7 +10,7 @@ Robot manipulation systems differ in what they predict, where control decisions 
 
 ## World Action Models
 
-[World Action Models](../../models/wam/README.md) learn actions together with how observations evolve. [Unified World Models](../../models/wam/uwm.md) couples video and action diffusion; [DreamZero](../../models/wam/dreamzero.md) uses a pretrained video backbone for joint world-action prediction; [Fast-WAM](../../models/wam/fast-wam.md) retains video co-training but skips explicit future-video generation during inference. Thus, “WAM” does not imply one fixed test-time imagination procedure.
+[World Action Models](../../models/wam/README.md) learn actions together with how observations evolve. [Unified World Models](../../models/wam/uwm.md) couples video and action diffusion; [DreamZero](../../models/wam/dreamzero.md) uses a pretrained video backbone for joint world-action prediction; [Fast-WAM](../../models/wam/fast-wam.md) retains video co-training but skips explicit future-video generation during inference. [OpenWAM](../../models/wam/openwam.md) provides a modular framework for studying world-action pretraining and releases the OpenWAM-α policy. Thus, “WAM” does not imply one fixed test-time imagination procedure.
 
 ## Agent-Based Control
 

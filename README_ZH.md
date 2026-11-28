@@ -42,7 +42,7 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 
 - [OpenVLA / OpenVLA-OFT](models/vla/openvla_ZH.md)
 - [SmolVLA](models/vla/smolvla_ZH.md)
-- [π0 / π0-FAST / π0.5](models/vla/openpi_ZH.md)
+- [openpi：π0 / π0-FAST / π0.5](models/vla/openpi_ZH.md)
 - [NVIDIA Isaac GR00T N1.7](models/vla/gr00t-n1.7_ZH.md)
 
 #### [世界动作模型（WAM）](models/wam/README_ZH.md)
@@ -52,6 +52,7 @@ OpenEmbodied 是面向具身智能研究的资料库，按研究方向组织模�
 - [Unified World Models](models/wam/uwm_ZH.md) — 耦合视频与动作扩散建模。
 - [DreamZero](models/wam/dreamzero_ZH.md) — 基于视频世界模型的闭环控制。
 - [Fast-WAM](models/wam/fast-wam_ZH.md) — 使用视频联合训练，并在推理时直接生成动作。
+- [OpenWAM](models/wam/openwam_ZH.md) — 模块化世界动作预训练框架与 OpenWAM-α 策略。
 
 #### [Agent 式具身操作](systems/agents/README_ZH.md)
 

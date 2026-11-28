@@ -8,11 +8,11 @@
 
 ### 🧠 [Vision-Language-Action Models](vla/README.md)
 
-Generalist policies that connect visual observations and language instructions to robot actions. This collection currently covers OpenVLA, SmolVLA, π0 / π0-FAST / π0.5, and NVIDIA Isaac GR00T N1.7.
+Generalist policies that connect visual observations and language instructions to robot actions. This collection currently covers OpenVLA, SmolVLA, the openpi model family (π0 / π0-FAST / π0.5), and NVIDIA Isaac GR00T N1.7.
 
 ### 🌐 [World Action Models](wam/README.md)
 
-Methods that learn robot actions alongside world evolution. Unified World Models, DreamZero, and Fast-WAM illustrate coupled video-action learning and different inference-time designs.
+Methods that learn robot actions alongside world evolution. Unified World Models, DreamZero, Fast-WAM, and OpenWAM illustrate coupled video-action learning, systematic pretraining, and different inference-time designs.
 
 ### ✋ [Grasping Models](grasping/README.md)
 

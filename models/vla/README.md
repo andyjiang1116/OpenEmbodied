@@ -8,7 +8,7 @@
 | --- | --- |
 | [OpenVLA / OpenVLA-OFT](openvla.md) | Open VLA architecture and Open X-Embodiment pretraining |
 | [SmolVLA](smolvla.md) | Compact flow-matching policy in the LeRobot ecosystem |
-| [π0 / π0-FAST / π0.5](openpi.md) | Flow matching, FAST action tokens, and cross-embodiment adaptation |
+| [openpi: π0 / π0-FAST / π0.5](openpi.md) | Official model repository; flow matching, FAST action tokens, and cross-embodiment adaptation |
 | [NVIDIA Isaac GR00T N1.7](gr00t-n1.7.md) | Cross-embodiment training, serving, and deployment |
 
 Use the [VLA landscape](../../analysis/vla/README.md) for cross-model interpretation and the individual profiles for implementation and deployment details.

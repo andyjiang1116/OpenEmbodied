@@ -8,11 +8,11 @@
 
 ### 🧠 [Vision-Language-Action Models](vla/README_ZH.md)
 
-将视觉观测与语言指令映射为机器人动作的策略模型。目前收录 OpenVLA、SmolVLA、π0 / π0-FAST / π0.5 和 NVIDIA Isaac GR00T N1.7。
+将视觉观测与语言指令映射为机器人动作的策略模型。目前收录 OpenVLA、SmolVLA、openpi 模型家族（π0 / π0-FAST / π0.5）和 NVIDIA Isaac GR00T N1.7。
 
 ### 🌐 [世界动作模型](wam/README_ZH.md)
 
-联合学习机器人动作与环境变化。Unified World Models、DreamZero 和 Fast-WAM 展示视频与动作建模的不同训练及推理方式。
+联合学习机器人动作与环境变化。Unified World Models、DreamZero、Fast-WAM 和 OpenWAM 展示视频与动作建模的不同训练、预训练及推理方式。
 
 ### ✋ [Grasping Models](grasping/README_ZH.md)
 

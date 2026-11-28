@@ -42,7 +42,7 @@ Robot policies that map visual observations and language instructions to actions
 
 - [OpenVLA / OpenVLA-OFT](models/vla/openvla.md)
 - [SmolVLA](models/vla/smolvla.md)
-- [π0 / π0-FAST / π0.5](models/vla/openpi.md)
+- [openpi: π0 / π0-FAST / π0.5](models/vla/openpi.md)
 - [NVIDIA Isaac GR00T N1.7](models/vla/gr00t-n1.7.md)
 
 #### [World Action Models](models/wam/README.md)
@@ -52,6 +52,7 @@ Joint modeling of world dynamics and robot actions. The approaches differ in whe
 - [Unified World Models](models/wam/uwm.md) — coupled video and action diffusion.
 - [DreamZero](models/wam/dreamzero.md) — video-based world modeling for closed-loop control.
 - [Fast-WAM](models/wam/fast-wam.md) — video co-training with direct action generation at inference.
+- [OpenWAM](models/wam/openwam.md) — modular world-action pretraining and the OpenWAM-α policy.
 
 #### [Agent-Based Manipulation](systems/agents/README.md)
 

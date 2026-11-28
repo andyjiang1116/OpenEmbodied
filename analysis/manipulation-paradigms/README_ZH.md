@@ -10,7 +10,7 @@
 
 ## 世界动作模型
 
-[世界动作模型](../../models/wam/README_ZH.md) 联合学习动作与观测随时间的变化。[Unified World Models](../../models/wam/uwm_ZH.md) 耦合视频与动作扩散；[DreamZero](../../models/wam/dreamzero_ZH.md) 利用预训练视频模型联合预测环境与动作；[Fast-WAM](../../models/wam/fast-wam_ZH.md) 保留视频联合训练，但推理时不显式生成未来视频。因此，WAM 并不对应单一的“先想象、后执行”流程。
+[世界动作模型](../../models/wam/README_ZH.md) 联合学习动作与观测随时间的变化。[Unified World Models](../../models/wam/uwm_ZH.md) 耦合视频与动作扩散；[DreamZero](../../models/wam/dreamzero_ZH.md) 利用预训练视频模型联合预测环境与动作；[Fast-WAM](../../models/wam/fast-wam_ZH.md) 保留视频联合训练，但推理时不显式生成未来视频。[OpenWAM](../../models/wam/openwam_ZH.md) 提供模块化研究框架，并发布 OpenWAM-α 预训练策略。因此，WAM 并不对应单一的“先想象、后执行”流程。
 
 ## Agent 式控制
 
